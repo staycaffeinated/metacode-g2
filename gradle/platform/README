@@ -1,0 +1,15 @@
+
+Platforms are used to trump other dependency settings.
+For instance, if you wanted to force all projects to use
+a pinned version of JUnit, you could create a "unit-tests"
+platform that contains a "dependencies" clause that contains
+a 'testImplementation' for a specific version of JUnit. 
+
+Dependency versions are usually set using the version catalog
+(the libs.versions.toml file). For those cases when the correct
+dependency version isn't being used (say, some transitive dependency
+is causing a different version to come into play), the Platform
+is your blunt instrument for pinning a dependency to the version
+you want applied. 
+
+At least, this is my understanding of Platforms. 
