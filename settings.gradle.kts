@@ -2,6 +2,9 @@
 rootProject.name="metacode-kotlin"
 
 dependencyResolutionManagement {
+  includeBuild("gradle/plugins")
+
+
   includeBuild("application/mc-annotations")
   includeBuild("application/mc-cli")
   includeBuild("application/mc-generator")
