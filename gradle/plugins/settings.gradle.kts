@@ -9,5 +9,5 @@ dependencyResolutionManagement {
 }
 
 include("java-conventions")
-
+include("lifecycle")
 

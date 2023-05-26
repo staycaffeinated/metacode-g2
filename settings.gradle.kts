@@ -1,19 +1,20 @@
 
-rootProject.name="metacode-kotlin"
+rootProject.name="metacode-g2"
 
 dependencyResolutionManagement {
   includeBuild("gradle/plugins")
 
-
   includeBuild("application/mc-annotations")
   includeBuild("application/mc-cli")
+  includeBuild("application/mc-common")
   includeBuild("application/mc-generator")
 
-  includeBuild("application/mc-generator-adapter-spring/generator-spring-batch")
-  includeBuild("application/mc-generator-adapter-spring/generator-spring-boot")
-  includeBuild("application/mc-generator-adapter-spring/generator-spring-shared")
-  includeBuild("application/mc-generator-adapter-spring/generator-spring-webmvc")
-  includeBuild("application/mc-generator-adapter-spring/generator-spring-webflux")
+  includeBuild("application/mc-generator-adapter-spring")
+  includeBuild("application/mc-adapter-spring-batch")
+  includeBuild("application/mc-adapter-spring-boot")
+  includeBuild("application/mc-adapter-spring-shared")
+  includeBuild("application/mc-adapter-spring-webmvc")
+  includeBuild("application/mc-adapter-spring-webflux")
 
 }
 

@@ -6,4 +6,3 @@ plugins {
     id("mmm.coffee.repositories")
 }
 
-
