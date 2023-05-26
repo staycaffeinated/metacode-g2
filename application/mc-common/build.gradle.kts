@@ -4,7 +4,8 @@ plugins {
 }
 
 dependencies {
-    // implementation project (path: ':meta-annotations')
+    implementation ("mmm.coffee.metacode:mc-annotations")
+    // implementation(project(":mc-annotations"))
 
     annotationProcessor(libs.lombok)
     compileOnly(libs.lombok)

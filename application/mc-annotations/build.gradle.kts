@@ -3,6 +3,8 @@ plugins {
     id("mmm.coffee.java-conventions")
 }
 
+group = "mmm.coffee.metacode"
+
 dependencies {
     implementation ( libs.guice )
     implementation ( libs.jakartaInject )

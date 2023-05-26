@@ -6,4 +6,8 @@ plugins {
     id("mmm.coffee.repositories")
 }
 
+dependencyResolutionManagement {
+    includeBuild("../mc-annotations")
+}
+
 

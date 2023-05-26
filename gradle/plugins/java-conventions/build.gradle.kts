@@ -6,7 +6,7 @@ plugins {
 group = "mmm.coffee.buildlogic"
 
 dependencies {
-  implementation(platform("mmm.coffee.metacode.gradle:platform"))
+  implementation(platform("mmm.coffee.metacode:platform"))
   }
 
 

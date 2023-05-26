@@ -41,7 +41,7 @@ jmustache           = { module = "com.samskivert:jmustache", version.ref = "jmus
 junitBillOfMaterial = { module = "org.junit:junit-bom", version.ref="junit" }
 junitJupiter        = { module = "org.junit.jupiter:junit-jupiter", version.ref="junit" }
 junitPlatformRunner = { module = "org.junit.platform:junit-platform-runner", version.ref="junit" }
-jakartaAnnotations  = { module = "jakarta.annotation:jakarta-annotation-api", version.ref="jakartaAnnotations" }
+jakartaAnnotations  = { module = "jakarta.annotation:jakarta.annotation-api", version.ref="jakartaAnnotations" }
 jakartaInject       = { module = "jakarta.inject:jakarta.inject-api", version.ref="jakartaInject" }
 junitSystemRules    = { module = "com.github.stefanbirkner:system-rules", version.ref="systemRules" }
 log4jApi            = { module = "org.apache.logging.log4j:log4j-api", version.ref="log4j" }
