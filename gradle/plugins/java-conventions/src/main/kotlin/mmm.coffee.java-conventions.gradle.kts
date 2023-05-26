@@ -3,6 +3,8 @@ plugins {
   id("java-library")
   id("java-test-fixtures")
   id("jvm-test-suite")
+  // TODO: Add this to version catalog
+  // id("io.freefair.lombok")
 }
 
 
