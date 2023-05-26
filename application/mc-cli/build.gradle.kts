@@ -5,6 +5,8 @@ plugins {
     id("nebula.shadow-jar") version "15.0.3"
 }
 
+group = "mmm.coffee.metacode"
+
 dependencies {
     // Use this syntax to import a project dependency
     implementation("mmm.coffee.metacode:mc-annotations")

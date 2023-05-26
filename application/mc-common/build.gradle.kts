@@ -3,10 +3,11 @@ plugins {
     id("mmm.coffee.java-conventions")
 }
 
+group = "mmm.coffee.metacode"
+
 dependencies {
     implementation ("mmm.coffee.metacode:mc-annotations")
-    // implementation(project(":mc-annotations"))
-
+    
     annotationProcessor(libs.lombok)
     compileOnly(libs.lombok)
 
