@@ -1,7 +1,11 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     id("mmm.coffee.lifecycle")
     id("mmm.coffee.java-conventions")
     id("application")
+    id("distribution")
+    id("java")
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.freefair.lombok") version "8.0.1"
 }
@@ -30,24 +34,29 @@ dependencies {
 }
 
 
- application {
-      //mainClass.set("mmm.coffee.zen.cli.CodeZenApplication")
-     mainClass.set("mmm.coffee.metacode.cli.Application" ) // shadowJar needs this syntax
-     applicationName = "metacode"
- }
-
+application {
+    //mainClass.set("mmm.coffee.zen.cli.CodeZenApplication")
+    mainClass.set("mmm.coffee.metacode.cli.Application") // shadowJar needs this syntax
+    applicationName = "metacode"
+}
 
 /**
- shadowJar {
-     archiveBaseName.set('metacode')
-     manifest {
-         // note: ManifestVersionProvider has a dependency on the impl-title's value
-         attributes "Implementation-Title": "MetaCode"
-         // note: the 'version' is defined in this component's gradle.properties
-         attributes "Implementation-Version": archiveVersion
-     }
- }
-**/
+ * ToDo: remind me why we're building a shadowJar?
+ */
+tasks.named<ShadowJar>("shadowJar") {
+    archiveBaseName.set(application.applicationName)
+    // This wasn't being added before, so not if this line is necessary
+    manifest.attributes["Main-Class"] = "mmm.coffee.metacode.cli.Application"
+    manifest.attributes["Implementation-Title"] = "MetaCode"
+    manifest.attributes["Implementation-Version"] = archiveVersion.getOrElse("0.1")
+}
+
+tasks {
+    build {
+        dependsOn(shadowJar)
+        dependsOn(jar)
+    }
+}
 
 /**
  * // ----------------------------------------------------------------
@@ -60,12 +69,30 @@ dependencies {
  * // MANIFEST file that reveals the implementation-version of
  * // MetaCode. We'll put that in the meta-cli-x.y.z.jar's manifest.
  * // ---------------------------------------------------------------- */
+
+
+tasks.named<Jar>("jar") {
+    archiveBaseName.set(application.applicationName)
+    // This wasn't being added before, so not if this line is necessary
+    // manifest.attributes["Main-Class"] = "mmm.coffee.metacode.cli.Application"
+    manifest.attributes["Implementation-Title"] = "MetaCode"
+    manifest.attributes["Implementation-Version"] = archiveVersion.getOrElse("0.1")
+}
+
 /**
- jar {
-     manifest {
-         attributes "Implementation-Title": "MetaCode"
-         attributes "Implementation-Version": archiveVersion
-     }
- }
-**/
+jar {
+manifest {
+attributes "Implementation-Title": "MetaCode"
+attributes "Implementation-Version": archiveVersion
+}
+}
+
+ This??
+(from: https://kotlinlang.org/docs/gradle-configure-project.html#other-details)
+tasks.jar(type: Jar) {
+from sourceSets.main.outputs
+from sourceSets.main.kotlin.classesDirectories
+}
+
+ **/
 
