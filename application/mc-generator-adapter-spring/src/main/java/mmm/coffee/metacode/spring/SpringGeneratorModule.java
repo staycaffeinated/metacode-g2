@@ -55,7 +55,7 @@ import org.apache.commons.configuration2.builder.fluent.Configurations;
 
 /**
  * Module for the Spring Project generator
- *
+ * <p>
  * IMPORTANT:
  * If a new `provides` method is added here, make sure a matching method
  * is added to the SpringTestModule class. Otherwise, you will encounter

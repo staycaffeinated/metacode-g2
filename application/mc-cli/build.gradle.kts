@@ -17,6 +17,7 @@ dependencies {
     implementation("mmm.coffee.metacode:mc-annotations")
     implementation("mmm.coffee.metacode:mc-common")
     implementation("mmm.coffee.metacode:mc-generator-adapter-spring")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-boot")
     implementation(libs.picocli)
     implementation(libs.guice)
     implementation(libs.slf4jApi)
@@ -78,21 +79,3 @@ tasks.named<Jar>("jar") {
     manifest.attributes["Implementation-Title"] = "MetaCode"
     manifest.attributes["Implementation-Version"] = archiveVersion.getOrElse("0.1")
 }
-
-/**
-jar {
-manifest {
-attributes "Implementation-Title": "MetaCode"
-attributes "Implementation-Version": archiveVersion
-}
-}
-
- This??
-(from: https://kotlinlang.org/docs/gradle-configure-project.html#other-details)
-tasks.jar(type: Jar) {
-from sourceSets.main.outputs
-from sourceSets.main.kotlin.classesDirectories
-}
-
- **/
-
