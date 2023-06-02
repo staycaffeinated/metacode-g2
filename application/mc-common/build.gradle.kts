@@ -29,5 +29,11 @@ dependencies {
     testImplementation(libs.junitSystemRules)
     testImplementation(libs.truth)
     testImplementation(libs.mockito)
+
+    integrationTestImplementation(platform(libs.junitBillOfMaterial))
+    integrationTestImplementation(libs.junitJupiter)
+    integrationTestImplementation(libs.junitSystemRules)
+    integrationTestImplementation(libs.truth)
+    integrationTestImplementation(libs.mockito)
 }
 

@@ -14,6 +14,13 @@ dependencies {
     testImplementation ( libs.junitSystemRules )
     testImplementation ( libs.truth )
     testImplementation ( libs.mockito )
-    testImplementation ( libs.systemLambda )     
+    testImplementation ( libs.systemLambda )
+
+    integrationTestImplementation ( platform(libs.junitBillOfMaterial) )
+    integrationTestImplementation ( libs.junitJupiter )
+    integrationTestImplementation ( libs.junitSystemRules )
+    integrationTestImplementation ( libs.truth )
+    integrationTestImplementation ( libs.mockito )
+    integrationTestImplementation ( libs.systemLambda )
 }
 

@@ -3,6 +3,7 @@ plugins {
   id("java-library")
   id("java-test-fixtures")
   id("jvm-test-suite")
+  id("mmm.coffee.testing")
   // TODO: Add this to version catalog
   // id("io.freefair.lombok")
 }
@@ -13,9 +14,9 @@ tasks.withType<JavaCompile>().configureEach {
   options.headerOutputDirectory.convention(null as Directory?) // currently, need to clear conventions to remove
 }
 
-tasks.named<Test>("test") {
-  useJUnitPlatform()
-}
+//tasks.named<Test>("test") {
+//  useJUnitPlatform()
+//}
 
 
 
