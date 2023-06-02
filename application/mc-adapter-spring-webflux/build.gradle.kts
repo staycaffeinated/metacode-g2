@@ -16,4 +16,9 @@ dependencies {
     implementation(libs.guice)
     implementation(libs.jacksonYaml)
     implementation(libs.slf4jApi)
+    testImplementation(platform(libs.junitBillOfMaterial))
+    testImplementation(libs.junitJupiter)
+    testImplementation(libs.junitSystemRules)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockito)
 }

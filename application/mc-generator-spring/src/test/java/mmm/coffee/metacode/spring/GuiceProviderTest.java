@@ -29,9 +29,9 @@ import java.util.Map;
 import static com.google.common.truth.Truth.assertThat;
 
 /**
- * https://stackoverflow.com/questions/8608638/what-techniques-do-you-use-to-debug-complex-guice-bindings
- * https://stackoverflow.com/questions/2716993/hidden-features-of-google-guice/2718802#2718802
- * https://stackoverflow.com/questions/2448013/how-do-i-test-guice-injections
+ * <a href="https://stackoverflow.com/questions/8608638/what-techniques-do-you-use-to-debug-complex-guice-bindings">Ref 1</a>
+ * <a href="https://stackoverflow.com/questions/2716993/hidden-features-of-google-guice/2718802#2718802">Ref 2</a>
+ * <a href="https://stackoverflow.com/questions/2448013/how-do-i-test-guice-injections">Ref 3</a>
  */
 class GuiceProviderTest {
 

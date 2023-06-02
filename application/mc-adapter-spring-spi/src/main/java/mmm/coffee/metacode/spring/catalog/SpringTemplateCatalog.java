@@ -33,6 +33,12 @@ import java.util.List;
 // S125: we're OK with comments that look like code
 public abstract class SpringTemplateCatalog implements Collector {
 
+    public static final String WEBFUX_CATALOG = "/spring/catalogs/spring-webflux.yml";
+
+    public static final String WEBMVC_CATALOG = "/spring/catalogs/spring-webmvc.yml";
+    public static final String WEBMVC_MONGODB_CATALOG = "/spring/catalogs/spring-webmvc-mongodb.yml";
+
+
     private static final String[] SPRING_CATALOGS = {
             "/spring/catalogs/common-stuff.yml",
             "/spring/catalogs/spring-gradle.yml"

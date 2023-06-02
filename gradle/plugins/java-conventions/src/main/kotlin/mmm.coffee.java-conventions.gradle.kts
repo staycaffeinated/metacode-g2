@@ -13,6 +13,10 @@ tasks.withType<JavaCompile>().configureEach {
   options.headerOutputDirectory.convention(null as Directory?) // currently, need to clear conventions to remove
 }
 
+tasks.named<Test>("test") {
+  useJUnitPlatform()
+}
+
 
 
 // Share sources folder with other projects for aggregated JavaDoc and JaCoCo reports

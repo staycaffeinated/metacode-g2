@@ -33,8 +33,6 @@ import java.util.List;
 @Slf4j
 public class SpringWebMvcTemplateCatalog extends SpringTemplateCatalog {
 
-    public static final String WEBMVC_CATALOG = "/spring/catalogs/spring-webmvc.yml";
-    public static final String WEBMVC_MONGODB_CATALOG = "/spring/catalogs/spring-webmvc-mongodb.yml";
 
     private String activeCatalog;
 

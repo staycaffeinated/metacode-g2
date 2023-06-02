@@ -13,4 +13,10 @@ dependencies {
     implementation(libs.freemarker)
     implementation(libs.guice)
     implementation(libs.jacksonYaml)
+
+    testImplementation(platform(libs.junitBillOfMaterial))
+    testImplementation(libs.junitJupiter)
+    testImplementation(libs.junitSystemRules)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockito)
 }
