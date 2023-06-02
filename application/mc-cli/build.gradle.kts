@@ -16,7 +16,7 @@ dependencies {
     // Use this syntax to import a project dependency
     implementation("mmm.coffee.metacode:mc-annotations")
     implementation("mmm.coffee.metacode:mc-common")
-    implementation("mmm.coffee.metacode:mc-adapter-spring-core")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-spi")
     implementation(libs.picocli)
     implementation(libs.guice)
     implementation(libs.slf4jApi)

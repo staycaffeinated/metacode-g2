@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Jon Caulfield
+ * Copyright 2020-2023 Jon Caulfield. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,14 @@
 package mmm.coffee.metacode.spring.constant;
 
 /**
- * Integrations supported by the spring-webmvc code generator
+ * Integrations supported by the code generator
  */
 public enum SpringIntegrations {
-    POSTGRES ("postgres"),
-    LIQUIBASE ("liquibase"),
-    TESTCONTAINERS ("testcontainers"),
-    MONGODB ("mongodb"),
-    OPENAPI("openapi")
-            ;
+    POSTGRES("postgres"),
+    LIQUIBASE("liquibase"),
+    TESTCONTAINERS("testcontainers"),
+    MONGODB("mongodb"),
+    OPENAPI("openapi");
 
     // This is the value an end-user enters on the command line.
     private final String value;
@@ -34,6 +33,8 @@ public enum SpringIntegrations {
     }
 
     @Override
-    public String toString() { return value; }
+    public String toString() {
+        return value;
+    }
 
 }

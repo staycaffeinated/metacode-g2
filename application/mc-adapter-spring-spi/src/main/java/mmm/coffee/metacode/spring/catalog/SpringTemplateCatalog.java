@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Jon Caulfield
+ * Copyright 2020 Jon Caulfield
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Base class for loading the catalog entries
  */
-@SuppressWarnings( { "java:S125" })
+@SuppressWarnings({"java:S125"})
 // S125: we're OK with comments that look like code
 public abstract class SpringTemplateCatalog implements Collector {
 
@@ -36,7 +37,7 @@ public abstract class SpringTemplateCatalog implements Collector {
             "/spring/catalogs/common-stuff.yml",
             "/spring/catalogs/spring-gradle.yml"
     };
-    
+
     final ICatalogReader reader;
 
     /*
@@ -48,18 +49,18 @@ public abstract class SpringTemplateCatalog implements Collector {
 
     /**
      * Reads the general catalog files and the {@code specificCatalog}
+     *
      * @param specificCatalog a specific file to include
-     * @return the collection of CatalogEntry's 
+     * @return the collection of CatalogEntry's
      */
     protected List<CatalogEntry> collectGeneralCatalogsAndThisOne(@NonNull String specificCatalog) {
         List<CatalogEntry> resultSet = new ArrayList<>();
 
-        for ( String catalog : SPRING_CATALOGS ) {
+        for (String catalog : SPRING_CATALOGS) {
             try {
                 resultSet.addAll(reader.readCatalogFile(catalog));
                 resultSet.addAll(reader.readCatalogFile(specificCatalog));
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new RuntimeApplicationError("Error when reading Spring template catalogs", e);
             }
         }

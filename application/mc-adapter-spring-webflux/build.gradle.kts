@@ -11,7 +11,7 @@ dependencies {
     compileOnly(libs.lombok)
     implementation("mmm.coffee.metacode:mc-common")
     implementation("mmm.coffee.metacode:mc-annotations")
-    implementation("mmm.coffee.metacode:mc-adapter-spring-core")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-spi")
     implementation(libs.freemarker)
     implementation(libs.guice)
     implementation(libs.jacksonYaml)
