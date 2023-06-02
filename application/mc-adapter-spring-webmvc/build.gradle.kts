@@ -12,7 +12,7 @@ dependencies {
 
     implementation("mmm.coffee.metacode:mc-common")
     implementation("mmm.coffee.metacode:mc-annotations")
-    implementation("mmm.coffee.metacode:mc-generator-adapter-spring")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-core")
     implementation(libs.freemarker)
     implementation(libs.guice)
     implementation(libs.jacksonYaml)

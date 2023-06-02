@@ -8,7 +8,7 @@ group = "mmm.coffee.metacode"
 dependencies {
     implementation("mmm.coffee.metacode:mc-common")
     implementation("mmm.coffee.metacode:mc-annotations")
-    implementation("mmm.coffee.metacode:mc-generator-adapter-spring")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-core")
 
     annotationProcessor(libs.lombok)
     compileOnly(libs.lombok)

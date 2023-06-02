@@ -9,7 +9,7 @@ dependencyResolutionManagement {
   includeBuild("application/mc-common")
   includeBuild("application/mc-generator")
 
-  includeBuild("application/mc-generator-adapter-spring")
+  includeBuild("application/mc-adapter-spring-core")
   includeBuild("application/mc-adapter-spring-batch")
   includeBuild("application/mc-adapter-spring-boot")
   includeBuild("application/mc-adapter-spring-shared")

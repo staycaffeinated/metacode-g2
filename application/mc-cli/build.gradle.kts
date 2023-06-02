@@ -16,14 +16,18 @@ dependencies {
     // Use this syntax to import a project dependency
     implementation("mmm.coffee.metacode:mc-annotations")
     implementation("mmm.coffee.metacode:mc-common")
-    implementation("mmm.coffee.metacode:mc-generator-adapter-spring")
-    implementation("mmm.coffee.metacode:mc-adapter-spring-boot")
+    implementation("mmm.coffee.metacode:mc-adapter-spring-core")
     implementation(libs.picocli)
     implementation(libs.guice)
     implementation(libs.slf4jApi)
     implementation(libs.logbackClassic)
     implementation(libs.vavr)
     implementation(libs.jakartaInject)
+
+    runtimeOnly("mmm.coffee.metacode:mc-adapter-spring-boot")
+    runtimeOnly("mmm.coffee.metacode:mc-adapter-spring-batch")
+    runtimeOnly("mmm.coffee.metacode:mc-adapter-spring-webmvc")
+    runtimeOnly("mmm.coffee.metacode:mc-adapter-spring-webflux")
 
     testImplementation(platform(libs.junitBillOfMaterial))
     testImplementation(libs.junitJupiter)

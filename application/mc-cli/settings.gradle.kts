@@ -9,7 +9,7 @@ plugins {
 dependencyResolutionManagement {
     includeBuild("../mc-common")
     includeBuild("../mc-annotations")
-    includeBuild("../mc-generator-adapter-spring")
+    includeBuild("../mc-adapter-spring-core")
 }
 
 
