@@ -17,6 +17,7 @@ dependencies {
     implementation("mmm.coffee.metacode:mc-annotations")
     implementation("mmm.coffee.metacode:mc-common")
     implementation("mmm.coffee.metacode:mc-adapter-spring-spi")
+    implementation("mmm.coffee.metacode:mc-generator-spring")
     implementation(libs.picocli)
     implementation(libs.guice)
     implementation(libs.slf4jApi)

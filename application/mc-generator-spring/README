@@ -1,0 +1,7 @@
+
+This module pulls all the Spring adapters together
+to enable the Guice configuration to interact
+with a single module.  The general idea is: this
+module has visibility to all the Spring adapters,
+and exposes them for Guice configuration.
+

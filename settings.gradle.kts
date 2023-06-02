@@ -14,6 +14,7 @@ dependencyResolutionManagement {
     includeBuild("application/mc-adapter-spring-spi")
     includeBuild("application/mc-adapter-spring-webmvc")
     includeBuild("application/mc-adapter-spring-webflux")
+    includeBuild("application/mc-generator-spring")
 
 }
 
