@@ -22,20 +22,31 @@ tasks.named<TaskReportTask>("tasks") {
 val checkAll = tasks.register("checkAll") {
   group = taskGroup
   description = "Run all tests and create code coverage report"
-  dependsOn(gradle.includedBuilds.filter { it.name.startsWith("mc-") }.map{ it.task(":checkAll")})
+  // dependsOn(gradle.includedBuilds.filter { it.name.startsWith("mc-") }.map{ it.task(":checkAll")})
+  gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ it.task(":check")}
 }
 
-val clean = tasks.register("clean") {
+val debugTask = tasks.register("list") {
   group = taskGroup
-  description = "Run 'clean' on each subproject"
-  dependsOn(gradle.includedBuilds.filter { it.name.startsWith("mc-") }.map{ it.task(":clean")})
+  description = "List all the projects"
+  //dependsOn(gradle.includedBuilds.filter { it.name.startsWith("mc-") }.map{ it.task(":clean")})
+  // dependsOn(gradle.includedBuilds.filter{ it.name.isNotBlank() }.map {  println("Project: " + it.name) })
+  gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ println(it.name)}
+}
+
+val clean = tasks.register("cleanAll") {
+  group = taskGroup
+  description = "Clean all the subprojects"
+  gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ it.task(":clean")}
 }
 
 
-tasks.register("build") {
+
+
+tasks.register("buildApp") {
   group = taskGroup
   description = "Run all tests and build the application's distribution"
-  dependsOn(checkAll)
+  gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ it.task(":build")}
 }
 
 

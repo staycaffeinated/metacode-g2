@@ -1,7 +1,6 @@
 plugins {
     id("mmm.coffee.java-conventions")
     id("mmm.coffee.lifecycle")
-    id("io.freefair.lombok") version "8.0.1"
 }
 
 group = "mmm.coffee.metacode"

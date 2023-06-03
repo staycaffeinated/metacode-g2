@@ -1,17 +1,18 @@
-
 plugins {
-  id("java-library")
-  id("java-test-fixtures")
-  id("jvm-test-suite")
-  id("mmm.coffee.testing")
-  // TODO: Add this to version catalog
-  // id("io.freefair.lombok")
+    id("java-library")
+    id("java-test-fixtures")
+    id("jvm-test-suite")
+    id("mmm.coffee.testing")
+    id("mmm.coffee.lint")
+    id("mmm.coffee.sonar-jacoco")
+    // TODO: Add this to version catalog
+    id("io.freefair.lombok")
 }
 
 
 // Configure details of Java compilation
 tasks.withType<JavaCompile>().configureEach {
-  options.headerOutputDirectory.convention(null as Directory?) // currently, need to clear conventions to remove
+    options.headerOutputDirectory.convention(null as Directory?) // currently, need to clear conventions to remove
 }
 
 //tasks.named<Test>("test") {
@@ -19,18 +20,17 @@ tasks.withType<JavaCompile>().configureEach {
 //}
 
 
-
 // Share sources folder with other projects for aggregated JavaDoc and JaCoCo reports
 configurations.create("transitiveSourcesElements") {
-  isVisible = false
-  isCanBeResolved = false
-  isCanBeConsumed = true
-  extendsFrom(configurations.implementation.get())
-  attributes {
-    attribute (Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
-    attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category.DOCUMENTATION))
-    attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named("source-folders"))
-  }
-  sourceSets.main.get().java.srcDirs.forEach { outgoing.artifact(it) }
+    isVisible = false
+    isCanBeResolved = false
+    isCanBeConsumed = true
+    extendsFrom(configurations.implementation.get())
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+        attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category.DOCUMENTATION))
+        attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named("source-folders"))
+    }
+    sourceSets.main.get().java.srcDirs.forEach { outgoing.artifact(it) }
 }
 
