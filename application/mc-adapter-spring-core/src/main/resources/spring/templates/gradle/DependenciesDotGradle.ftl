@@ -3,7 +3,7 @@ ext {
         apacheKafka            : '${project.apacheKafkaVersion}',         // Apache's Kafka libraries
         assertJ                : '${project.assertJVersion}',             // Assertion library for test cases
         h2                     : '${project.h2Version}',
-        junitSystemRules       : '${project.junitSystemRulesVersion}',    // JUnit extensions
+        junitSystemRules       : '${project.h2Version}',    // JUnit extensions
         junit                  : '${project.junitVersion}',               // JUnit Jupiter
         liquibase              : '${project.liquibaseVersion}',           // Database schema initialization & evolution
         lombok                 : '${project.lombokVersion}',              // Lombok annotation processor
