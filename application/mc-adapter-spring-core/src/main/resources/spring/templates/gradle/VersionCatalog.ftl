@@ -6,6 +6,7 @@ junitSystemRules =  '${project.h2Version}'
 junit = '${project.junitVersion}'
 liquibase = '${project.liquibaseVersion}'
 lombok = '${project.lombokVersion}'
+lombokPlugin = '8.0.1'
 mockito = '${project.mockitoVersion}'
 openApiStarterWebMvc = '${project.openApiStarterWebMvcVersion}'
 openApiStarterWebflux = '${project.openApiStarterWebfluxVersion}'
@@ -15,11 +16,13 @@ r2dbcPostgres = '${project.r2dbc_postgresVersion}'
 r2dbcSpi = '${project.r2dbc_spiVersion}'
 springBoot = '${project.springBootVersion}'
 springCloud = '${project.springCloudVersion}'
+springDependencyManagement = '1.1.0'
 problemJacksonDataType = '${project.problemJacksonDataTypeVersion}'
 problemSpringWeb = '${project.problemSpringWebVersion}'
 reactorTest = '${project.reactorTestVersion}'
 testContainers = '${project.testContainersVersion}'
 truth = '${project.truthVersion}'
+versions = '0.46.0'
 
 
 [libraries]
@@ -77,6 +80,12 @@ testContainersJupiter = { module = "org.testcontainers:junit-jupiter" }
 testContainersKafka = { module = "org.testcontainers:kafka" }
 testContainersMongoDb = { module = "org.testcontainers:mongodb" }
 testContainersPostgres = { module = "org.testcontainers:postgresql" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref="springBoot" }
+dependency-management = { id = "io.spring.dependency-management", version.ref="springDependencyManagement" }
+versions = { id = "com.github.ben-manes.versions", version.ref="versions" }
+lombok-plugin = { id = "io.freefair.lombok", version.ref="lombokPlugin" }
 
 
 
