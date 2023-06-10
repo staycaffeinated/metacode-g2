@@ -3,6 +3,8 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.${endpoint.entityName}EntityToPojoConverter;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.${endpoint.entityName}PojoToEntityConverter;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.exception.ResourceNotFoundException;
 import ${endpoint.basePackage}.exception.UnprocessableEntityException;
 import ${endpoint.basePackage}.math.SecureRandomSeries;

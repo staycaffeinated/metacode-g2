@@ -176,8 +176,8 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{ejbName}}.java"
       context: "endpoint"
   - entry:
-      template: "/spring/webflux/main/database/EntityResource.ftl"
-      destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{pojoName}}.java"
+      template: "/spring/webflux/main/domain/EntityResource.ftl"
+      destination: "src/main/java/{{basePackagePath}}/domain/{{pojoName}}.java"
       context: "endpoint"
   - entry:
       template: "/spring/webflux/main/database/Repository.ftl"
@@ -293,8 +293,8 @@ catalog:
       destination: "src/testFixtures/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}EntityTestFixtures.java"
       context: "endpoint"
   - entry:
-      template: "/spring/webflux/testFixtures/database/ModelTestFixtures.ftl"
-      destination: "src/testFixtures/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}TestFixtures.java"
+      template: "/spring/webflux/testFixtures/domain/ModelTestFixtures.ftl"
+      destination: "src/testFixtures/java/{{basePackagePath}}/domain/{{entityName}}TestFixtures.java"
       context: "endpoint"
   - entry:
       template: "/spring/webflux/integrationTest/configuration/TestTableInitializer.ftl"

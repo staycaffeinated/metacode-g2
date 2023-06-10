@@ -3,7 +3,7 @@
 package ${endpoint.packageName};
 
 import lombok.NonNull;
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.pojoName};
+import ${endpoint.basePackage}.domain.${endpoint.pojoName};
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStore;
 import ${endpoint.basePackage}.validation.OnCreate;
 import ${endpoint.basePackage}.validation.OnUpdate;

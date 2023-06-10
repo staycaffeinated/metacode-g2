@@ -4,6 +4,7 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.predicate.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;

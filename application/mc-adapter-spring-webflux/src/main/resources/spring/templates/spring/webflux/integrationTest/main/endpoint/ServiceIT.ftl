@@ -3,8 +3,11 @@
 package ${endpoint.packageName};
 
 import ${endpoint.basePackage}.configuration.*;
-import ${endpoint.basePackage}.database.*;
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.database.DatabaseInitFunction;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStore;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}EntityTestFixtures;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;

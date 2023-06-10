@@ -40,13 +40,22 @@ val clean = tasks.register("cleanAll") {
   gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ it.task(":clean")}
 }
 
-
-
-
 tasks.register("buildApp") {
   group = taskGroup
   description = "Run all tests and build the application's distribution"
   gradle.includedBuilds.filter{ it.name.startsWith("mc-") }.map{ it.task(":build")}
+}
+
+/**
+ * Short-cut to copy the jar to my scratch directory for testing
+ */
+tasks.register("stage") {
+  doLast {
+    exec {
+      workingDir = File(".")
+      commandLine("./stageIt.sh")
+    }
+  }
 }
 
 

@@ -2,6 +2,7 @@
 
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

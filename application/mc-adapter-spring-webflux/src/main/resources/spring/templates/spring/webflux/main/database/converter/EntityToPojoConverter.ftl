@@ -2,6 +2,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter;
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

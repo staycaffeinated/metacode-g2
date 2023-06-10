@@ -1,8 +1,12 @@
 <#include "/common/Copyright.ftl">
 package ${endpoint.packageName};
 
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStore;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStoreProvider;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}Repository;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.exception.UnprocessableEntityException;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 

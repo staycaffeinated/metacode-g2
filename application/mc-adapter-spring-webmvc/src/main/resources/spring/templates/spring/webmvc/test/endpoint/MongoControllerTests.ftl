@@ -2,7 +2,10 @@
 
 package ${endpoint.packageName};
 
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.documentName};
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.documentName}TestFixtures;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;

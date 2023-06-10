@@ -3,6 +3,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter;
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 
 import org.assertj.core.util.Lists;

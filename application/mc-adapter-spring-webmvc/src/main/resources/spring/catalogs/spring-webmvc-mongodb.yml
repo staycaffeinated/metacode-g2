@@ -211,8 +211,8 @@ catalog:
 #      destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/predicate/{{entityName}}WithText.java"
 #      context: "endpoint"
   - entry:
-      template: "/spring/webmvc/main/database/entity/EntityResource.ftl"
-      destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{pojoName}}.java"
+      template: "/spring/webmvc/main/domain/EntityResource.ftl"
+      destination: "src/main/java/{{basePackagePath}}/domain/{{pojoName}}.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/entity/MongoDbRepository.ftl"
@@ -287,8 +287,8 @@ catalog:
 # Test fixtures
 #
   - entry:
-      template: "/spring/webmvc/testFixtures/database/WebMvcModelTestFixtures.ftl"
-      destination: "src/testFixtures/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}TestFixtures.java"
+      template: "/spring/webmvc/testFixtures/domain/WebMvcModelTestFixtures.ftl"
+      destination: "src/testFixtures/java/{{basePackagePath}}/domain/{{entityName}}TestFixtures.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/testFixtures/database/MongoDocumentTestFixtures.ftl"

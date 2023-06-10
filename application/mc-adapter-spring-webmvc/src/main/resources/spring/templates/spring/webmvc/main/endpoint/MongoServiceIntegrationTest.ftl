@@ -5,6 +5,7 @@ package ${endpoint.packageName};
 import ${endpoint.basePackage}.database.MongoDbContainerSupport;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.PetDocumentToPojoConverter;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.endpoint.${endpoint.lowerCaseEntityName}.PetService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;

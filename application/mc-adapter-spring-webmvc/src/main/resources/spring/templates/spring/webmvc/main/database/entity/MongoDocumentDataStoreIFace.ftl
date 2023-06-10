@@ -2,6 +2,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.database.DataStore;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 
 
 /**

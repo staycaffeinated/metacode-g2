@@ -2,7 +2,7 @@
 
 package ${endpoint.packageName};
 
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.exception.ResourceNotFoundException;
 
 import reactor.core.publisher.Flux;

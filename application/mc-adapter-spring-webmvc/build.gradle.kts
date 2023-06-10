@@ -16,6 +16,8 @@ dependencies {
     implementation(libs.guice)
     implementation(libs.jacksonYaml)
     implementation(libs.slf4jApi)
+
+    testImplementation("mmm.coffee.metacode:mc-adapter-spring-core")
     testImplementation(platform(libs.junitBillOfMaterial))
     testImplementation(libs.junitJupiter)
     testImplementation(libs.junitSystemRules)

@@ -1,6 +1,7 @@
 <#include "/common/Copyright.ftl">
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter;
 
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;

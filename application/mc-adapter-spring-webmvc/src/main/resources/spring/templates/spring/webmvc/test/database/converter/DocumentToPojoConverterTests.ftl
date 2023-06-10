@@ -2,7 +2,9 @@
 
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter;
 
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.documentName};
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.documentName}TestFixtures;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import org.junit.jupiter.api.Test;
 

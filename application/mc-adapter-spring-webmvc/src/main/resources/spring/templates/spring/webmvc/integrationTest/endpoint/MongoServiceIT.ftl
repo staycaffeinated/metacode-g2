@@ -8,6 +8,8 @@ import ${endpoint.basePackage}.database.MongoDbContainerTests;
 import ${endpoint.basePackage}.database.DatabaseConfiguration;
 </#if>
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;

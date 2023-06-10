@@ -6,9 +6,9 @@ import ${endpoint.basePackage}.database.PostgresContainerTests;
 <#else>
 import ${endpoint.basePackage}.common.AbstractIntegrationTest;
 </#if>
-import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
-
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

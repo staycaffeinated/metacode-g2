@@ -3,6 +3,7 @@
 package ${endpoint.packageName};
 
 import ${endpoint.basePackage}.common.AbstractIntegrationTest;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;

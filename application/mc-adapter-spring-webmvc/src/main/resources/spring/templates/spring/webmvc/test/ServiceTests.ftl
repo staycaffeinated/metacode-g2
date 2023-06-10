@@ -4,6 +4,8 @@ package ${endpoint.packageName};
 
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -201,7 +203,7 @@ class ${endpoint.entityName}ServiceTests {
         @Test
         void shouldUpdateWhenEntityIsFound() {
             // given: the datastore successfully updates the record (a matching record is found in the database)
-            ${endpoint.pojoName} changedVersion =${endpoint.entityName}TestFixtures.oneWithResourceId();
+            ${endpoint.pojoName} changedVersion = ${endpoint.entityName}TestFixtures.oneWithResourceId();
             String resourceId = changedVersion.getResourceId();
             given(${endpoint.entityVarName}DataStore.update(any(${endpoint.entityName}.class))).willReturn(Optional.of(changedVersion));
 

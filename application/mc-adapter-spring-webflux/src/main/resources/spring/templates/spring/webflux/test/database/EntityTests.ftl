@@ -2,6 +2,8 @@
 
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

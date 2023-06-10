@@ -4,6 +4,8 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.${endpoint.documentName}ToPojoConverter;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.${endpoint.entityName}PojoToDocumentConverter;
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;

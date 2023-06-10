@@ -7,6 +7,8 @@ import ${endpoint.basePackage}.database.MongoDbContainerTests;
 <#else>
 import ${endpoint.basePackage}.database.DatabaseConfiguration;
 </#if>
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
+import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;
 import com.fasterxml.jackson.databind.ObjectMapper;

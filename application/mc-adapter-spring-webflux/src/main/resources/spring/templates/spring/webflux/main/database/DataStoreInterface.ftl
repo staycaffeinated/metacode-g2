@@ -2,6 +2,7 @@
 
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
+import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.database.DataStore;
 import reactor.core.publisher.Mono;
 
