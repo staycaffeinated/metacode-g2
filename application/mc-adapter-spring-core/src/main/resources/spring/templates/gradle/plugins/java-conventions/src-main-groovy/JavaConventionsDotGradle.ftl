@@ -19,6 +19,13 @@ java {
     }
 }
 
+/**
+ * Example of setting lint arguments
+ */
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-Xlint:unchecked"]
+}
+
 // Share sources folder with other projects for aggregated JavaDoc and JaCoCo reports
 configurations.create("transitiveSourcesElements") {
     visible = false
