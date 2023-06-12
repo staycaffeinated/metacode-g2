@@ -116,6 +116,11 @@ catalog:
       template: "/gradle/settings/src-main-groovy/RepositoriesDotSettingsDotGradle.ftl"
       destination: "gradle/settings/src/main/groovy/org.example.repositories.settings.gradle"
       context: "project"
-
-
-
+# ------------------------------------------------
+# -- H2 SCHEMA.SQL
+# ------------------------------------------------
+  - entry:
+      template: "/spring/common/main/resources/SchemaDotSql.ftl"
+      destination: "src/main/resources/schema.sql"
+      context: "project"
+      # when: "database is 'h2' and (project is webmvc or project is webflux)"
