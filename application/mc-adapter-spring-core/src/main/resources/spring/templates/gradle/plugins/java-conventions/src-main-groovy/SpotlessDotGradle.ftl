@@ -12,9 +12,10 @@ spotless {
     java {
         palantirJavaFormat()
         removeUnusedImports()
-        importOrder ' '         // allow blank lines between imports
+        importOrder()           // imports are ordered
         indentWithSpaces(4)
         trimTrailingWhitespace()
+        toggleOffOn()           // enable toggling code formatting with @formatter
     }
     format 'misc', {
         // define the files to apply `misc` to
