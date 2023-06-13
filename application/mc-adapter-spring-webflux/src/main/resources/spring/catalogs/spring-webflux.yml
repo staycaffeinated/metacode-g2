@@ -172,10 +172,12 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}PojoToEntityConverter.java"
       context: "endpoint"
   - entry:
+      # The EJB class
       template: "/spring/webflux/main/database/Entity.ftl"
       destination: "src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{ejbName}}.java"
       context: "endpoint"
   - entry:
+      # The POJO class
       template: "/spring/webflux/main/domain/EntityResource.ftl"
       destination: "src/main/java/{{basePackagePath}}/domain/{{pojoName}}.java"
       context: "endpoint"
