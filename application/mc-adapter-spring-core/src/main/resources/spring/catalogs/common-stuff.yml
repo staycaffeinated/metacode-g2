@@ -30,3 +30,7 @@ catalog:
       template: "/lombok/lombokConfig.ftl"
       destination: "lombok.config"
       context: "project"
+  - entry:
+      template: "/common/DotGitIgnore.ftl"
+      destination: ".gitignore"
+      context: "project"
