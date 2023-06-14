@@ -4,6 +4,7 @@
 package mmm.coffee.metacode.common.freemarker;
 
 import com.google.common.base.Predicate;
+import lombok.extern.slf4j.Slf4j;
 import mmm.coffee.metacode.common.catalog.CatalogEntry;
 import mmm.coffee.metacode.common.catalog.CatalogFileReader;
 import mmm.coffee.metacode.common.dependency.DependencyCatalog;
@@ -85,10 +86,13 @@ class FreemarkerTemplateResolverIntegrationTest {
         // and exclude endpoint templates.
         Predicate<CatalogEntry> keepThese = converter.convert(projectDescriptor);
         webMvcProject.apply(dependencyCatalog);
-
+        
         templateCatalog.collect().stream().filter(toJava8(keepThese)).forEach(it -> {
             var content = resolverUnderTest.render(it.getTemplate(), webMvcProject);
-            assertThat(content).isNotEmpty();
+            // The schema.sql file _can_ be empty, so an exception is made for it
+            if (!it.getTemplate().endsWith("SchemaDotSql.ftl")) {
+                assertThat(content).isNotEmpty();
+            }
         });
     }
 
@@ -104,7 +108,10 @@ class FreemarkerTemplateResolverIntegrationTest {
 
         templateCatalog.collect().stream().filter(toJava8(keepThese)).forEach(it -> {
             var content = resolverUnderTest.render(it.getTemplate(), webFluxProject);
-            assertThat(content).isNotEmpty();
+            // The schema.sql file _can_ be empty, so an exception is made for it
+            if (!it.getTemplate().endsWith("SchemaDotSql.ftl")) {
+                assertThat(content).isNotEmpty();
+            }
         });
     }
 
