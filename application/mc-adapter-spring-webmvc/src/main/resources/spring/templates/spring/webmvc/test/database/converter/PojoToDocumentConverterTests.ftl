@@ -6,6 +6,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class ${endpoint.entityName}PojoToDocumentConverterTests {
 
     ${endpoint.entityName}PojoToDocumentConverter converter = new ${endpoint.entityName}PojoToDocumentConverter();
 
-    final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    final ResourceIdSupplier idSupplier = new SecureRandomSeries();
 
     @Test
     void shouldReturnNullWhenResourceIsNull() {
@@ -34,7 +35,7 @@ class ${endpoint.entityName}PojoToDocumentConverterTests {
 
     @Test
     void shouldPopulateAllFields() {
-        ${endpoint.pojoName} resource = ${endpoint.pojoName}.builder().resourceId(randomSeries.nextResourceId()).text("hello world").build();
+        ${endpoint.pojoName} resource = ${endpoint.pojoName}.builder().resourceId(idSupplier.nextResourceId()).text("hello world").build();
 
         ${endpoint.documentName} bean = converter.convert(resource);
         assertThat(bean.getResourceId()).isEqualTo(resource.getResourceId());
@@ -43,7 +44,7 @@ class ${endpoint.entityName}PojoToDocumentConverterTests {
 
     @Test
     void shouldCopyList() {
-        ${endpoint.pojoName} resource = ${endpoint.pojoName}.builder().resourceId(randomSeries.nextResourceId()).text("hello world").build();
+        ${endpoint.pojoName} resource = ${endpoint.pojoName}.builder().resourceId(idSupplier.nextResourceId()).text("hello world").build();
         var pojoList = Lists.list(resource);
 
         List<${endpoint.documentName}> ejbList = converter.convert(pojoList);

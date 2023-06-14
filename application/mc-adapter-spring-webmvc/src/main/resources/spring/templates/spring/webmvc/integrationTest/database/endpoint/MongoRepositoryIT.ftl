@@ -8,6 +8,7 @@ import ${endpoint.basePackage}.database.MongoDbContainerTests;
 import ${endpoint.basePackage}.database.DatabaseConfiguration;
 </#if>
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -39,7 +40,7 @@ class ${endpoint.entityName}RepositoryIT {
     private ${endpoint.entityName}Repository repositoryUnderTest;
 
     // Generates the public identifier of an entity
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    private final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     // Increment for rowIds in the database
     private long rowId = 0;

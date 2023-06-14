@@ -7,6 +7,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converte
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.BsonValue;
@@ -45,7 +46,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
 
     ${endpoint.documentName}ToPojoConverter documentToPojoConverter = new ${endpoint.documentName}ToPojoConverter();
     ${endpoint.entityName}PojoToDocumentConverter pojoToDocumentConverter = new ${endpoint.entityName}PojoToDocumentConverter();
-    SecureRandomSeries randomSeries = new SecureRandomSeries();
+    ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     @Mock
     MongoTemplate mockMongoTemplate;
@@ -440,6 +441,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
      * Builds a Provider that uses a DocumentToPojo converter whose {@code convert}
      * method returns null.  Used for edge-case testing.
      */
+    @SuppressWarnings("unchecked")
     private ${endpoint.entityName}DataStoreProvider aProviderWithAnIffyDocumentConverter() {
         ${endpoint.documentName}ToPojoConverter mockConverter = Mockito.mock(${endpoint.documentName}ToPojoConverter.class);
         when(mockConverter.convert(any(List.class))).thenReturn(null);

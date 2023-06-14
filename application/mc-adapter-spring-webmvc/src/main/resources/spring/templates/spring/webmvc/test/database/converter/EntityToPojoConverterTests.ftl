@@ -4,7 +4,6 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.convert
 
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
-import ${endpoint.basePackage}.math.SecureRandomSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -16,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class ${endpoint.entityName}EntityToPojoConverterTests {
 
     ${endpoint.entityName}EntityToPojoConverter converter = new ${endpoint.entityName}EntityToPojoConverter();
-
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
 
     @Test
     void shouldReturnNullWhenResourceIsNull() {

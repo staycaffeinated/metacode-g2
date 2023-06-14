@@ -6,6 +6,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converte
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -40,13 +41,13 @@ public class ${endpoint.entityName}DataStoreTests {
 
     ${endpoint.entityName}EntityToPojoConverter ejbToPojoConverter = new ${endpoint.entityName}EntityToPojoConverter();
     ${endpoint.entityName}PojoToEntityConverter pojoToEjbConverter = new ${endpoint.entityName}PojoToEntityConverter();
-    SecureRandomSeries randomSeries = new SecureRandomSeries();
+    ResourceIdSupplier resourceIdSupplier = new SecureRandomSeries();
 
     ${endpoint.entityName}DataStoreProvider dataStoreUnderTest;
 
     @BeforeEach
     void setUp() {
-        dataStoreUnderTest = new ${endpoint.entityName}DataStoreProvider(mockRepository, ejbToPojoConverter, pojoToEjbConverter, randomSeries);
+        dataStoreUnderTest = new ${endpoint.entityName}DataStoreProvider(mockRepository, ejbToPojoConverter, pojoToEjbConverter, resourceIdSupplier);
     }
 
     @Nested
@@ -94,7 +95,7 @@ public class ${endpoint.entityName}DataStoreTests {
 
             // Create a DataStore that uses the mock converter
             ${endpoint.entityName}DataStore storeUnderTest = new ${endpoint.entityName}DataStoreProvider(mockRepository, mockEjbToPojoConverter,
-            pojoToEjbConverter, randomSeries);
+            pojoToEjbConverter, resourceIdSupplier);
 
             // given: the repository is able to find a particular entity
             // but when the entity is converted to a POJO, a NULL value is returned
@@ -176,7 +177,7 @@ public class ${endpoint.entityName}DataStoreTests {
 
             // Create a DataStore that uses the mock converter
             ${endpoint.entityName}DataStore edgeCaseDataStore = new ${endpoint.entityName}DataStoreProvider(mockRepository, ejbToPojoConverter,
-                                                                      mockPojoToEntityConverter, randomSeries);
+                                                                      mockPojoToEntityConverter, resourceIdSupplier);
 
             // given: the converter returns a null value
             given(mockPojoToEntityConverter.convert(any(${endpoint.entityName}.class))).willReturn(null);
@@ -237,7 +238,7 @@ public class ${endpoint.entityName}DataStoreTests {
             given(mockEjbToPojoConverter.convert(any(${endpoint.ejbName}.class))).willReturn(null);
             // Create a DataStore that uses the mock converter
             ${endpoint.entityName}DataStore edgeCaseDataStore = new ${endpoint.entityName}DataStoreProvider(mockRepository, mockEjbToPojoConverter,
-                                     pojoToEjbConverter, randomSeries);
+                                     pojoToEjbConverter, resourceIdSupplier);
 
             // given: the repository finds the requested record, but the conversion to a
             // POJO yields a null value

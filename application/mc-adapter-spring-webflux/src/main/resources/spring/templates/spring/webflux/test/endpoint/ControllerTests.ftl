@@ -2,6 +2,7 @@
 package ${endpoint.packageName};
 
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import org.junit.jupiter.api.Test;
@@ -45,7 +46,7 @@ class ${endpoint.entityName}ControllerTests {
 </#noparse>
     String applicationBasePath;
 
-    final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     @Autowired
     public void setApplicationContext(ApplicationContext context) {

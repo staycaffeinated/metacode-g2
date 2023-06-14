@@ -7,6 +7,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -45,9 +46,9 @@ class ${endpoint.entityName}ServiceTests {
     private ${endpoint.entityName}DataStore ${endpoint.entityVarName}DataStore;
 
     @Mock
-    private SecureRandomSeries mockRandomSeries;
+    private ResourceIdSupplier mockResourceIdSupplier;
 
-    final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    final ResourceIdSupplier resourceIdSupplier = new SecureRandomSeries();
 
     private List<${endpoint.pojoName}> ${endpoint.entityVarName}List;
     private Page<${endpoint.pojoName}> pageOfData;
@@ -159,7 +160,7 @@ class ${endpoint.entityName}ServiceTests {
             given(${endpoint.entityVarName}DataStore.findByResourceId(any())).willReturn(Optional.empty());
 
             // when/then
-            Optional<${endpoint.pojoName}> actual = serviceUnderTest.find${endpoint.entityName}ByResourceId(randomSeries.nextResourceId());
+            Optional<${endpoint.pojoName}> actual = serviceUnderTest.find${endpoint.entityName}ByResourceId(resourceIdSupplier.nextResourceId());
 
             assertThat(actual).isNotNull().isNotPresent();
         }
@@ -176,7 +177,7 @@ class ${endpoint.entityName}ServiceTests {
             // given: when the datastore inserts an item, the persisted version is returned
             final ${endpoint.pojoName} incoming = ${endpoint.pojoName}TestFixtures.oneWithResourceId();
             final ${endpoint.pojoName} expected = ${endpoint.pojoName}TestFixtures.copyOf(incoming);
-            expected.setResourceId(randomSeries.nextResourceId());  // because inserted records are assigned a unique resourceId
+            expected.setResourceId(resourceIdSupplier.nextResourceId());  // because inserted records are assigned a unique resourceId
             given(${endpoint.entityVarName}DataStore.save(any())).willReturn(expected);
 
             // when: the service inserts a new item

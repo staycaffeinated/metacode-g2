@@ -55,8 +55,8 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/config/LocalDateConverter.java"
       context: "project"
   - entry:
-      template: "/spring/common/main/spi/ResourceIdSource.ftl"
-      destination: "src/main/java/{{basePackagePath}}/spi/ResourceIdSource.java"
+      template: "/spring/common/main/spi/ResourceIdSupplier.ftl"
+      destination: "src/main/java/{{basePackagePath}}/spi/ResourceIdSupplier.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/spi/MongoDataStore.ftl"

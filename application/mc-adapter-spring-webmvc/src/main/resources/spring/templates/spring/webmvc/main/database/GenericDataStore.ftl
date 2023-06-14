@@ -4,6 +4,7 @@
 package ${project.basePackage}.database;
 
 import ${project.basePackage}.math.SecureRandomSeries;
+import ${project.basePackage}.spi.ResourceIdSupplier;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 
@@ -31,14 +32,14 @@ public abstract class GenericDataStore<D,B,ID> {
     private final Converter<B, D> ejbToPojoConverter;
     private final Converter<D, B> pojoToEjbConverter;
 
-    private final SecureRandomSeries secureRandomSeries;
+    private final ResourceIdSupplier resourceIdSupplier;
 
     protected GenericDataStore(CustomRepository<B,ID> repository, Converter<B, D> ejbToPojoConverter,
-        Converter<D, B> pojoToEjbConverter, SecureRandomSeries secureRandomSeries) {
+        Converter<D, B> pojoToEjbConverter, ResourceIdSupplier idSupplier) {
         this.repository = repository;
         this.ejbToPojoConverter = ejbToPojoConverter;
         this.pojoToEjbConverter = pojoToEjbConverter;
-        this.secureRandomSeries = secureRandomSeries;
+        this.resourceIdSupplier = idSupplier;
     }
 
     /**
@@ -61,7 +62,7 @@ public abstract class GenericDataStore<D,B,ID> {
     /**
      * Returns a handle to the SecureRandom generator that yields resourceIds.
      */
-    protected String nextResourceId() { return secureRandomSeries.nextResourceId(); }
+    protected String nextResourceId() { return resourceIdSupplier.nextResourceId(); }
 
     /**
      * Retrieve an EJB having the given {@code resourceId}

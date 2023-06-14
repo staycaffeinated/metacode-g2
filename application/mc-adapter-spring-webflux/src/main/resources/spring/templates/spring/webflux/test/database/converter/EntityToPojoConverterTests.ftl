@@ -5,6 +5,7 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.convert
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ class ${endpoint.entityName}EntityToPojoConverterTests {
 
     ${endpoint.entityName}EntityToPojoConverter converterUnderTest = new ${endpoint.entityName}EntityToPojoConverter();
 
-    final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
 	@Test
 	void whenDataToConvertIsWellFormed_expectSuccessfulConversion() {

@@ -3,6 +3,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -19,14 +20,14 @@ import java.util.List;
 public class ${endpoint.entityName}TablePopulator implements ApplicationListener<ApplicationReadyEvent> {
 
     private final ${endpoint.entityName}Repository repository;
-    private final SecureRandomSeries randomSeries;
+    private final ResourceIdSupplier resourceIdSupplier;
 
     /**
      * Constructor
      */
-    public ${endpoint.entityName}TablePopulator(${endpoint.entityName}Repository repository, SecureRandomSeries randomSeries) {
+    public ${endpoint.entityName}TablePopulator(${endpoint.entityName}Repository repository,  ResourceIdSupplier idSupplier) {
         this.repository = repository;
-        this.randomSeries = randomSeries;
+        this.resourceIdSupplier = idSupplier;
     }
 
     /**
@@ -57,7 +58,7 @@ public class ${endpoint.entityName}TablePopulator implements ApplicationListener
      private ${endpoint.ejbName} createOne(String text) {
          ${endpoint.ejbName} bean = new ${endpoint.ejbName}();
          bean.setText(text);
-         bean.setResourceId(randomSeries.nextResourceId());
+         bean.setResourceId(resourceIdSupplier.nextResourceId());
          return bean;
      }
 }

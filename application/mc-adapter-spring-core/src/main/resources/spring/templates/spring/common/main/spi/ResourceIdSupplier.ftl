@@ -12,6 +12,6 @@ package ${project.basePackage}.spi;
 * This is _not_ a replacement of the database's or the Hibernate
 * database record ID generator.
 */
-public interface ResourceIdSource {
+public interface ResourceIdSupplier {
     String nextResourceId();
 }

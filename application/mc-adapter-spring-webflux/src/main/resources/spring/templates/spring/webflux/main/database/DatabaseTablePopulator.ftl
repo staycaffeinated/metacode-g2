@@ -1,6 +1,7 @@
 <#include "/common/Copyright.ftl">
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -18,14 +19,14 @@ import reactor.core.publisher.Flux;
 public class ${endpoint.entityName}TablePopulator implements ApplicationListener<ApplicationReadyEvent> {
 
 	private final ${endpoint.entityName}Repository repository;
-	private final SecureRandomSeries randomSeries;
+	private final ResourceIdSupplier resourceIdSupplier;
 
 	/**
 	 * Constructor
 	 */
-	public ${endpoint.entityName}TablePopulator (${endpoint.entityName}Repository repository, SecureRandomSeries secureRandom) {
+	public ${endpoint.entityName}TablePopulator (${endpoint.entityName}Repository repository, ResourceIdSupplier resourceIdSupplier) {
 	    this.repository = repository;
-	    this.randomSeries = secureRandom;
+	    this.resourceIdSupplier = resourceIdSupplier;
 	}
 
 	@Override
@@ -40,6 +41,6 @@ public class ${endpoint.entityName}TablePopulator implements ApplicationListener
 	 * Creates a sample database record
 	 */
 	private ${endpoint.ejbName} buildSampleRecord(String text) {
-	    return ${endpoint.ejbName}.builder().resourceId(randomSeries.nextResourceId()).text(text).build();
+	    return ${endpoint.ejbName}.builder().resourceId(resourceIdSupplier.nextResourceId()).text(text).build();
 	}
 }

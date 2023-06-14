@@ -2,6 +2,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,7 +12,7 @@ import java.util.Random;
  */
 public class ${endpoint.documentName}TestFixtures {
 
-    private static final SecureRandomSeries RANDOM = new SecureRandomSeries();
+    private static final ResourceIdSupplier ID_SUPPLIER = new SecureRandomSeries();
 
     private static final ${endpoint.documentName} SAMPLE_ONE;
     private static final ${endpoint.documentName} SAMPLE_TWO;
@@ -52,7 +53,7 @@ public class ${endpoint.documentName}TestFixtures {
          // @formatter:off
          return ${endpoint.documentName}.builder()
                 .text(text)
-                .resourceId(RANDOM.nextResourceId())
+                .resourceId(ID_SUPPLIER.nextResourceId())
                 .build();
          // @formatter:on
     }

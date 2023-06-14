@@ -9,6 +9,7 @@ import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.exception.UnprocessableEntityException;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,7 +41,7 @@ class ${endpoint.entityName}ServiceTests {
     @InjectMocks
     private ${endpoint.entityName}ServiceProvider serviceUnderTest;
 
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    private final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     @Test
     void shouldFindAll${endpoint.entityName}s() {

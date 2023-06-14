@@ -6,6 +6,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoi
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
@@ -47,7 +48,7 @@ class ${endpoint.entityName}ServiceTests {
     private ${endpoint.entityName}DataStore mockDataStore;
 
     @Mock
-    private SecureRandomSeries mockRandomSeries;
+    private ResourceIdSupplier mockIdSupplier;
 
     private List<${endpoint.pojoName}> pojoList;
     private Page<${endpoint.pojoName}> pageOfData;

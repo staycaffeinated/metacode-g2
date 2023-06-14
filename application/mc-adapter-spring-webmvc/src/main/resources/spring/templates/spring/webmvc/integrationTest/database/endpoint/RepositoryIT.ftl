@@ -5,6 +5,7 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.predicate.*;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,7 +39,7 @@ class ${endpoint.entityName}RepositoryIT {
     private ${endpoint.entityName}Repository repositoryUnderTest;
 
     // Generates the public identifier of an entity
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    private final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     // Increment for rowIds in the database
     private long rowId = 0;

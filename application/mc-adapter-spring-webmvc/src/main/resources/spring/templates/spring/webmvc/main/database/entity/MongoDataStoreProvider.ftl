@@ -5,6 +5,7 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import com.mongodb.client.result.UpdateResult;
 import lombok.Builder;
 import lombok.NonNull;
@@ -33,7 +34,7 @@ public class ${endpoint.entityName}DataStoreProvider implements ${endpoint.entit
 
     private final ${endpoint.documentName}ToPojoConverter documentConverter;
     private final ${endpoint.entityName}PojoToDocumentConverter pojoConverter;
-    private final SecureRandomSeries resourceIdGenerator;
+    private final ResourceIdSupplier resourceIdGenerator;
     private final MongoTemplate mongoTemplate;
     private final ${endpoint.entityName}Repository repository;
 

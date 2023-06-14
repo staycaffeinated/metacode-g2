@@ -7,6 +7,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoi
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +56,7 @@ class ${endpoint.entityName}ControllerTests {
     private List<${endpoint.pojoName}> ${endpoint.entityVarName}List;
     private Page<${endpoint.pojoName}> pageOfData;
 
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    private final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     @BeforeEach
     void setUp() {

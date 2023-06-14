@@ -3,6 +3,7 @@ package ${endpoint.packageName};
 
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -13,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class ${endpoint.entityName}EventTests {
 
-    final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     @Test
     void shouldReturnEventTypeOfCreated() {

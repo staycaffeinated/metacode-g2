@@ -6,6 +6,7 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoi
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.documentName}TestFixtures;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -18,7 +19,7 @@ class ${endpoint.entityName}DocumentToPojoConverterTests {
 
     ${endpoint.entityName}DocumentToPojoConverter converter = new ${endpoint.entityName}DocumentToPojoConverter();
 
-    private final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    private final ResourceIdSupplier idSupplier = new SecureRandomSeries();
 
     @Test
     void shouldReturnNullWhenResourceIsNull() {

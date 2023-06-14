@@ -5,7 +5,7 @@ package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.exception.*;
-import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class ${endpoint.entityName}DataStoreProvider implements ${endpoint.entit
     private final ${endpoint.entityName}Repository repository;
     private final ${endpoint.entityName}EntityToPojoConverter ejbToPojoConverter;
     private final ${endpoint.entityName}PojoToEntityConverter pojoToEjbConverter;
-    private final SecureRandomSeries secureRandom;
+    private final ResourceIdSupplier resourceIdSupplier;
 
     /**
      * create
@@ -36,7 +36,7 @@ public class ${endpoint.entityName}DataStoreProvider implements ${endpoint.entit
 		    if (entity == null) {
 			      return Mono.error(new UnprocessableEntityException());
   		  }
-        entity.setResourceId(secureRandom.nextResourceId());
+        entity.setResourceId(resourceIdSupplier.nextResourceId());
         return repository.save(entity).flatMap(item -> Mono.just(item.getResourceId()));
     }
 

@@ -2,6 +2,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class ${endpoint.ejbName}TestFixtures {
 
-    static final SecureRandomSeries randomSeries = new SecureRandomSeries();
+    static final ResourceIdSupplier randomSeries = new SecureRandomSeries();
 
     /*
      * Consider renaming these to something more meaningful to your use cases.

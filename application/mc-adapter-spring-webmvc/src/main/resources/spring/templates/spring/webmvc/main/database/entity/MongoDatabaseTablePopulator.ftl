@@ -3,6 +3,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -21,14 +22,14 @@ import java.util.List;
 public class ${endpoint.entityName}TablePopulator implements ApplicationListener<ApplicationReadyEvent> {
 
     private final ${endpoint.entityName}Repository repository;
-    private final SecureRandomSeries randomSeries;
+    private final ResourceIdSupplier resourceIdSupplier;
 
     /**
      * Constructor
      */
-    public ${endpoint.entityName}TablePopulator(${endpoint.entityName}Repository repository, SecureRandomSeries randomSeries) {
+    public ${endpoint.entityName}TablePopulator(${endpoint.entityName}Repository repository, ResourceIdSupplier idSupplier) {
         this.repository = repository;
-        this.randomSeries = randomSeries;
+        this.resourceIdSupplier = idSupplier;
     }
 
     /**
@@ -59,7 +60,7 @@ public class ${endpoint.entityName}TablePopulator implements ApplicationListener
      private ${endpoint.documentName} createOne(String text) {
          return  ${endpoint.documentName}.builder()
             .text(text)
-            .resourceId(randomSeries.nextResourceId())
+            .resourceId(resourceIdSupplier.nextResourceId())
             .build();
      }
 }

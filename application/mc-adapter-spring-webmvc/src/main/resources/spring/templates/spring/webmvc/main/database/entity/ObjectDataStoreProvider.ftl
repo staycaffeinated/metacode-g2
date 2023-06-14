@@ -6,6 +6,7 @@ import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.predicate.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
@@ -40,9 +41,9 @@ public class ${endpoint.entityName}DataStoreProvider extends GenericDataStore<${
     public ${endpoint.entityName}DataStoreProvider(${endpoint.entityName}Repository repository,
                                  Converter<${endpoint.ejbName},${endpoint.entityName}> ejbToPojoConverter,
                                  Converter<${endpoint.entityName}, ${endpoint.ejbName}> pojoToEntityConverter,
-                                 SecureRandomSeries secureRandom)
+                                 ResourceIdSupplier idSupplier)
     {
-         super(repository, ejbToPojoConverter, pojoToEntityConverter, secureRandom);
+         super(repository, ejbToPojoConverter, pojoToEntityConverter, idSupplier);
     }
 
     @Override

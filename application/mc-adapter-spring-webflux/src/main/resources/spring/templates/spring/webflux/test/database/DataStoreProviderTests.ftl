@@ -8,6 +8,7 @@ import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.exception.ResourceNotFoundException;
 import ${endpoint.basePackage}.exception.UnprocessableEntityException;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
+import ${endpoint.basePackage}.spi.ResourceIdSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
 
     ${endpoint.entityName}PojoToEntityConverter pojoToEntityConverter = new ${endpoint.entityName}PojoToEntityConverter();
 
-    SecureRandomSeries secureRandomSeries = new SecureRandomSeries();
+    ResourceIdSupplier resourceIdSupplier = new SecureRandomSeries();
     
 
     @BeforeEach
@@ -259,7 +260,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
                 .ejbToPojoConverter(entityToPojoConverter)
                 .pojoToEjbConverter(pojoToEntityConverter)
                 .repository(mockRepository)
-                .secureRandom(secureRandomSeries)
+                .resourceIdSupplier(resourceIdSupplier)
                 .build();
         // @formatter:on       
     }
@@ -276,7 +277,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
                 .ejbToPojoConverter(entityToPojoConverter)
                 .pojoToEjbConverter(dodgyConverter)
                 .repository(mockRepository)
-                .secureRandom(secureRandomSeries)
+                .resourceIdSupplier(resourceIdSupplier)
                 .build();
         // @formatter:on        
     }
@@ -291,7 +292,7 @@ public class ${endpoint.entityName}DataStoreProviderTests {
                 .ejbToPojoConverter(dodgyConverter)
                 .pojoToEjbConverter(pojoToEntityConverter)
                 .repository(mockRepository)
-                .secureRandom(secureRandomSeries)
+                .resourceIdSupplier(resourceIdSupplier)
                 .build();
         // @formatter:on        
     }
