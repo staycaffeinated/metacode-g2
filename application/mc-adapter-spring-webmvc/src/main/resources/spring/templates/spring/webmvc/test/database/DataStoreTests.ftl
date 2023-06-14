@@ -309,6 +309,7 @@ public class ${endpoint.entityName}DataStoreTests {
         }
 
         @Test
+        @SuppressWarnings("unchecked")
         void shouldReturnPageOfResults() {
             // given: the repository retrieves a page of entities that meet some criteria
             List<${endpoint.ejbName}> content = ${endpoint.ejbName}TestFixtures.allItems();
