@@ -73,6 +73,10 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/math/SecureRandomSeries.java"
       context: "project"
   - entry:
+      template: "/spring/common/main/spi/ResourceIdSource.ftl"
+      destination: "src/main/java/{{basePackagePath}}/spi/ResourceIdSource.java"
+      context: "project"
+  - entry:
       template: "/spring/webmvc/main/trait/ResourceIdTrait.ftl"
       destination: "src/main/java/{{basePackagePath}}/trait/ResourceIdTrait.java"
       context: "project"

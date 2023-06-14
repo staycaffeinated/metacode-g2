@@ -1,6 +1,7 @@
 <#include "/common/Copyright.ftl">
 package ${project.basePackage}.math;
 
+import ${project.basePackage}.spi.ResourceIdSource;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +28,7 @@ import java.security.SecureRandom;
  *
  */
 @Component
-public class SecureRandomSeries {
+public class SecureRandomSeries implements ResourceIdSource {
     private SecureRandom random;
 
     // If you want the resource Id to use alphanumeric, this constant
