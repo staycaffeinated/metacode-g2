@@ -2,7 +2,11 @@
 
 package ${endpoint.packageName};
 
+<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.database.PostgresTestContainer;
+<#else>
 import ${endpoint.basePackage}.database.DatabaseInitFunction;
+</#if>
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}Repository;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}EntityTestFixtures;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.ejbName};

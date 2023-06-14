@@ -3,7 +3,11 @@
 package ${endpoint.packageName};
 
 import ${endpoint.basePackage}.configuration.*;
+<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.database.PostgresTestContainer;
+<#else>
 import ${endpoint.basePackage}.database.DatabaseInitFunction;
+</#if>
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStore;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}EntityTestFixtures;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
