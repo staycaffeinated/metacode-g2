@@ -1,5 +1,5 @@
 <#include "/common/Copyright.ftl">
-package ${project.basePackage}.database;
+package ${project.basePackage}.spi;
 
 import lombok.NonNull;
 import org.springframework.data.domain.Page;

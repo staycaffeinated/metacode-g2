@@ -34,8 +34,8 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/advice/ProblemSummary.java"
       context: "project"
   - entry:
-      template: "/spring/webflux/main/database/DataStore.ftl"
-      destination: "src/main/java/{{basePackagePath}}/database/DataStore.java"
+      template: "/spring/webflux/main/spi/DataStore.ftl"
+      destination: "src/main/java/{{basePackagePath}}/spi/DataStore.java"
       context: "project"
   - entry:
       template: "/spring/webflux/main/exception/ResourceNotFoundException.ftl"

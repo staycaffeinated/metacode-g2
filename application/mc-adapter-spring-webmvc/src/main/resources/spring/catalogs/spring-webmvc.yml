@@ -59,10 +59,9 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/database/GenericDataStore.java"
       context: "project"
   - entry:
-      template: "/spring/webmvc/main/database/DataStore.ftl"
-      destination: "src/main/java/{{basePackagePath}}/database/DataStore.java"
+      template: "/spring/webmvc/main/spi/DataStore.ftl"
+      destination: "src/main/java/{{basePackagePath}}/spi/DataStore.java"
       context: "project"
-
   - entry:
       template: "/spring/webmvc/main/filter/SecurityResponseHeadersFilter.ftl"
       destination: "src/main/java/{{basePackagePath}}/filter/SecurityResponseHeadersFilter.java"

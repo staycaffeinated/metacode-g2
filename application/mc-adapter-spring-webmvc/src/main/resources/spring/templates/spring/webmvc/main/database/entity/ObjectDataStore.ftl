@@ -3,7 +3,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
-import ${endpoint.basePackage}.database.DataStore;
+import ${endpoint.basePackage}.spi.DataStore;
 import lombok.NonNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,6 @@
 <#include "/common/Copyright.ftl">
 
-package ${project.basePackage}.database;
+package ${project.basePackage}.spi;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
