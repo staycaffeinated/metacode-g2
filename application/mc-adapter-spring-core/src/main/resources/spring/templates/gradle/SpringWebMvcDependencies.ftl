@@ -55,4 +55,5 @@ dependencies {
     <#-- out-of-the-box tests to work until a QA DB is set up by the developer. -->
     testRuntimeOnly libs.h2
 </#if>
+    testFixturesImplementation libs.jakartaPersistenceApi
 }

@@ -28,6 +28,6 @@ version='0.0.1'
 jib {
     to {
         image = '${project.applicationName}'
-        tags = [ '0.0.1' ]
+        tags = [ 'latest' ]
     }
 }

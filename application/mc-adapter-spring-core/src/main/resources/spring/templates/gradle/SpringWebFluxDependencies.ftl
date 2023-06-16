@@ -49,4 +49,5 @@ dependencies {
 
     testFixturesImplementation libs.reactorTest
     testFixturesImplementation libs.springBootStarterDataR2dbc
+    testFixturesImplementation libs.libs.jakartaPersistenceApi
 }

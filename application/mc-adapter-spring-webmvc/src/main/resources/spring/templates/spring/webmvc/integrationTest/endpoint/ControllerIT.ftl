@@ -62,11 +62,8 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        ${endpoint.entityVarName}List = new ArrayList<>();
-        ${endpoint.entityVarName}List.add(new ${endpoint.ejbName}(1L, randomSeries.nextResourceId(), "First ${endpoint.entityName}"));
-        ${endpoint.entityVarName}List.add(new ${endpoint.ejbName}(2L, randomSeries.nextResourceId(), "Second ${endpoint.entityName}"));
-        ${endpoint.entityVarName}List.add(new ${endpoint.ejbName}(3L, randomSeries.nextResourceId(), "Third ${endpoint.entityName}"));
-        ${endpoint.entityVarName}List = ${endpoint.entityVarName}Repository.saveAll(${endpoint.entityVarName}List);
+        ${endpoint.entityVarName}Repository.saveAll(${endpoint.ejbName}TestFixtures.allItems());
+        ${endpoint.entityVarName}List = ${endpoint.ejbName}TestFixtures.allItems();
     }
 
     @AfterEach
