@@ -74,7 +74,6 @@ springDevTools = { module = "org.springframework.boot:spring-boot-devtools" }
 springKafka = { module = "org.springframework.kafka:spring-kafka" }
 springKafkaTest = { module = "org.springframework.kafka:spring-kafka-test" }
 
-
 testContainersBom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testContainers" }
 testContainersJupiter = { module = "org.testcontainers:junit-jupiter" }
 testContainersKafka = { module = "org.testcontainers:kafka" }
@@ -86,6 +85,3 @@ spring-boot = { id = "org.springframework.boot", version.ref="springBoot" }
 dependency-management = { id = "io.spring.dependency-management", version.ref="springDependencyManagement" }
 versions = { id = "com.github.ben-manes.versions", version.ref="versions" }
 lombok-plugin = { id = "io.freefair.lombok", version.ref="lombokPlugin" }
-
-
-
