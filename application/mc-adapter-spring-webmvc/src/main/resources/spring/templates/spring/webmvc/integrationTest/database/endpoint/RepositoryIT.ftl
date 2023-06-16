@@ -3,6 +3,7 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.database.*;
+import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.predicate.*;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import ${endpoint.basePackage}.spi.ResourceIdSupplier;
@@ -52,9 +53,7 @@ class ${endpoint.entityName}RepositoryIT {
 
     @BeforeEach
     void insertTestData() {
-        repositoryUnderTest.save(new${endpoint.ejbName}("First value"));
-        repositoryUnderTest.save(new${endpoint.ejbName}("Second value"));
-        repositoryUnderTest.save(new${endpoint.ejbName}("Third value"));
+        repositoryUnderTest.saveAll(${endpoint.ejbName}TestFixtures.allItems());
     }
 
     @AfterEach
@@ -94,7 +93,8 @@ class ${endpoint.entityName}RepositoryIT {
     public class ValidatePredicates {
         @Test
         void shouldIgnoreCase() {
-            ${endpoint.entityName}WithText spec = new ${endpoint.entityName}WithText("first value");
+            String text = ${endpoint.ejbName}TestFixtures.allItems().get(0).getText();
+            ${endpoint.entityName}WithText spec = new ${endpoint.entityName}WithText(text);
             List<${endpoint.ejbName}> list = repositoryUnderTest.findAll(spec);
             assertThat(list).isNotNull();
             assertThat(list.size()).isEqualTo(1);
@@ -105,7 +105,7 @@ class ${endpoint.entityName}RepositoryIT {
             ${endpoint.entityName}WithText spec = new ${endpoint.entityName}WithText("");
             List<${endpoint.ejbName}> list = repositoryUnderTest.findAll(spec);
             assertThat(list).isNotNull();
-            assertThat(list.size()).isEqualTo(3);
+            assertThat(list.size()).isEqualTo(${endpoint.ejbName}TestFixtures.allItems().size());
         }
     }
 
