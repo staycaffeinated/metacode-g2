@@ -23,7 +23,6 @@ import mmm.coffee.metacode.common.trait.WriteOutputTrait;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 
 /**
  * Handles writing String content to a destination.
@@ -51,17 +50,17 @@ public class ContentToFileWriter implements WriteOutputTrait {
     /**
      * Writes {@code content} to the {@code destination}.
      * A File object of {@code destination} is created.
-     *
-     * If {@code content} is null, nothing happens here.
+     * <p>
+     * If {@code content} is empty, nothing happens here.
      * If {@code content} is an empty string, the destination file is created,
      * with the empty content written to it.
-     *
+     * </p>
      * @param destination the FQP to the output file
      * @param content the content written to the output file
      */
     @Override
     public void writeOutput(@NonNull String destination, String content) {
-        if (Objects.isNull(content)) return;
+        if (isEmpty(content)) return;
         try {
             File fOutput = new File(destination);
             fileSystem.forceMkdir(fOutput.getParentFile());
@@ -70,5 +69,8 @@ public class ContentToFileWriter implements WriteOutputTrait {
         catch (IOException e) {
             throw new RuntimeApplicationError(e.getMessage(), e);
         }
+    }
+    private boolean isEmpty(String str) {
+        return str == null || str.trim().length() == 0;
     }
 }

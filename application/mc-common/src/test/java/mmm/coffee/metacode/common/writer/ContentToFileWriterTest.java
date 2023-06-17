@@ -20,6 +20,11 @@ import mmm.coffee.metacode.common.io.FileSystem;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.rules.TemporaryFolder;
 import org.mockito.Mockito;
 import org.mockito.stubbing.OngoingStubbing;
@@ -70,21 +75,22 @@ class ContentToFileWriterTest {
             writerUnderTest.writeOutput(null, "hello, world");
         });         
     }
-
-    @Test
-    void shouldNotWriteFileWhenContentIsEmptyr() throws IOException {
+    
+    @ParameterizedTest
+    @NullAndEmptySource
+    void shouldNotWriteFileWhenContentIsEmpty(String content) throws IOException {
         TemporaryFolder temporaryFolder = new TemporaryFolder();
         temporaryFolder.create();
         File tempFile = temporaryFolder.newFile("sample.txt");
 
-        writerUnderTest.writeOutput(tempFile.getCanonicalPath(), null);
+        writerUnderTest.writeOutput(tempFile.getCanonicalPath(), content);
 
         // When no content is written, the temp file may exist
         // but should be empty
         assertThat(tempFile.exists()).isTrue();
         assertThat(FileUtils.sizeOf(tempFile)).isEqualTo(0);
     }
-
+    
     @Test
     void shouldHandleIoException() throws Exception {
         FileSystem mockFS = Mockito.mock(FileSystem.class);
