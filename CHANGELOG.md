@@ -1,6 +1,14 @@
 
 ## [Unreleased]
 
+## [9.0.1] - 2023-06-16
+
+### Fixed
+
+* An empty _schema.sql_ file was being written if no schema was specified. An empty _schema.sql_ file
+  prevents Spring from booting up the application.  The _schema.sql_ file is only written when the 
+  _--schema_ option is used to define the database schema used by the generated application.
+
 ## [9.0.0] - 2023-06-15
 
 ### Added

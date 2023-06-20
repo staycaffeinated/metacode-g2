@@ -7,7 +7,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * References:
@@ -15,13 +15,9 @@ import org.springframework.stereotype.Component;
  *  https://docs.spring.io/spring-batch/docs/current/reference/html/index.html
  *  https://docs.spring.io/spring-batch/docs/current/reference/html/readersAndWriters.html
  */
-@Component
+@Configuration
 @RequiredArgsConstructor
 public class BatchConfiguration {
-
-    private final JobBuilder jobBuilder;
-
-    private final StepBuilder stepBuilder;
 
     /**
      * Next steps:
@@ -30,22 +26,29 @@ public class BatchConfiguration {
      * 3. Optional: create a @Bean for any ItemProcessors needed
      * 4. Create a @Bean that returns each Step of the batch Job; for example:
      *    @Bean
-     *    @StepScope
-     *    public Step step1() {
-     *        return stepBuilder.get("step1")
-     *                     .<WidgetIn,WidgetOut>chunk(10)
-     *                     .reader(yourItemReaderBean())
-     *                     .writer(yourItemWriterBean())
-     *                     .processor(yourItemProcessorBean())
-     *                     .build();
-     *    }
+     *    public Step step1(JobRepository jobRepository,
+     *                   PlatformTransactionManager transactionManager,
+     *                   ItemReader<WidgetIn> theReader,
+     *                   ItemProcessor<WidgetIn, WidgetOut> theProcessor,
+     *                   ItemWriter<WidgetOut> theWriter) {
+     *    return new StepBuilder("step1", jobRepository)
+     *          .<WidgetIn, WidgetOut>chunk(10, transactionManager)
+     *          .reader(theReader)
+     *          .processor(theProcessor)
+     *          .writer(theWriter)
+     *          .build();
+     *   }
      *
      * 5. Create a @Bean that returns the Job; for example:
      *    @Bean
-     *    public Job job() {
-     *        return jobBuilder.get("job")
-     *                     .incrementer(new RunIdIncrementer())
-     *                     .flow(step1()).end();
+     *    public Job getJob(JobRepository jobRepository, JobCompletionNotificationListener listener, Step step1) {
+     *
+     *        return new JobBuilder("importWidgetsJob", jobRepository)
+     *            .incrementer(new RunIdIncrementer())
+     *            .listener(listener)
+     *            .flow(step1)
+     *            .end()
+     *            .build();
      *    }
      *
      */

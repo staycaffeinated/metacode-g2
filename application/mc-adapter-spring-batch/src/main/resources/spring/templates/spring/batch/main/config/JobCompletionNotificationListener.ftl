@@ -9,11 +9,20 @@ import org.springframework.stereotype.Component;
 
 /**
  * This is an example of a JobCompletionNotificationListener.
- * Wire this class into the Job bean (in the BatchConfiguration.class) to use it;
- * something like:
- *      jobBuilderFactory.get("job")
- *          .listener(new JobCompletionNotificationListener())
- *          .start(...).end(...).build();
+ * Modify the signature of the Job bean (in the BatchConfiguration class)
+ * to use it. That is, do something like:
+ *
+ *   // the Job bean...
+ *   @Bean
+ *   public Job importWidgetsJob(JobRepository jobRepository,
+ *                                JobCompletionNotificationListener listener,
+ *                               Step step1) {
+ *       return new JobBuilder("importWidgetsJob", jobRepository)
+ *           .listener(listener)
+ *           .flow( startStep )
+ *           .end()
+ *           .build()
+ *   }
  *
  */
 @Component
@@ -26,7 +35,6 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
             log.info("Job finished. Maybe print some summary information, like the number of records processed.");
         }
     }
-
 }
 
 
