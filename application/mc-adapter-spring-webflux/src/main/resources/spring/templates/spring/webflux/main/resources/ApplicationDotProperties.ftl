@@ -45,7 +45,7 @@ spring.r2dbc.url=r2dbc:postgresql://localhost:5432/postgres${project.schema}
 spring.r2dbc.url=r2dbc:postgresql://localhost:5432/postgres
     </#if>
 spring.datasource.driver-class-name=org.postgresql.Driver
-spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.database-platform=org.hibernate.dialect.PostgresPlusDialect
 spring.r2dbc.username=postgres
 spring.r2dbc.password=postgres
 <#else>
@@ -59,4 +59,3 @@ spring.r2dbc.url=r2dbc:h2:mem:///testdb
 spring.r2dbc.username=root
 spring.r2dbc.password=secret
 </#if>
-

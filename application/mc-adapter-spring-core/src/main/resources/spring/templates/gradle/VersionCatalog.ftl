@@ -17,6 +17,7 @@ r2dbcSpi = '${project.r2dbc_spiVersion}'
 springBoot = '${project.springBootVersion}'
 springCloud = '${project.springCloudVersion}'
 springDependencyManagement = '1.1.0'
+springOrm = '6.0.10'
 problemJacksonDataType = '${project.problemJacksonDataTypeVersion}'
 problemSpringWeb = '${project.problemSpringWebVersion}'
 reactorTest = '${project.reactorTestVersion}'
@@ -73,6 +74,7 @@ springCloudStarterSteamKafka = { module = "org.springframework.cloud:spring-clou
 springDevTools = { module = "org.springframework.boot:spring-boot-devtools" }
 springKafka = { module = "org.springframework.kafka:spring-kafka" }
 springKafkaTest = { module = "org.springframework.kafka:spring-kafka-test" }
+springOrm = { module = "org.springframework:spring-orm", version.ref="springOrm" }
 
 testContainersBom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testContainers" }
 testContainersJupiter = { module = "org.testcontainers:junit-jupiter" }

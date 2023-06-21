@@ -45,7 +45,7 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.id.new_generator_mappings=false
 <#if (project.isWithPostgres())>
 spring.jpa.database=POSTGRESQL
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgresPlusDialect
 spring.jpa.properties.id.new_generator_mappings=false
 </#if>
 

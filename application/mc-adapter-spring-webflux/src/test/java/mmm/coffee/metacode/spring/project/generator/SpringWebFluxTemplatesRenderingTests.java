@@ -188,7 +188,7 @@ class SpringWebFluxTemplatesRenderingTests {
             assertThat(content).isNotNull();
             assertThat(content).contains("spring.r2dbc.url=r2dbc:postgresql://localhost:5432/postgres");
             assertThat(content).contains("spring.datasource.driver-class-name=org.postgresql.Driver");
-            assertThat(content).contains("spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect");
+            assertThat(content).contains("spring.jpa.database-platform=org.hibernate.dialect.PostgresPlusDialect");
             assertThat(content).contains("spring.r2dbc.username");
             assertThat(content).contains("spring.r2dbc.password");
         }

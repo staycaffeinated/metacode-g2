@@ -1,6 +1,21 @@
 
 ## [Unreleased]
 
+### Fixed
+
+* Removed the _@EnableBatchProcessing_ from the main Application.java file for Spring Batch
+  applications.  Using _@EnableBatchProcessing_ causes Spring to create a _DataSourceTransactionManager_,
+  which is unaware of JPA/Hibernate, which can cause unexpected behavior. If you need it, add it back it; 
+  batch jobs _can_ work without it in Spring Framework 6.
+* The generated _BatchConfiguration.java_ class now has _@Configuration_ instead of _@Component_. 
+* The spring-orm:6.0.10 library is explicitly included in build.gradle file of spring-webmvc 
+  and spring-webflux projects. Older versions attempt to load the PostgreSQL95Dialect, which
+  Hibernate deprecated and removed from their latest jars.  This removal leads to 
+  _ClassNotFoundException: PostgresSQL95Dialect_.  The new dialect is _PostgresPlusDialect_, 
+  which the spring-orm:6.0.10 library uses. 
+* The generated _application.properties_ files were updated to use the _PostgresPlusDialect_. 
+
+
 ## [9.0.1] - 2023-06-16
 
 ### Fixed
