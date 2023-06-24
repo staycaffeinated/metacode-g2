@@ -1,6 +1,8 @@
 
 ## [Unreleased]
 
+## [9.0.2] - 2023-06-24
+
 ### Fixed
 
 * Removed the _@EnableBatchProcessing_ from the main Application.java file for Spring Batch
