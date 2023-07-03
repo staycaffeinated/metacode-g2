@@ -84,3 +84,35 @@ spring.datasource.url=jdbc:h2:mem:testdb
 spring.liquibase.enabled=true
 spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.yaml
 </#if>
+
+# -------------------------------------------------------------------------
+# Logging
+# -------------------------------------------------------------------------
+logging.level.root=INFO
+
+# -------------------------------------------------------------------------------------------
+# Hikari
+# See https://springframework.guru/hikari-configuration-for-mysql-in-spring-boot-2/
+# and https://github.com/brettwooldridge/HikariCP
+# -------------------------------------------------------------------------------------------
+# the maximum time a client will wait for a connection
+spring.datasource.hikari.connection-timeout=2000
+# the maximum size the pool can reach
+spring.datasource.hikari.maximum-pool-size=20
+# cache prepared statements
+spring.datasource.hikari.data-source-properties.cachePrepStmts=true
+# size of prepared statement cache
+spring.datasource.hikari.data-source-properties.prepStmtCacheSize=250
+# the maximum length of a statement the driver will cache
+spring.datasource.hikari.data-source-properties.prepStmtCacheSqlLimit=2048
+# enable using server-side prepared statements if the DMBS supports it (eg., MySQL)
+spring.datasource.hikari.data-source-properties.useServerPrepStmts=true
+spring.datasource.hikari.data-source-properties.useLocalSessionState=true
+spring.datasource.hikari.data-source-properties.rewriteBatchedStatements=true
+spring.datasource.hikari.data-source-properties.cacheResultsSetMetadata=true
+spring.datasource.hikari.data-source-properties.cacheServerConfiguration=true
+# sets the default auto-commit behavior of connections
+spring.datasource.hikari.data-source-properties.elideSetAutoCommits=true
+spring.datasource.hikari.data-source-properties.maintainTimeStats=false
+spring.datasource.hikari.pool-name=spring-boot-hikari-postgresql-cp
+spring.datasource.hikari.max-lifetime=1000000
