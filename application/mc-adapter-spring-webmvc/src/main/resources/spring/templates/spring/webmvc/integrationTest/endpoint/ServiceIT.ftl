@@ -36,10 +36,12 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
 
     private ${endpoint.entityName}ServiceProvider serviceUnderTest;
 
+<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
     @DynamicPropertySource
     static void registerProperties(DynamicPropertyRegistry registry) {
         DatabaseInitFunction.registerDatabaseProperties(registry);
     }
+</#if>
 
     @BeforeEach
     void init${endpoint.entityName}Service() {
@@ -60,7 +62,7 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
      * FindById
      */
     @Nested
-    public class FindByResourceId {
+    class FindByResourceId {
         @Test
         @SuppressWarnings("all")
         void shouldFind${endpoint.entityName}ById() throws Exception {
@@ -80,7 +82,7 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
      * Create method
      */
     @Nested
-    public class Create${endpoint.entityName} {
+    class Create${endpoint.entityName} {
         @Test
         void shouldCreateNew${endpoint.entityName}() throws Exception {
             // given: a new item to be inserted into the database
@@ -100,7 +102,7 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
      * Update method
      */
     @Nested
-    public class Update${endpoint.entityName} {
+    class Update${endpoint.entityName} {
 
         @Test
         @SuppressWarnings("all")
@@ -123,7 +125,7 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
      * Delete method
      */
     @Nested
-    public class Delete${endpoint.entityName} {
+    class Delete${endpoint.entityName} {
         @Test
         void shouldDelete${endpoint.entityName}() throws Exception {
             // given: the ID of an item known to exist in the database

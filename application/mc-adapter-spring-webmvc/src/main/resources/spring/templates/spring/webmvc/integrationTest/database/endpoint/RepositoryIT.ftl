@@ -45,11 +45,13 @@ class ${endpoint.entityName}RepositoryIT {
     // Increment for rowIds in the database
     private long rowId = 0;
 
-
+<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
+<#-- if the generated class extends PostgresContainerTests, the DynamicPropertySource is already defined -->
     @DynamicPropertySource
     static void registerProperties(DynamicPropertyRegistry registry) {
         DatabaseInitFunction.registerDatabaseProperties(registry);
     }
+</#if>
 
     @BeforeEach
     void insertTestData() {
@@ -74,7 +76,7 @@ class ${endpoint.entityName}RepositoryIT {
      * can be removed altogether.
      */
     @Nested
-    public class ValidateCustomMethod {
+    class ValidateCustomMethod {
         /**
          * This is an example test. You do not actually need to verify the findAll method.
          * This test is only an example of how you might want to write such a test.
@@ -90,7 +92,7 @@ class ${endpoint.entityName}RepositoryIT {
     }
 
     @Nested
-    public class ValidatePredicates {
+    class ValidatePredicates {
         @Test
         void shouldIgnoreCase() {
             String text = ${endpoint.ejbName}TestFixtures.allItems().get(0).getText();

@@ -55,10 +55,12 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
 
     private final SecureRandomSeries randomSeries = new SecureRandomSeries();
 
+<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
     @DynamicPropertySource
     static void registerProperties(DynamicPropertyRegistry registry) {
         DatabaseInitFunction.registerDatabaseProperties(registry);
     }
+</#if>
 
     @BeforeEach
     void setUp() {
@@ -72,7 +74,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
     }
 
     @Nested
-    public class ValidateFindByText {
+    class ValidateFindByText {
         @Test
         void whenSearchFindsHits_expectOkAndMatchingRecords() throws Exception {
             searchByText("First").andExpect(status().isOk());
@@ -89,7 +91,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
      * FindById
      */
     @Nested
-    public class ValidateFindById {
+    class ValidateFindById {
         @Test
         void shouldFind${endpoint.entityName}ById() throws Exception {
             ${endpoint.ejbName} ${endpoint.entityVarName} = ${endpoint.entityVarName}List.get(0);
@@ -106,7 +108,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
      * Create method
      */
     @Nested
-    public class ValidateCreate${endpoint.entityName} {
+    class ValidateCreate${endpoint.entityName} {
         @Test
         void shouldCreateNew${endpoint.entityName}() throws Exception {
             ${endpoint.pojoName} resource = ${endpoint.pojoName}.builder().text("I am a new resource").build();
@@ -143,7 +145,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
      * Update method
      */
     @Nested
-    public class ValidateUpdate${endpoint.entityName} {
+    class ValidateUpdate${endpoint.entityName} {
 
         @Test
         void shouldUpdate${endpoint.entityName}() throws Exception {
@@ -163,7 +165,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
      * Delete method
      */
     @Nested
-    public class ValidateDelete${endpoint.entityName} {
+    class ValidateDelete${endpoint.entityName} {
         @Test
         void shouldDelete${endpoint.entityName}() throws Exception {
             ${endpoint.ejbName} ${endpoint.entityVarName} = ${endpoint.entityVarName}List.get(0);
