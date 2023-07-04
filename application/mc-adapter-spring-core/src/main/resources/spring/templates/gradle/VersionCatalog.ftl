@@ -6,7 +6,7 @@ junitSystemRules =  '${project.h2Version}'
 junit = '${project.junitVersion}'
 liquibase = '${project.liquibaseVersion}'
 lombok = '${project.lombokVersion}'
-lombokPlugin = '8.0.1'
+lombokPlugin = '8.1.0'
 mockito = '${project.mockitoVersion}'
 openApiStarterWebMvc = '${project.openApiStarterWebMvcVersion}'
 openApiStarterWebflux = '${project.openApiStarterWebfluxVersion}'
@@ -23,7 +23,7 @@ problemSpringWeb = '${project.problemSpringWebVersion}'
 reactorTest = '${project.reactorTestVersion}'
 testContainers = '${project.testContainersVersion}'
 truth = '${project.truthVersion}'
-versions = '0.46.0'
+versions = '${project.benManesPluginVersion}'
 
 
 [libraries]
