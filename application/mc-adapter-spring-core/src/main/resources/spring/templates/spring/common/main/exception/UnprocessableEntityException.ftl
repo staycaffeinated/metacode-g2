@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.Serial;
+
 /**
  * An UnprocessableEntity exception indicates a well-formed request was
  * received, but could not be successfully processed.
@@ -12,7 +14,8 @@ import org.springframework.web.server.ResponseStatusException;
 @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 public class UnprocessableEntityException extends ResponseStatusException {
 
-    private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 2711067751568445348L;
 
     /**
      * Default Constructor

@@ -10,24 +10,24 @@ import java.io.Serial;
 /**
  * A requested resource was not found
  */
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class ResourceNotFoundException extends ResponseStatusException {
+@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+public class BadRequestException extends ResponseStatusException {
 
     @Serial
-    private static final long serialVersionUID = -1144457886816201247L;
+    private static final long serialVersionUID = 1968592496239029423L;
 
     /**
      * Default Constructor
      */
-    public ResourceNotFoundException() {
-        super(HttpStatus.NOT_FOUND);
+    public BadRequestException() {
+        super(HttpStatus.BAD_REQUEST);
     }
 
     /**
      * Constructor
      */
-    public ResourceNotFoundException(Throwable throwable) {
-       super(HttpStatus.NOT_FOUND, "The requested resource was not found", throwable);
+    public BadRequestException(Throwable throwable) {
+       super(HttpStatus.BAD_REQUEST, "The request cannot be processed", throwable);
     }
 
     /**
@@ -36,8 +36,8 @@ public class ResourceNotFoundException extends ResponseStatusException {
      *
      * @param reason the associated reason (optional)
      */
-    public ResourceNotFoundException(String reason) {
-        super(HttpStatus.NOT_FOUND, reason);
+    public BadRequestException(String reason) {
+        super(HttpStatus.BAD_REQUEST, reason);
     }
 
     /**
@@ -47,7 +47,7 @@ public class ResourceNotFoundException extends ResponseStatusException {
      * @param reason the associated reason (optional)
      * @param cause  a nested exception (optional)
      */
-    public ResourceNotFoundException(String reason, Throwable cause) {
-        super(HttpStatus.UNPROCESSABLE_ENTITY, reason, cause);
+    public BadRequestException(String reason, Throwable cause) {
+        super(HttpStatus.BAD_REQUEST, reason, cause);
     }
 }

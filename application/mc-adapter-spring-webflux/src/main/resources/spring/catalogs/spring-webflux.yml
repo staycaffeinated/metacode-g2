@@ -38,8 +38,16 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/spi/DataStore.java"
       context: "project"
   - entry:
-      template: "/spring/webflux/main/exception/ResourceNotFoundException.ftl"
+      template: "/spring/common/main/exception/ResourceNotFoundException.ftl"
       destination: "src/main/java/{{basePackagePath}}/exception/ResourceNotFoundException.java"
+      context: "project"
+  - entry:
+      template: "/spring/common/main/exception/BadRequestException.ftl"
+      destination: "src/main/java/{{basePackagePath}}/exception/BadRequestException.java"
+      context: "project"
+  - entry:
+      template: "/spring/common/main/exception/UnprocessableEntityException.ftl"
+      destination: "src/main/java/{{basePackagePath}}/exception/UnprocessableEntityException.java"
       context: "project"
   - entry:
       template: "/spring/webflux/main/exception/UnprocessableEntityException.ftl"
