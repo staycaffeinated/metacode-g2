@@ -1,6 +1,15 @@
 
 ## [Unreleased]
 
+### Maintenance
+
+* Bumped versions:
+  * SpringBoot Gradle plugin from 3.1.0 to 3.1.1
+  * Ben Manes Version plugin from 0.46.0 to 0.47.0
+  * Reactor Test library from 3.5.5 to 3.5.7
+  * TestContainers-BOM from 1.18.0 to 1.18.3
+  * SpringCloud Starter from 4.0.2 to 4.0.3
+
 ## [9.0.2] - 2023-06-24
 
 ### Fixed
