@@ -47,6 +47,10 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
       context: "project"
   - entry:
+      template: "/spring/webmvc/main/config/ApplicationConfiguration.ftl"
+      destination: "src/main/java/{{basePackagePath}}/config/ApplicationConfiguration.java"
+      context: "project"
+  - entry:
       template: "/spring/webmvc/main/config/DateTimeFormatConfiguration.ftl"
       destination: "src/main/java/{{basePackagePath}}/config/DateTimeFormatConfiguration.java"
       context: "project"

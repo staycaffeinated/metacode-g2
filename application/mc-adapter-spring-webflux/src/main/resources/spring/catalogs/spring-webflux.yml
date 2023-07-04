@@ -62,6 +62,10 @@ catalog:
       destination: "src/main/java/{{basePackagePath}}/common/ResourceIdentity.java"
       context: "project"
   - entry:
+      template: "/spring/webflux/main/config/ApplicationConfiguration.ftl"
+      destination: "src/main/java/{{basePackagePath}}/config/ApplicationConfiguration.java"
+      context: "project"
+  - entry:
       template: "/spring/webflux/main/config/WebFluxConfiguration.ftl"
       destination: "src/main/java/{{basePackagePath}}/config/WebFluxConfiguration.java"
       context: "project"

@@ -3,7 +3,6 @@ package ${project.basePackage}.math;
 
 import ${project.basePackage}.spi.ResourceIdSupplier;
 import lombok.NonNull;
-import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -27,7 +26,6 @@ import java.security.SecureRandom;
  * See https://metebalci.com/blog/everything-about-javas-securerandom/
  *
  */
-@Component
 public class SecureRandomSeries implements ResourceIdSupplier {
     private SecureRandom random;
 
