@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.cli.create.project;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.cli.traits.CallTrait;
 import picocli.CommandLine;
 
@@ -41,5 +41,5 @@ import picocli.CommandLine;
         commandListHeading = "%nTemplates:%n",
         synopsisSubcommandLabel = "[TEMPLATE]"
 )
-@Generated // exclude this from code coverage 
+@ExcludeFromJacocoGeneratedReport // exclude this from code coverage
 public class SubcommandCreateProject implements CallTrait {}

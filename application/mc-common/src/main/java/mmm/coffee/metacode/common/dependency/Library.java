@@ -18,7 +18,7 @@ package mmm.coffee.metacode.common.dependency;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Generated // exclude this from code coverage; lombok does all the work
+@ExcludeFromJacocoGeneratedReport
 public class Library {
     private List<Dependency> dependencies;
 }

@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.cli.traits;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.common.ExitCodes;
 
 import java.util.concurrent.Callable;
@@ -23,7 +23,7 @@ import java.util.concurrent.Callable;
 /**
  * A default implementation of Callable
  */
-@Generated // exclude this class from code coverage
+@ExcludeFromJacocoGeneratedReport
 public interface CallTrait extends Callable<Integer> {
     default Integer call() { return ExitCodes.OK; }
 }

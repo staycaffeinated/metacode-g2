@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.common.dependency.DependencyCatalog;
 import mmm.coffee.metacode.common.exception.RuntimeApplicationError;
 
@@ -36,7 +36,7 @@ import java.util.Locale;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper=false)
-@Generated // Ignore code coverage for this class
+@ExcludeFromJacocoGeneratedReport // Ignore code coverage for this class
 @SuppressWarnings({"java:S125","java:S116"})
 // S125: don't warn about comments that happen to look like code
 // S116: need to relax this naming convention rule for the R2dbc_h2Version instance variable

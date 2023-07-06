@@ -3,13 +3,13 @@
  */
 package mmm.coffee.metacode.common.io;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import org.apache.commons.configuration2.Configuration;
 
 /**
  * MetaPropertiesHandler
  */
-@Generated // exclude interfaces from code coverage reporting
+@ExcludeFromJacocoGeneratedReport // exclude interfaces from code coverage reporting
 public interface MetaPropertiesHandler<T> {
     /**
      * Writes metacode.properties file, using {@code data} as the source of property values

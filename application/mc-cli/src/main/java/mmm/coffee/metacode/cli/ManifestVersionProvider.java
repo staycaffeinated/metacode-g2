@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.cli;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import picocli.CommandLine;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.util.jar.Manifest;
  * This code was inspired by
  * https://github.com/remkop/picocli/blob/main/picocli-examples/src/main/java/picocli/examples/VersionProviderDemo2.java
  */
-@Generated // exclude this class from code coverage reporting
+@ExcludeFromJacocoGeneratedReport // exclude this class from code coverage reporting
 public class ManifestVersionProvider implements CommandLine.IVersionProvider {
     @Override
     public String[] getVersion() throws Exception {

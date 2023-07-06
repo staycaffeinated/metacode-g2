@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.common.stereotype;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.common.catalog.CatalogEntry;
 import mmm.coffee.metacode.common.descriptor.Descriptor;
 import mmm.coffee.metacode.common.trait.CollectTrait;
@@ -23,7 +23,7 @@ import mmm.coffee.metacode.common.trait.CollectTrait;
 /**
  * Stereotype for Collectors of CatalogEntries
  */
-@Generated // ignore code coverage for stereotypes
+@ExcludeFromJacocoGeneratedReport
 public interface Collector extends CollectTrait<CatalogEntry> {
     /**
      * Invoke this method to determine which catalogs to collect,

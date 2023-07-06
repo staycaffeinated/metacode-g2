@@ -3,13 +3,13 @@
  */
 package mmm.coffee.metacode.common.stereotype;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * The template model captures any data that will be consumed
  * by the template rendering process to resolve template variables.
  */
-@Generated
+@ExcludeFromJacocoGeneratedReport
 @SuppressWarnings("java:S125")
 // S125: we're OK with comments that look like code since comments may contain code examples
 public interface MetaTemplateModel {
@@ -28,7 +28,7 @@ public interface MetaTemplateModel {
      * of the templates. This list can grow as needed.
      *
      */
-    @Generated
+    @ExcludeFromJacocoGeneratedReport
     enum Key {
         PROJECT ("project"),
         ENDPOINT ("endpoint");

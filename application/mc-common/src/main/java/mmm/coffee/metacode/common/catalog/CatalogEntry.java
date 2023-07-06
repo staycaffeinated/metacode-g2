@@ -16,13 +16,13 @@
 package mmm.coffee.metacode.common.catalog;
 
 import lombok.Data;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * CatalogEntry
  */
 @Data
-@Generated // exclude from code coverage
+@ExcludeFromJacocoGeneratedReport
 public class CatalogEntry {
     String template;
     String destination;

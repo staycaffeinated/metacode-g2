@@ -19,7 +19,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import freemarker.template.Configuration;
 import mmm.coffee.metacode.annotations.guice.*;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.common.catalog.CatalogFileReader;
 import mmm.coffee.metacode.common.dependency.DependencyCatalog;
 import mmm.coffee.metacode.common.descriptor.RestEndpointDescriptor;
@@ -65,7 +65,7 @@ import org.apache.commons.configuration2.builder.fluent.Configurations;
  * into the SpringTestModule, while a real Writer is wired into this class, the SpringGeneratorModule.
  */
 @SuppressWarnings("java:S1452") // S1452: allow generic wildcards for the moment
-@Generated // Ignore code coverage for this class
+@ExcludeFromJacocoGeneratedReport // Ignore code coverage for this class
 public final class SpringGeneratorModule extends AbstractModule {
 
     private static final String DEPENDENCY_FILE = "/spring/dependencies/dependencies.yml";
