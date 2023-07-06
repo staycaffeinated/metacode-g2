@@ -5,14 +5,14 @@
  */
 package mmm.coffee.metacode.common.trait;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * Stereotype for a specification. This is the mechanic
  * for identifying a class that's passed from the CLI package
  * to the GENERATOR package.
  */
-@Generated //
+@ExcludeFromJacocoGeneratedReport
 public interface DryRunTrait {
 
     default boolean isDryRun() { return false; }

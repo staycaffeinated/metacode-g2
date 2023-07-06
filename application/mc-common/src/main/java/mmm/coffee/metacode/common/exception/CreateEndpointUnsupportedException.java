@@ -4,7 +4,7 @@
 package mmm.coffee.metacode.common.exception;
 
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * When the user attempts the `create endpoint` command within
@@ -13,7 +13,7 @@ import mmm.coffee.metacode.annotations.jacoco.Generated;
  * An ExceptionHandler is plugged into the picocli CommandLine instance
  * to capture instances of this exception and print an error message.
  */ 
-@Generated
+@ExcludeFromJacocoGeneratedReport
 public class CreateEndpointUnsupportedException extends RuntimeException {
   public CreateEndpointUnsupportedException() {}
   

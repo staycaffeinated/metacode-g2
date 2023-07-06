@@ -19,7 +19,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +31,7 @@ import java.util.Set;
  */
 @Data
 @SuperBuilder
-@Generated // exclude from code coverage reports
+@ExcludeFromJacocoGeneratedReport // exclude from code coverage reports
 @ToString
 public class RestProjectDescriptor implements Descriptor {
     private String basePackage;

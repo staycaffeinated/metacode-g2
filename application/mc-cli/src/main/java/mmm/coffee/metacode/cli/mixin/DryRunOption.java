@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.cli.mixin;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import picocli.CommandLine;
 
 /**
@@ -28,7 +28,7 @@ import picocli.CommandLine;
         parameterListHeading = "%nParameters:%n%n",
         optionListHeading    = "%nOptions:%n%n",
         commandListHeading   = "%nCommands:%n%n")
-@Generated // jacoco should ignore this in code coverage reports
+@ExcludeFromJacocoGeneratedReport // jacoco should ignore this in code coverage reports
 public class DryRunOption {
     // The map key for dry runs.
     // The _absence_ of the dryRun key presumes a live run is desired, not a dry run

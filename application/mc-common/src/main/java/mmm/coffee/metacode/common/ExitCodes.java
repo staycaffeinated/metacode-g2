@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.common;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * Exit codes
@@ -25,7 +25,7 @@ import mmm.coffee.metacode.annotations.jacoco.Generated;
  * 1 = Catch-all for general errors
  * 2 = Usage error
  */
-@Generated // jacoco should ignore this class in code coverage
+@ExcludeFromJacocoGeneratedReport
 public class ExitCodes {
 
     public static final int OK = 0;

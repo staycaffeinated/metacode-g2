@@ -18,7 +18,7 @@ package mmm.coffee.metacode.cli;
 import com.google.inject.ConfigurationException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.cli.create.CreateCommand;
 import mmm.coffee.metacode.cli.traits.CallTrait;
 import mmm.coffee.metacode.spring.SpringGeneratorModule;
@@ -37,7 +37,7 @@ import static picocli.CommandLine.Model.UsageMessageSpec.SECTION_KEY_COMMAND_LIS
         mixinStandardHelpOptions = true,
         subcommands = {GenerateCompletion.class, CreateCommand.class}
 )
-@Generated // exclude this class from code coverage
+@ExcludeFromJacocoGeneratedReport
 public class Application implements CallTrait {
 
     private static int exitCode;

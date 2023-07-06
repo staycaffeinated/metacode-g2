@@ -7,7 +7,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.common.stereotype.MetaTemplateModel;
 
 
@@ -15,7 +15,7 @@ import mmm.coffee.metacode.common.stereotype.MetaTemplateModel;
  * SpringTemplateModel
  */
 @SuperBuilder
-@Generated // exclude this class from code coverage reports
+@ExcludeFromJacocoGeneratedReport // exclude this class from code coverage reports
 public abstract class SpringTemplateModel implements MetaTemplateModel {
 
     @Setter(AccessLevel.PUBLIC)

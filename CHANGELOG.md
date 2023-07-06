@@ -1,5 +1,21 @@
 
 ## [Unreleased]
+      
+
+### Added
+
+* The Spring WebMvc and Spring Webflux templates now generate these
+  exception classes, since these are typically needed:
+  * UnprocessableEntityException
+  * ResourceNotFoundException
+  * BadRequestException
+
+* An ApplicationConfiguration class is now generated, which defines
+  a bean for the ```ResourceIdSupplier```.
+
+* The ```application.properties``` files contain additional Hikari
+  connection pool properties, making it easier to transition to a 
+  production environment by including property settings suitable for production.
 
 ### Maintenance
 

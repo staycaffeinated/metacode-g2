@@ -16,7 +16,7 @@
 package mmm.coffee.metacode.common.dependency;
 
 import lombok.Data;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * A Dependency maps a 3rd-party library and version.
@@ -33,7 +33,7 @@ import mmm.coffee.metacode.annotations.jacoco.Generated;
  * captures each entry from that dependencies.yml file.
  */
 @Data
-@Generated // exclude this class out from code coverage reports
+@ExcludeFromJacocoGeneratedReport
 public class Dependency {
 
     /**

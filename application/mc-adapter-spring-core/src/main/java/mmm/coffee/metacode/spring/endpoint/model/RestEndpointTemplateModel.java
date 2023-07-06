@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import mmm.coffee.metacode.spring.project.model.SpringTemplateModel;
 
 /**
@@ -17,7 +17,7 @@ import mmm.coffee.metacode.spring.project.model.SpringTemplateModel;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper=false)
-@Generated // Ignore code coverage for this class
+@ExcludeFromJacocoGeneratedReport // Ignore code coverage for this class
 @SuppressWarnings({"java:S125","java:S116"})
 public class RestEndpointTemplateModel extends SpringTemplateModel {
     // When this object is passed into Freemarker,

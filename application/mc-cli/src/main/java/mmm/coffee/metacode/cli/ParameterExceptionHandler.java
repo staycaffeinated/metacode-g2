@@ -15,7 +15,7 @@
  */
 package mmm.coffee.metacode.cli;
 
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 import picocli.CommandLine;
 
 /**
@@ -30,7 +30,7 @@ import picocli.CommandLine;
  * https://github.com/remkop/picocli/blob/main/picocli-examples/src/main/java/picocli/examples/exceptionhandler/ParameterExceptionHandlerDemo.java
  * </p>
  */
-@Generated // suppress code coverage analytics for this class
+@ExcludeFromJacocoGeneratedReport // suppress code coverage analytics for this class
 public class ParameterExceptionHandler implements CommandLine.IParameterExceptionHandler {
 
     /**

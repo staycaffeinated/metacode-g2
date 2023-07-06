@@ -30,5 +30,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Retention(RUNTIME)
 @Target({TYPE, METHOD})
-public @interface Generated {
+public @interface ExcludeFromJacocoGeneratedReport {
 }

@@ -17,14 +17,14 @@ package mmm.coffee.metacode.spring.project.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * A Freemarker TemplateModel for Spring WebMvc
  */
 @SuperBuilder
 @EqualsAndHashCode(callSuper=true)
-@Generated // ignore code coverage for this class
+@ExcludeFromJacocoGeneratedReport // ignore code coverage for this class
 public class WebMvcTemplateModel extends RestProjectTemplateModel {
     private boolean enableTestContainers;
     private boolean enablePostgres;

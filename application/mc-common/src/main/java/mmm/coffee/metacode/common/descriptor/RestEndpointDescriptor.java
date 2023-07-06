@@ -16,14 +16,14 @@
 package mmm.coffee.metacode.common.descriptor;
 
 import lombok.*;
-import mmm.coffee.metacode.annotations.jacoco.Generated;
+import mmm.coffee.metacode.annotations.jacoco.ExcludeFromJacocoGeneratedReport;
 
 /**
  * RestEndpointDescriptor
  */
 @Data
 @Builder
-@Generated // exclude from code coverage reports
+@ExcludeFromJacocoGeneratedReport // exclude from code coverage reports
 public class RestEndpointDescriptor implements Descriptor {
 
     /**
