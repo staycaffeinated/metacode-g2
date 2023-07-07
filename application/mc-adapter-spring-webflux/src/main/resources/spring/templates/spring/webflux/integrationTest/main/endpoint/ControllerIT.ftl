@@ -43,6 +43,9 @@ class ${endpoint.entityName}ControllerIntegrationTest extends PostgresTestContai
 <#else>
 class ${endpoint.entityName}ControllerIntegrationTest {
 </#if>
+   private static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
+   private static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
+
    @LocalServerPort
    int port;
 <#noparse>
@@ -95,8 +98,8 @@ class ${endpoint.entityName}ControllerIntegrationTest {
         sendFindOne${endpoint.entityName}Request(knownResourceId).expectStatus().isOk()
             .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody()
-            .jsonPath("$.resourceId").isNotEmpty()
-            .jsonPath("$.text").isNotEmpty();
+            .jsonPath(JSON_PATH__RESOURCE_ID).isNotEmpty()
+            .jsonPath(JSON_PATH__TEXT).isNotEmpty();
         // formatter:on
     }
 

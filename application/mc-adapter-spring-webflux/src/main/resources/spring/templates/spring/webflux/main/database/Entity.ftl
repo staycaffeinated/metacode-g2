@@ -3,16 +3,12 @@
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import jakarta.validation.constraints.NotEmpty;
 
 @Data
 @EqualsAndHashCode(of = {"resourceId"})
@@ -22,6 +18,13 @@ import jakarta.validation.constraints.NotEmpty;
 @Table("${endpoint.tableName}")
 @SuppressWarnings("java:S125") // false positive; comment has something that looks like code
 public class ${endpoint.ejbName} {
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class Columns {
+        public static final String ID = "id";
+        public static final String RESOURCE_ID = "resource_id";
+        public static final String TEXT = "text";
+    }
 
     /*
      * SPECIAL NOTE:
@@ -52,7 +55,7 @@ public class ${endpoint.ejbName} {
      * is defined as CHAR(50), which is simply a round-up to the next even byte length.
      * </p>
      */
-    @Column(value="resource_id")
+    @Column(value=Columns.RESOURCE_ID)
     private String resourceId;
     
     /**
@@ -60,10 +63,11 @@ public class ${endpoint.ejbName} {
      * never be exposed outside the boundaries of this application.
      */
     @Id
+    @Column(value=Columns.ID)
     private Long id;
 
     @NotEmpty(message = "Text cannot be empty")
-    @Column(value = "text")
+    @Column(value = Columns.TEXT)
     private String text;
 
 

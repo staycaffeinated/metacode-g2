@@ -44,9 +44,13 @@ class ${endpoint.entityName}ControllerIT extends PostgresContainerTests {
 
     @Autowired
     ObjectMapper objectMapper;
+
 <#else>
 class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
 </#if>
+    public static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
+    public static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
+
     @Autowired
     private ${endpoint.entityName}Repository ${endpoint.entityVarName}Repository;
 
@@ -99,7 +103,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
 
             mockMvc.perform(get(${endpoint.entityName}Routes.${endpoint.routeConstants.findOne}, ${endpoint.entityVarName}Id))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())));
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())));
 
         }
     }
@@ -117,7 +121,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(resource)))
                     .andExpect(status().isCreated())
-                    .andExpect(jsonPath("$.text", is(resource.getText())))
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(resource.getText())))
                     ;
         }
 
@@ -156,7 +160,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(resource)))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())));
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())));
 
         }
     }
@@ -173,7 +177,7 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
             mockMvc.perform(
                     delete(${endpoint.entityName}Routes.${endpoint.routeConstants.delete}, ${endpoint.entityVarName}.getResourceId()))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())));
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())));
         }
     }
 

@@ -1,14 +1,20 @@
 <#include "/common/Copyright.ftl">
 package ${endpoint.basePackage}.domain;
 
+import ${endpoint.basePackage}.trait.ResourceIdTrait;
+import ${endpoint.basePackage}.validation.Alphabetic;
+import ${endpoint.basePackage}.validation.OnCreate;
+import ${endpoint.basePackage}.validation.OnUpdate;
+import ${endpoint.basePackage}.validation.ResourceId;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import lombok.Builder;
-import ${endpoint.basePackage}.trait.*;
-import ${endpoint.basePackage}.validation.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 /**
  * This is the POJO of ${endpoint.entityName} data exposed to client applications
@@ -22,9 +28,16 @@ import jakarta.validation.constraints.Null;
 @Builder(builderClassName = "DefaultBuilder", toBuilder = true)
 public class ${endpoint.pojoName} implements ResourceIdTrait<String> {
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class Fields {
+        public static final String RESOURCE_ID = "resourceId";
+        public static final String TEXT = "text";
+    }
+
     @Null(groups = OnCreate.class)
     @NotNull(groups = OnUpdate.class)
     @ResourceId
+    @JsonProperty(Fields.RESOURCE_ID)
     private String resourceId;
 
     /*
@@ -32,6 +45,7 @@ public class ${endpoint.pojoName} implements ResourceIdTrait<String> {
      * The @Alphabet is used to demonstrate a custom validator
      */
     @NotEmpty @Alphabetic
+    @JsonProperty(Fields.TEXT)
     private String text;
 
     /**

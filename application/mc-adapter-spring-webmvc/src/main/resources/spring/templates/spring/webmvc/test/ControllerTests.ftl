@@ -43,6 +43,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 class ${endpoint.entityName}ControllerTests {
 
+    public static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
+    public static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -105,7 +108,7 @@ class ${endpoint.entityName}ControllerTests {
             // when/then
             findSpecificEntity(resourceId)
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())))
+                .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())))
             ;
         }
 
@@ -135,8 +138,8 @@ class ${endpoint.entityName}ControllerTests {
 
             // when/then
             createEntity(resourceBeforeSave).andExpect(status().isCreated())
-                    .andExpect(jsonPath("$.resourceId", notNullValue()))
-                    .andExpect(jsonPath("$.text", is(resourceAfterSave.getText())));
+                    .andExpect(jsonPath(JSON_PATH__RESOURCE_ID, notNullValue()))
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(resourceAfterSave.getText())));
         }
 
         @Test
@@ -161,7 +164,7 @@ class ${endpoint.entityName}ControllerTests {
 
             // when/then
             updateEntity(${endpoint.entityVarName}).andExpect(status().isOk())
-                    .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())));
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())));
         }
 
         @Test
@@ -211,7 +214,7 @@ class ${endpoint.entityName}ControllerTests {
 
             // when/then
             deleteEntity(resourceId).andExpect(status().isOk())
-                    .andExpect(jsonPath("$.text", is(${endpoint.entityVarName}.getText())));
+                    .andExpect(jsonPath(JSON_PATH__TEXT, is(${endpoint.entityVarName}.getText())));
         }
 
         @Test

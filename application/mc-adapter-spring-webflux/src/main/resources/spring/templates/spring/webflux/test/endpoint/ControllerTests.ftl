@@ -36,6 +36,9 @@ import static org.mockito.Mockito.when;
 @WebFluxTest(controllers = ${endpoint.entityName}Controller.class)
 class ${endpoint.entityName}ControllerTests {
 
+    private static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
+    private static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
+
     @MockBean
     private ${endpoint.entityName}Service mock${endpoint.entityName}Service;
 
@@ -70,8 +73,8 @@ class ${endpoint.entityName}ControllerTests {
         sendFindOne${endpoint.entityName}Request(pojo.getResourceId())
                 .expectStatus().isOk()
                 .expectBody()
-                .jsonPath("$.resourceId").isNotEmpty()
-                .jsonPath("$.text").isNotEmpty();
+                .jsonPath(JSON_PATH__RESOURCE_ID).isNotEmpty()
+                .jsonPath(JSON_PATH__TEXT).isNotEmpty();
         // @formatter:on         
 
         Mockito.verify(mock${endpoint.entityName}Service, times(1)).findByResourceId(pojo.getResourceId());
