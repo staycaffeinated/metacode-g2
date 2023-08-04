@@ -1,6 +1,24 @@
 
 ## [Unreleased]
 
+### Added
+
+* An inner-class has been added to the POJO and EJB classes.  These inner classes
+  enumerate the properties of the POJO and EJB. The integration and unit tests reference
+  these inner classes instead of using hard-coded values; this makes refactoring
+  significantly easier. 
+
+### Maintenance
+
+* Bumped Versions
+  * SpringBoot from 3.1.1 to 3.1.2
+  * Spring ORM from 6.0.10 to 6.0.11
+  * Spring Dependency Management plugin from 1.1.0 to 1.1.2
+  * Reactor Test from 3.5.7 to 3.5.8
+  * H2 database from 2.1.214 to 2.2.220
+
+
+
 ## [9.1.0] - 2023-07-06
       
 
