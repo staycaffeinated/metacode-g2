@@ -13,18 +13,13 @@ import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.converter.*;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
 import org.junit.jupiter.api.*;
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.context.annotation.Import;
-</#if>
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.ArrayList;
@@ -33,18 +28,16 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import static acme.petstore.common.SpringProfiles.INTEGRATION_TEST;
 import static acme.petstore.common.SpringProfiles.TEST;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-</#if>
 
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
+<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @Import(ContainerConfiguration.class)
 @Testcontainers
+</#if>
 class ${endpoint.entityName}ControllerIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
@@ -52,9 +45,6 @@ class ${endpoint.entityName}ControllerIT implements RegisterDatabaseProperties {
     @Autowired
     ObjectMapper objectMapper;
 
-<#else>
-class ${endpoint.entityName}ControllerIT implements RegisterDatabaseProperties {
-</#if>
     public static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
     public static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
 

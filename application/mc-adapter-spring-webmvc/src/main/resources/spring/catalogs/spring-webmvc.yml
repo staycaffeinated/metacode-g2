@@ -219,7 +219,6 @@ catalog:
       template: "/spring/webmvc/integrationTest/database/RegisterDatabaseProperties.ftl"
       destination: "src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
       context: "project"
-      feature: "postgres"
 #
 # Endpoint entries
 #

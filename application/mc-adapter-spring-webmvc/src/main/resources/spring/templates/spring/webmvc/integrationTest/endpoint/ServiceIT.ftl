@@ -15,27 +15,29 @@ import org.junit.jupiter.api.*;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import ${endpoint.basePackage}.config.ContainerConfiguration;
 import org.springframework.context.annotation.Import;
-import org.springframework.boot.test.context.SpringBootTest;
+<#else>
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 </#if>
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.DynamicPropertyRegistry;
 
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-</#if>
 
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@AutoConfigureMockMvc
+<#if endpoint.isWithTestContainers()>
 @Import(ContainerConfiguration.class)
 @Testcontainers
-class ${endpoint.entityName}ServiceIT implements RegisterDatabaseProperties {
 <#else>
-class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 </#if>
+class ${endpoint.entityName}ServiceIT implements RegisterDatabaseProperties {
     @Autowired
     private ${endpoint.entityName}Repository ${endpoint.entityVarName}Repository;
 
@@ -43,13 +45,6 @@ class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
     private ${endpoint.entityName}DataStore ${endpoint.entityVarName}DataStore;
 
     private ${endpoint.entityName}ServiceProvider serviceUnderTest;
-
-<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
-    @DynamicPropertySource
-    static void registerProperties(DynamicPropertyRegistry registry) {
-        DatabaseInitFunction.registerDatabaseProperties(registry);
-    }
-</#if>
 
     @BeforeEach
     void init${endpoint.entityName}Service() {

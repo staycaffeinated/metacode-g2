@@ -9,8 +9,11 @@ package ${project.basePackage}.endpoint.root;
 <#-- and it struggles (errors) when trying to reorganize them w/o the help of an IDE. -->
 <#-- Tech Debt: refactor maybe into 2 distinct tempates                             -->
 <#-- ============================================================================== -->
-<#if project.isWithPostgres() && project.isWithTestContainers()>
+<#if project.isWithTestContainers()>
 import ${project.basePackage}.config.ContainerConfiguration;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.springframework.context.annotation.Import;
+</#if>
 import ${project.basePackage}.database.RegisterDatabaseProperties;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -26,7 +29,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -41,42 +43,16 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
+<#if project.isWithTestContainers()>
 @Import(ContainerConfiguration.class)
 @Testcontainers
-public class RootExceptionHandlingIT implements RegisterDatabaseProperties {
+<#else>
+@ExtendWith(SpringExtension.class)
+</#if>
+class RootExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
-<#-- ======================================= -->
-<#-- Vanilla                                 -->
-<#-- ======================================= -->
-<#else>
-import ${project.basePackage}.common.AbstractIntegrationTest;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
 
-import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-
-@ExtendWith(SpringExtension.class)
-class RootExceptionHandlingIT implements RegisterDatabaseProperties {
-</#if>
     @MockBean
     private RootService mockService;  // this is used to initialize the controller
 

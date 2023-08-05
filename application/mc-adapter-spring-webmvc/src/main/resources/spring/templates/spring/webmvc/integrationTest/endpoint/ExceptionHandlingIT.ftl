@@ -1,10 +1,12 @@
 <#include "/common/Copyright.ftl">
 package ${endpoint.packageName};
 
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+<#if endpoint.isWithTestContainers()>
 import ${endpoint.basePackage}.config.ContainerConfiguration;
-import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import ${endpoint.basePackage}.math.SecureRandomSeries;
@@ -13,15 +15,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
-import org.testcontainers.junit.jupiter.Testcontainers;
-</#if>
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -30,28 +28,26 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-</#if>
 
 /**
  * Verify exception handling
  */
-<#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
+<#if endpoint.isWithTestContainers()>
 @Import(ContainerConfiguration.class)
 @Testcontainers
+<#else>
+@ExtendWith(SpringExtension.class)
+</#if>
 class ${endpoint.entityName}ExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 
     @Autowired
     ObjectMapper objectMapper;
-<#else>
-@ExtendWith(SpringExtension.class)
-class ${endpoint.entityName}ExceptionHandlingIT implements RegisterDatabaseProperties {
-</#if>
     @MockBean
     private ${endpoint.entityName}Service ${endpoint.entityVarName}Service;
 
