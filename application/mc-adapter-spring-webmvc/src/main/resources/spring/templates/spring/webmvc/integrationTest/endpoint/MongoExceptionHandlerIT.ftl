@@ -4,10 +4,8 @@ package ${endpoint.packageName};
 
 <#if (endpoint.isWithTestContainers())>
 import ${endpoint.basePackage}.config.ContainerConfiguration;
-import ${endpoint.basePackage}.database.MongoDbContainerTests;
-<#else>
-import ${endpoint.basePackage}.database.DatabaseConfiguration;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
@@ -19,10 +17,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-<#if (!endpoint.isWithTestContainers())>
+<#if (endpoint.isWithTestContainers())>
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.junit.jupiter.Testcontainers;
 </#if>
 import org.springframework.test.web.servlet.MockMvc;
 

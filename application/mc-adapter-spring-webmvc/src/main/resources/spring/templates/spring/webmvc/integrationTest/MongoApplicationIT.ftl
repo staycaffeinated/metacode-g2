@@ -1,30 +1,24 @@
 <#include "/common/Copyright.ftl">
 package ${project.basePackage};
 
+<#if (project.isWithTestContainers())>
+import ${project.basePackage}.config.ContainerConfiguration;
+</#if>
+import ${project.basePackage}.database.RegisterDatabaseProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-<#if (!project.isWithTestContainers())>
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-<#else>
-import ${project.basePackage}.database.MongoDbContainerTests;
+<#if (project.isWithTestContainers())>
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
 </#if>
-
 @Slf4j
 @SpringBootTest
 <#if (project.isWithTestContainers())>
-class ApplicationTests extends MongoDbContainerTests {
-<#else>
-class ApplicationTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
 </#if>
-    <#if (!project.isWithTestContainers())>
-    @DynamicPropertySource
-    static void setProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.data.mongodb.uri", ()->"mongodb://localhost:27017");
-        registry.add("spring.data.mongodb.database", ()->"testdata");
-    }
-    </#if>
+class ApplicationTests implements RegisterDatabaseProperties {
 
     @Test
     void contextLoads() {

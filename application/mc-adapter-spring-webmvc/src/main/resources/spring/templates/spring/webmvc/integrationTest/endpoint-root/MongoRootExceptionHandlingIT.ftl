@@ -2,8 +2,9 @@
 package ${project.basePackage}.endpoint.root;
 
 <#if (project.isWithTestContainers())>
-import ${project.basePackage}.database.MongoDbContainerTests;
+import ${project.basePackage}.config.ContainerConfiguration;
 </#if>
+import ${project.basePackage}.database.RegisterDatabaseProperties;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+<#if (project.isWithTestContainers())>
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
+</#if>
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
@@ -30,11 +35,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 <#if (project.isWithTestContainers())>
-class RootExceptionHandlingIT extends MongoDbContainerTests {
-<#else>
-class RootExceptionHandlingIT {
+@Import(ContainerConfiguration.class)
+@Testcontainers
 </#if>
-
+class RootExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 

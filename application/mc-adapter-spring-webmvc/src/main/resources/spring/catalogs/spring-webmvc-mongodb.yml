@@ -155,14 +155,14 @@ catalog:
       template: "/spring/webmvc/integrationTest/MongoApplicationIT.ftl"
       destination: "src/integrationTest/java/{{basePackagePath}}/ApplicationTests.java"
       context: "project"
+#  - entry:
+#      template: "/spring/webmvc/integrationTest/database/MongoDbContainerTests.ftl"
+#      destination: "src/integrationTest/java/{{basePackagePath}}/database/MongoDbContainerTests.java"
+#      context: "project"
+#      feature: "testcontainers"
   - entry:
-      template: "/spring/webmvc/integrationTest/database/MongoDbContainerTests.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/database/MongoDbContainerTests.java"
-      context: "project"
-      feature: "testcontainers"
-  - entry:
-      template: "/spring/webmvc/integrationTest/database/MongoDatabaseConfiguration.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/database/DatabaseConfiguration.java"
+      template: "/spring/webmvc/integrationTest/config/MongoContainerConfiguration.ftl"
+      destination: "src/integrationTest/java/{{basePackagePath}}/config/ContainerConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/resources/MongoDbApplicationDotProperties.ftl"

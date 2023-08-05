@@ -4,10 +4,8 @@ package ${endpoint.packageName};
 
 <#if (endpoint.isWithTestContainers())>
 import ${endpoint.basePackage}.config.ContainerConfiguration;
-import ${endpoint.basePackage}.database.MongoDbContainerTests;
-<#else>
-import ${endpoint.basePackage}.database.DatabaseConfiguration;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
@@ -21,10 +19,9 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-<#if (!endpoint.isWithTestContainers())>
+<#if (endpoint.isWithTestContainers())>
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.junit.jupiter.Testcontainers;
 </#if>
 
 import java.util.List;
