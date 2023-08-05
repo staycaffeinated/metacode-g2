@@ -201,13 +201,23 @@ catalog:
       template: "/spring/common/test/validation/SearchTextValidatorTests.ftl"
       destination: "src/test/java/{{basePackagePath}}/validation/SearchTextValidatorTests.java"
       context: "project"
+#  - entry:
+#      template: "/spring/webmvc/integrationTest/database/DatabaseInitFunction.ftl"
+#      destination: "src/integrationTest/java/{{basePackagePath}}/database/DatabaseInitFunction.java"
+#      context: "project"
+#  - entry:
+#      template: "/spring/webmvc/integrationTest/database/PostgresContainerTests.ftl"
+#      destination: "src/integrationTest/java/{{basePackagePath}}/database/PostgresContainerTests.java"
+#      context: "project"
+#      feature: "postgres"
   - entry:
-      template: "/spring/webmvc/integrationTest/database/DatabaseInitFunction.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/database/DatabaseInitFunction.java"
+      template: "/spring/webmvc/integrationTest/config/ContainerConfiguration.ftl"
+      destination: "src/integrationTest/java/{{basePackagePath}}/config/ContainerConfiguration.java"
       context: "project"
+      feature: "postgres"
   - entry:
-      template: "/spring/webmvc/integrationTest/database/PostgresContainerTests.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/database/PostgresContainerTests.java"
+      template: "/spring/webmvc/integrationTest/database/RegisterDatabaseProperties.ftl"
+      destination: "src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
       context: "project"
       feature: "postgres"
 #

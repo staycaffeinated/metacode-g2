@@ -2,7 +2,11 @@
 
 package ${endpoint.packageName};
 
-import ${endpoint.basePackage}.common.AbstractIntegrationTest;
+<#if endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
+</#if>
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
@@ -15,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.context.annotation.Import;
 </#if>
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -38,7 +43,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-class ${endpoint.entityName}ControllerIT extends PostgresContainerTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
+class ${endpoint.entityName}ControllerIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 
@@ -46,7 +53,7 @@ class ${endpoint.entityName}ControllerIT extends PostgresContainerTests {
     ObjectMapper objectMapper;
 
 <#else>
-class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
+class ${endpoint.entityName}ControllerIT implements RegisterDatabaseProperties {
 </#if>
     public static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
     public static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
@@ -58,13 +65,6 @@ class ${endpoint.entityName}ControllerIT extends AbstractIntegrationTest {
     private List<${endpoint.ejbName}> ${endpoint.entityVarName}List = null;
 
     private final SecureRandomSeries randomSeries = new SecureRandomSeries();
-
-<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
-    @DynamicPropertySource
-    static void registerProperties(DynamicPropertyRegistry registry) {
-        DatabaseInitFunction.registerDatabaseProperties(registry);
-    }
-</#if>
 
     @BeforeEach
     void setUp() {

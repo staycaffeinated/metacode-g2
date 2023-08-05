@@ -2,13 +2,19 @@
 
 package ${endpoint.packageName};
 
-import ${endpoint.basePackage}.common.AbstractIntegrationTest;
+<#if endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
+</#if>
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
 import org.junit.jupiter.api.*;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+import org.springframework.context.annotation.Import;
 import org.springframework.boot.test.context.SpringBootTest;
 </#if>
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +30,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class ${endpoint.entityName}ServiceIT extends PostgresContainerTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
+class ${endpoint.entityName}ServiceIT implements RegisterDatabaseProperties {
 <#else>
 class ${endpoint.entityName}ServiceIT extends AbstractIntegrationTest {
 </#if>

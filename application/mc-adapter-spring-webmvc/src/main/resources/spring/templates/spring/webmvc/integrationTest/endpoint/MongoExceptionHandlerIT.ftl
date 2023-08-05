@@ -3,6 +3,7 @@
 package ${endpoint.packageName};
 
 <#if (endpoint.isWithTestContainers())>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
 import ${endpoint.basePackage}.database.MongoDbContainerTests;
 <#else>
 import ${endpoint.basePackage}.database.DatabaseConfiguration;
@@ -19,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 <#if (!endpoint.isWithTestContainers())>
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 </#if>
@@ -36,10 +38,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 <#if (endpoint.isWithTestContainers())>
-class ${endpoint.entityName}ExceptionHandlingIT extends MongoDbContainerTests {
-<#else>
-class ${endpoint.entityName}ExceptionHandlingIT {
+@Import(ContainerConfiguration.class)
+@Testcontainers
 </#if>
+class ${endpoint.entityName}ExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 
@@ -48,13 +50,6 @@ class ${endpoint.entityName}ExceptionHandlingIT {
 
     @MockBean
     private ${endpoint.entityName}Service theService;
-
-<#if (!endpoint.isWithTestContainers())>
-    @DynamicPropertySource
-    static void setProperties(DynamicPropertyRegistry registry) {
-        DatabaseConfiguration.registerDatabaseProperties(registry);
-    }
-</#if>
 
     @Nested
     class ExceptionTests {

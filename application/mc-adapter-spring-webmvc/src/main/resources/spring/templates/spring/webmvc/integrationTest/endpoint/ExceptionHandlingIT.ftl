@@ -2,9 +2,8 @@
 package ${endpoint.packageName};
 
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
-import ${endpoint.basePackage}.database.PostgresContainerTests;
-<#else>
-import ${endpoint.basePackage}.common.AbstractIntegrationTest;
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 </#if>
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
 import ${endpoint.basePackage}.domain.${endpoint.entityName}TestFixtures;
@@ -13,12 +12,15 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
+import org.testcontainers.junit.jupiter.Testcontainers;
 </#if>
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -38,7 +40,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-class ${endpoint.entityName}ExceptionHandlingIT extends PostgresContainerTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
+class ${endpoint.entityName}ExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 
@@ -46,7 +50,7 @@ class ${endpoint.entityName}ExceptionHandlingIT extends PostgresContainerTests {
     ObjectMapper objectMapper;
 <#else>
 @ExtendWith(SpringExtension.class)
-class ${endpoint.entityName}ExceptionHandlingIT extends AbstractIntegrationTest {
+class ${endpoint.entityName}ExceptionHandlingIT implements RegisterDatabaseProperties {
 </#if>
     @MockBean
     private ${endpoint.entityName}Service ${endpoint.entityVarName}Service;

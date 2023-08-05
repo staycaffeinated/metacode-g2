@@ -2,6 +2,12 @@
 
 package ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName};
 
+<#if endpoint.isWithTestContainers()>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+import org.springframework.context.annotation.Import;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import ${endpoint.basePackage}.config.ContainerConfiguration;
+</#if>
 import ${endpoint.basePackage}.database.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.*;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.predicate.*;
@@ -13,13 +19,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.*;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.DynamicPropertyRegistry;
 
 import java.util.List;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 </#if>
@@ -30,11 +37,13 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  */
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class ${endpoint.entityName}RepositoryIT extends PostgresContainerTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
+class ${endpoint.entityName}RepositoryIT implements RegisterDatabaseProperties {
 <#else>
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class ${endpoint.entityName}RepositoryIT {
+class ${endpoint.entityName}RepositoryIT implements RegisterDatabaseProperties {
 </#if>
     @Autowired
     private ${endpoint.entityName}Repository repositoryUnderTest;
@@ -44,14 +53,6 @@ class ${endpoint.entityName}RepositoryIT {
 
     // Increment for rowIds in the database
     private long rowId = 0;
-
-<#if !(endpoint.isWithPostgres() || endpoint.isWithTestContainers())>
-<#-- if the generated class extends PostgresContainerTests, the DynamicPropertySource is already defined -->
-    @DynamicPropertySource
-    static void registerProperties(DynamicPropertyRegistry registry) {
-        DatabaseInitFunction.registerDatabaseProperties(registry);
-    }
-</#if>
 
     @BeforeEach
     void insertTestData() {

@@ -3,6 +3,7 @@
 package ${endpoint.packageName};
 
 <#if (endpoint.isWithTestContainers())>
+import ${endpoint.basePackage}.config.ContainerConfiguration;
 import ${endpoint.basePackage}.database.MongoDbContainerTests;
 <#else>
 import ${endpoint.basePackage}.database.DatabaseConfiguration;
@@ -21,6 +22,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 <#if (!endpoint.isWithTestContainers())>
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 </#if>
@@ -32,24 +34,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 <#if (endpoint.isWithTestContainers())>
-class ${endpoint.entityName}ServiceIT extends MongoDbContainerTests {
-<#else>
-class ${endpoint.entityName}ServiceIT {
+@Import(ContainerConfiguration.class)
+@Testcontainers
 </#if>
-
+class ${endpoint.entityName}ServiceIT implements RegisterDatabaseProperties {
     @Autowired
     private ${endpoint.entityName}DataStore dataStore;
 
     private ${endpoint.entityName}Service serviceUnderTest;
 
     private ${endpoint.entityName} knownPersistedItem;
-
-<#if (!endpoint.isWithTestContainers())>
-    @DynamicPropertySource
-    static void setProperties(DynamicPropertyRegistry registry) {
-        DatabaseConfiguration.registerDatabaseProperties(registry);
-    }
-</#if>
 
     @BeforeEach
     void init${endpoint.entityName}Service() {

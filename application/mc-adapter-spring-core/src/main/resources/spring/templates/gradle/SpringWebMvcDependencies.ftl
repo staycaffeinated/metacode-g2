@@ -55,6 +55,8 @@ dependencies {
     testImplementation libs.springCloud
     testImplementation platform( libs.testContainersBom )
     testImplementation libs.testContainersJupiter
+    testImplementation libs.springBootTestContainers
+    testImplementation libs.springDevTools
     <#if (project.isWithPostgres())> <#-- if (testcontainers && postgres) -->
     testImplementation libs.testContainersPostgres
     </#if>

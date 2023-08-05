@@ -10,7 +10,8 @@ package ${project.basePackage}.endpoint.root;
 <#-- Tech Debt: refactor maybe into 2 distinct tempates                             -->
 <#-- ============================================================================== -->
 <#if project.isWithPostgres() && project.isWithTestContainers()>
-import ${project.basePackage}.database.PostgresContainerTests;
+import ${project.basePackage}.config.ContainerConfiguration;
+import ${project.basePackage}.database.RegisterDatabaseProperties;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,6 +21,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.context.annotation.Import;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -27,11 +34,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
-
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 /**
@@ -39,7 +41,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-public class RootExceptionHandlingIT extends PostgresContainerTests {
+@Import(ContainerConfiguration.class)
+@Testcontainers
+public class RootExceptionHandlingIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 <#-- ======================================= -->
@@ -71,7 +75,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @ExtendWith(SpringExtension.class)
-class RootExceptionHandlingIT extends AbstractIntegrationTest {
+class RootExceptionHandlingIT implements RegisterDatabaseProperties {
 </#if>
     @MockBean
     private RootService mockService;  // this is used to initialize the controller

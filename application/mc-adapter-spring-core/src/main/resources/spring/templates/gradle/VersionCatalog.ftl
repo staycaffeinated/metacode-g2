@@ -56,6 +56,7 @@ problemSpringWebStarter = { module = "org.zalando:problem-spring-web-starter", v
 problemJacksonDataType = { module = "org.zalando:jackson-datatype-problem", version.ref = "problemJacksonDataType" }
 reactorTest = { module = "io.projectreactor:reactor-test", version.ref = "reactorTest" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
+
 springBatchTest = { module = "org.springframework.batch:spring-batch-test" }
 springBootConfigProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
 springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
@@ -68,6 +69,7 @@ springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 springBootStarterWebFlux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
 springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+springBootTestContainers = { module = "org.springframework.boot:spring-boot-testcontainers" }
 springCloud = { module = "org.springframework.cloud:spring-cloud-starter", version.ref = "springCloud" }
 springCloudBinderKafkaStreams = { module = "org.springframework.cloud:spring-cloud-stream-binder-kafka-streams", version.ref = "springCloud" }
 springCloudStarterSteamKafka = { module = "org.springframework.cloud:spring-cloud-starter-stream-kafka", version.ref = "springCloud" }
