@@ -4,9 +4,8 @@ package ${endpoint.packageName};
 
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import ${endpoint.basePackage}.database.PostgresTestContainer;
-<#else>
-import ${endpoint.basePackage}.database.DatabaseInitFunction;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}Repository;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}EntityTestFixtures;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.ejbName};
@@ -21,9 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
-<#if !(endpoint.isWithTestContainers())>
-import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.test.context.DynamicPropertyRegistry;
+<#if (endpoint.isWithTestContainers())>
 </#if>
 import org.springframework.test.web.reactive.server.FluxExchangeResult;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -41,7 +38,7 @@ import java.time.Duration;
 <#if (endpoint.isWithPostgres() && endpoint.isWithTestContainers())>
 class ${endpoint.entityName}ControllerIntegrationTest extends PostgresTestContainer {
 <#else>
-class ${endpoint.entityName}ControllerIntegrationTest {
+class ${endpoint.entityName}ControllerIntegrationTest implements RegisterDatabaseProperties {
 </#if>
    private static final String JSON_PATH__TEXT = "$." + ${endpoint.entityName}.Fields.TEXT;
    private static final String JSON_PATH__RESOURCE_ID = "$." + ${endpoint.entityName}.Fields.RESOURCE_ID;
@@ -63,13 +60,6 @@ class ${endpoint.entityName}ControllerIntegrationTest {
     */
    private String knownResourceId;
 
-<#if !endpoint.isWithTestContainers()>
-    @DynamicPropertySource
-    static void registerProperties(DynamicPropertyRegistry registry) {
-        DatabaseInitFunction.registerDatabaseProperties(registry);
-    }
-
-</#if>
    	@Autowired
     public void setApplicationContext(ApplicationContext context) {
         this.client = WebTestClient.bindToApplicationContext(context).configureClient().build();

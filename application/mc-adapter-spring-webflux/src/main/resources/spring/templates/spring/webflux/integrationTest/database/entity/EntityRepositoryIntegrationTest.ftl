@@ -7,6 +7,7 @@ import ${endpoint.basePackage}.configuration.TestDatabaseConfiguration;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import ${endpoint.basePackage}.database.PostgresTestContainer;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 <#if ((endpoint.isWithPostgres()) && (endpoint.isWithTestContainers()))>
 class ${endpoint.entityName}RepositoryIntegrationTest extends PostgresTestContainer {
 <#else>
-class ${endpoint.entityName}RepositoryIntegrationTest {
+class ${endpoint.entityName}RepositoryIntegrationTest implements RegisterDatabaseProperties {
 </#if>
 
     @Autowired

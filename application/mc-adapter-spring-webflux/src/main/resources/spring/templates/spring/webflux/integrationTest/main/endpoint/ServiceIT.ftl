@@ -5,9 +5,8 @@ package ${endpoint.packageName};
 import ${endpoint.basePackage}.configuration.*;
 <#if endpoint.isWithPostgres() && endpoint.isWithTestContainers()>
 import ${endpoint.basePackage}.database.PostgresTestContainer;
-<#else>
-import ${endpoint.basePackage}.database.DatabaseInitFunction;
 </#if>
+import ${endpoint.basePackage}.database.RegisterDatabaseProperties;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}DataStore;
 import ${endpoint.basePackage}.database.${endpoint.lowerCaseEntityName}.${endpoint.entityName}EntityTestFixtures;
 import ${endpoint.basePackage}.domain.${endpoint.entityName};
@@ -18,9 +17,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-<#if !endpoint.isWithTestContainers()>
-import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.test.context.DynamicPropertyRegistry;
+<#if endpoint.isWithTestContainers()>
 </#if>
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -39,7 +36,7 @@ import java.time.Duration;
 <#if (endpoint.isWithPostgres() && endpoint.isWithTestContainers())>
 class ${endpoint.entityName}ServiceIntegrationTest extends PostgresTestContainer {
 <#else>
-class ${endpoint.entityName}ServiceIntegrationTest {
+class ${endpoint.entityName}ServiceIntegrationTest implements RegisterDatabaseProperties {
 </#if>
 
     @Autowired
@@ -47,13 +44,6 @@ class ${endpoint.entityName}ServiceIntegrationTest {
 
     ${endpoint.entityName}ServiceProvider serviceUnderTest;
 
-<#if !endpoint.isWithTestContainers()>
-    @DynamicPropertySource
-    static void registerProperties(DynamicPropertyRegistry registry) {
-        DatabaseInitFunction.registerDatabaseProperties(registry);
-    }
-
-</#if>
     @BeforeEach
     void setUp() {
         serviceUnderTest = new ${endpoint.entityName}ServiceProvider(dataStore);

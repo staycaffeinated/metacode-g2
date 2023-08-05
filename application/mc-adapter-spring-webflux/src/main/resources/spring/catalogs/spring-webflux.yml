@@ -154,8 +154,8 @@ catalog:
       destination: "src/test/java/{{basePackagePath}}/advice/GlobalExceptionHandlerTests.java"
       context: "project"
   - entry:
-      template: "/spring/webflux/integrationTest/database/DatabaseInitFunction.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/database/DatabaseInitFunction.java"
+      template: "/spring/webflux/integrationTest/database/RegisterDatabaseProperties.ftl"
+      destination: "src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
       context: "project"
   - entry:
       template: "/spring/webflux/integrationTest/database/PostgresTestContainer.ftl"

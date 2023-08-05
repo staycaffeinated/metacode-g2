@@ -44,6 +44,7 @@ dependencies {
     testImplementation libs.springDevTools
     <#if (project.isWithPostgres())> <#-- if (testcontainers && postgres) -->
     testImplementation libs.testContainersPostgres
+    testImplementation libs.testContainersR2DBC
     </#if>
 <#else>
 <#-- if testcontainers aren't in use, default to using H2 to enable -->

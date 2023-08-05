@@ -83,6 +83,7 @@ testContainersJupiter = { module = "org.testcontainers:junit-jupiter" }
 testContainersKafka = { module = "org.testcontainers:kafka" }
 testContainersMongoDb = { module = "org.testcontainers:mongodb" }
 testContainersPostgres = { module = "org.testcontainers:postgresql" }
+testContainersR2DBC = { module = "org.testcontainers:r2dbc" }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref="springBoot" }
