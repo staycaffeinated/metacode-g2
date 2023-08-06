@@ -22,6 +22,9 @@ public class ContainerConfiguration {
         return new PostgreSQLContainer<>("postgres")
             .withReuse(true)
             .withStartupTimeout(Duration.ofMinutes(1))
+<#if (project.schema?has_content)>
+            .withInitScript("create-schema.sql")
+</#if>
             .waitingFor(Wait.forListeningPort());
     }
 </#if>

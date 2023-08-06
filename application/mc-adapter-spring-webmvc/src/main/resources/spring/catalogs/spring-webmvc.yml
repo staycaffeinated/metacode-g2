@@ -219,6 +219,10 @@ catalog:
       template: "/spring/webmvc/integrationTest/database/RegisterDatabaseProperties.ftl"
       destination: "src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
       context: "project"
+  - entry:
+      template: "/spring/webmvc/integrationTest/resources/CreateSchemaDotSql.ftl"
+      destination: "src/integrationTest/resources/create-schema.sql"
+      context: "project"
 #
 # Endpoint entries
 #

@@ -173,6 +173,14 @@ catalog:
       destination: "src/main/resources/ValidationMessages.properties"
       context: "project"
   - entry:
+      template: "/spring/webmvc/integrationTest/database/MongoRegisterDatabaseProperties.ftl"
+      destination: "src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
+      context: "project"
+  - entry:
+      template: "/spring/webmvc/integrationTest/resources/CreateSchemaDotSql.ftl"
+      destination: "src/integrationTest/resources/create-schema.sql"
+      context: "project"
+  - entry:
       template: "/spring/webmvc/main/resources/db/liquibase/db.changelog-master.ftl"
       destination: "src/main/resources/db/changelog/db.changelog-master.yaml"
       context: "project"

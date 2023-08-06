@@ -21,6 +21,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 class ApplicationTests implements RegisterDatabaseProperties {
 
     @Test
+    @SuppressWarnings("java:S2699") // there's nothing to assert
     void contextLoads() {
         // If this test runs without throwing an exception, then SpringBoot started successfully
     }
