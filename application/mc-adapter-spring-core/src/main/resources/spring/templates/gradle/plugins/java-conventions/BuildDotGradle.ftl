@@ -10,5 +10,5 @@ dependencies {
     implementation("com.google.cloud.tools:jib-gradle-plugin:${project.jibPluginVersion}")
     implementation("io.freefair.gradle:lombok-plugin:${project.lombokPluginVersion}")
     implementation(platform("org.example.platform:platform"))
-    compileOnly("org.projectlombok:lombok:1.18.28")
+    compileOnly("org.projectlombok:lombok:${project.lombokVersion}")
 }
