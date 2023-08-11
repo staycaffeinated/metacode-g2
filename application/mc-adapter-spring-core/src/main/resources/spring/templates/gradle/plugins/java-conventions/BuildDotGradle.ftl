@@ -4,11 +4,11 @@ plugins {
 }
 
 dependencies {
-    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.1.0.3113")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.19.0")
+    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${project.sonarqubeVersion}")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:${project.spotlessVersion}")
     implementation("com.netflix.nebula:gradle-lint-plugin:18.0.3")
-    implementation("com.google.cloud.tools:jib-gradle-plugin:3.3.2")
-    implementation("io.freefair.gradle:lombok-plugin:8.0.1")
+    implementation("com.google.cloud.tools:jib-gradle-plugin:${project.jibPluginVersion}")
+    implementation("io.freefair.gradle:lombok-plugin:${project.lombokPluginVersion}")
     implementation(platform("org.example.platform:platform"))
     compileOnly("org.projectlombok:lombok:1.18.28")
 }

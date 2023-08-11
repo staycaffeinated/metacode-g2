@@ -1,6 +1,22 @@
 
 ## [Unreleased]
 
+### Fixed
+
+* Replaced instances of hard-coded strings with variable references. 
+  In particular, some test classes used "text" to reference the default
+  property named "text" that the code generator injects. Now, instead of using
+  "text", a variable is used; it looks something like '''Pet.Fields.TEXT'''. 
+  This makes refactoring easier by reducing that redundancy. 
+      
+### Maintenance
+
+* Bumped Versions
+    * Sonar Gradle plugin from 4.0.0.2929 to 4.3.0.3225
+    * Spotless Gradle plugin from 6.18.0 to 6.20.0
+    * Jib Gradle plugin from 3.3.1 to 3.3.2
+
+
 ## [9.2.0] - 2023-08-06
 
 ### Added
