@@ -1,6 +1,14 @@
 
 ## [Unreleased]
 
+* Bumped Versions
+  * SpringBoot from 3.1.2 to 3.1.3
+  * JUnit Jupiter from 5.9.3 to 5.10.0
+  * OpenAPI Starter from  2.1.0 to 2.2.0
+  * Spring Dependency Management plugin from 1.1.2 to 1.1.3
+  * Lombok plugin from 8.1.0 to 8.3
+  * Reactor Test from 3.5.8 to 3.5.9
+
 ## [9.2.1] - 2023-08-12
 
 ### Fixed
