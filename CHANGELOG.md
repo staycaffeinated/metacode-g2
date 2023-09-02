@@ -1,6 +1,8 @@
 
 ## [Unreleased]
 
+## [9.2.2] - 2023-09-02
+
 * Bumped Versions
   * SpringBoot from 3.1.2 to 3.1.3
   * JUnit Jupiter from 5.9.3 to 5.10.0
@@ -8,6 +10,7 @@
   * Spring Dependency Management plugin from 1.1.2 to 1.1.3
   * Lombok plugin from 8.1.0 to 8.3
   * Reactor Test from 3.5.8 to 3.5.9
+  * TestContainers from 1.18.3 to 1.19.0
 
 ## [9.2.1] - 2023-08-12
 
