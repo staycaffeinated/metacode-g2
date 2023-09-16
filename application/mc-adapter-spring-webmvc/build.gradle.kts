@@ -1,6 +1,7 @@
 plugins {
     id("mmm.coffee.java-conventions")
     id("mmm.coffee.lifecycle")
+    id("mmm.coffee.versioning")
 }
 
 group = "mmm.coffee.metacode"

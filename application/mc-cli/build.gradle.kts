@@ -3,6 +3,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     id("mmm.coffee.lifecycle")
     id("mmm.coffee.java-conventions")
+    id("mmm.coffee.versioning")
     id("application")
     id("distribution")
     id("java")
