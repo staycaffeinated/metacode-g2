@@ -8,12 +8,14 @@ liquibase = '${project.liquibaseVersion}'
 lombok = '${project.lombokVersion}'
 lombokPlugin = '${project.lombokPluginVersion}'
 mockito = '${project.mockitoVersion}'
+nebulaLint = '18.0.3'
 openApiStarterWebMvc = '${project.openApiStarterWebMvcVersion}'
 openApiStarterWebflux = '${project.openApiStarterWebfluxVersion}'
 postgresql = '${project.postgresqlVersion}'
 r2dbcH2 = '${project.r2dbc_h2Version}'
 r2dbcPostgres = '${project.r2dbc_postgresVersion}'
 r2dbcSpi = '${project.r2dbc_spiVersion}'
+sonar = '${project.sonarqubeVersion}'
 springBoot = '${project.springBootVersion}'
 springCloud = '${project.springCloudVersion}'
 springDependencyManagement = '${project.springDependencyManagementVersion}'
@@ -72,7 +74,7 @@ springBootStarterValidation = { module = "org.springframework.boot:spring-boot-s
 springBootTestContainers = { module = "org.springframework.boot:spring-boot-testcontainers" }
 springCloud = { module = "org.springframework.cloud:spring-cloud-starter", version.ref = "springCloud" }
 springCloudBinderKafkaStreams = { module = "org.springframework.cloud:spring-cloud-stream-binder-kafka-streams", version.ref = "springCloud" }
-springCloudStarterSteamKafka = { module = "org.springframework.cloud:spring-cloud-starter-stream-kafka", version.ref = "springCloud" }
+springCloudStarterStreamKafka = { module = "org.springframework.cloud:spring-cloud-starter-stream-kafka", version.ref = "springCloud" }
 springDevTools = { module = "org.springframework.boot:spring-boot-devtools" }
 springKafka = { module = "org.springframework.kafka:spring-kafka" }
 springKafkaTest = { module = "org.springframework.kafka:spring-kafka-test" }
@@ -86,7 +88,9 @@ testContainersPostgres = { module = "org.testcontainers:postgresql" }
 testContainersR2DBC = { module = "org.testcontainers:r2dbc" }
 
 [plugins]
-spring-boot = { id = "org.springframework.boot", version.ref="springBoot" }
 dependency-management = { id = "io.spring.dependency-management", version.ref="springDependencyManagement" }
-versions = { id = "com.github.ben-manes.versions", version.ref="versions" }
 lombok-plugin = { id = "io.freefair.lombok", version.ref="lombokPlugin" }
+nebula-lint = { id = "nebula.lint", version.ref="nebulaLint" }
+sonar = { id = "org.sonarqube", version.ref = "sonar" }
+spring-boot = { id = "org.springframework.boot", version.ref="springBoot" }
+versions = { id = "com.github.ben-manes.versions", version.ref="versions" }

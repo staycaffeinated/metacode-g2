@@ -1,6 +1,15 @@
 
 ## [Unreleased]
 
+* Fixed
+ * Corrected a spelling error in the name of the <i>springCloudStarterStreamKafka</i> library
+
+* Bumped Versions
+ * Sonarqube from 4.3.0.3225 to 4.3.1.3277
+ * Ben Manes Versions from 0.47.0 to 0.48.0
+ * H2 database driver from 2.2.220 to 2.2.222
+ * ReactorTest from 3.5.9 to 3.5.10
+
 ## [9.2.2] - 2023-09-02
 
 * Bumped Versions
