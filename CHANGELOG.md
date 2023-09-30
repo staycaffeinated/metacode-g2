@@ -1,14 +1,19 @@
 
-## [Unreleased]
+## [9.2.3] - 2023-09-30
 
 * Fixed
- * Corrected a spelling error in the name of the <i>springCloudStarterStreamKafka</i> library
+  * Corrected a spelling error in the name of the <i>springCloudStarterStreamKafka</i> library
 
 * Bumped Versions
- * Sonarqube from 4.3.0.3225 to 4.3.1.3277
- * Ben Manes Versions from 0.47.0 to 0.48.0
- * H2 database driver from 2.2.220 to 2.2.222
- * ReactorTest from 3.5.9 to 3.5.10
+  * Sonarqube from 4.3.0.3225 to 4.3.1.3277
+  * Ben Manes Versions from 0.47.0 to 0.48.0
+  * H2 database driver from 2.2.220 to 2.2.224
+  * ReactorTest from 3.5.9 to 3.5.10
+  * Nebula Lint plugin from 18.0.3 to 18.1.0
+  * Lombok library from 1.18.28 to 1.18.30
+    * the Lombok plugin is still pulling lombok:1.18.28  
+  * Spring ORM from 6.0.11 to 6.0.12
+  * Spring Boot plugin from 3.1.3 to 3.1.4
 
 ## [9.2.2] - 2023-09-02
 
