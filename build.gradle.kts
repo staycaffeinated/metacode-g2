@@ -18,7 +18,7 @@ tasks.named<TaskReportTask>("tasks") {
     }
 }
 
-val checkAll = tasks.register("checkAll") {
+val checkApp = tasks.register("checkApp") {
     group = taskGroup
     description = "Run all tests and create code coverage report"
     dependsOn(gradle.includedBuild("mc-adapter-spring-batch").task(":check"))
@@ -34,7 +34,7 @@ val checkAll = tasks.register("checkAll") {
 
 }
 
-val cleanAll = tasks.register("cleanAll") {
+val cleanApp = tasks.register("cleanApp") {
     group = taskGroup
     description = "Clean all submodule artifacts"
     // dependsOn(gradle.includedBuilds.filter { it.name.startsWith("mc-") }.map{ it.task(":clean")})
