@@ -10,6 +10,8 @@ dependencies {
 <#if (project.isWithPostgres())>
     runtimeOnly libs.postgresql
 </#if>
+    // Optional: This reports out-of-date property names
+    runtimeOnly libs.springBootPropertiesMigrator
 
 <#if (project.isWithTestContainers())>
     testImplementation platform( libs.testContainersBom )

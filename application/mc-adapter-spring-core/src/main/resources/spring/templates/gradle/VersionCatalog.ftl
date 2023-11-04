@@ -61,6 +61,7 @@ truth = { module = "com.google.truth:truth", version.ref = "truth" }
 
 springBatchTest = { module = "org.springframework.batch:spring-batch-test" }
 springBootConfigProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+springBootPropertiesMigrator = { module = "org.springframework.boot:spring-boot-properties-migrator" }
 springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 springBootStarterAop = { module = "org.springframework.boot:spring-boot-starter-aop" }
 springBootStarterBatch = { module = "org.springframework.boot:spring-boot-starter-batch" }

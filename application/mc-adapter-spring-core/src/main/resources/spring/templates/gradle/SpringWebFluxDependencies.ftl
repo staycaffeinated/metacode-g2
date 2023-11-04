@@ -36,6 +36,10 @@ dependencies {
     implementation libs.r2dbcH2
     runtimeOnly libs.h2
 </#if>
+
+    // Optional: This reports out-of-date property names
+    runtimeOnly libs.springBootPropertiesMigrator
+
 <#if (project.isWithTestContainers())>
     testImplementation libs.springCloud
     testImplementation platform( libs.testContainersBom )

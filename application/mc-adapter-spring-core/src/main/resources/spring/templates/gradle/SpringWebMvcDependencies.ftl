@@ -36,6 +36,9 @@ dependencies {
     implementation libs.liquibaseCore
 </#if>
 
+    // Optional: This reports out-of-date property names
+    runtimeOnly libs.springBootPropertiesMigrator
+
 <#if (project.isWithPostgres())>
     runtimeOnly libs.postgresql
 <#elseif (project.isWithMongoDb())>
