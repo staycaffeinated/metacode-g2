@@ -25,7 +25,7 @@ dependencies:
     version:  "3.24.2"
   # Ben Manes Update plugin
   - name: "benManesPlugin"
-    version: "0.48.0"
+    version: "0.49.0"
   # Coditory Integration Plugin
   - name: "coditoryPlugin"
     version: "1.4.5"
@@ -52,7 +52,7 @@ dependencies:
     version: "1.18.30"
   # Lombok Gradle plugin
   - name: "lombokPlugin"
-    version: "8.3"
+    version: "8.4"
   # Log4J
   - name: "log4j"
     version: "2.17.2"
@@ -94,7 +94,7 @@ dependencies:
     version: "6.20.0"
   # Spring Boot
   - name: "springBoot"
-    version: "3.1.4"
+    version: "3.1.5"
   # Spring Cloud
   - name: "springCloud"
     version: "4.0.4"
