@@ -1,3 +1,18 @@
+## Uncommitted
+
+## [9.2.4] - 2023-10-11
+
+* Fixed
+    * Removed incorrect import statements from controller integration tests
+
+* Bumped Versions
+    * Spring Boot plugin from 3.1.4 to 3.1.5
+    * Lombok plugin from 8.3 to 8.4
+    * Ben Manes Versions from 0.48.0 to 0.49.0
+    * Spring ORM library from 6.0.12 to 6.0.13
+     
+* Added
+  * SpringBoot Properties Migrator library to version catalog
 
 ## [9.2.3] - 2023-09-30
 
