@@ -12,10 +12,19 @@ plugins {
 // --------------------------------------------------------------------------------
 // Enable compiling with a specific Java version,
 // independent of the developer's current Java version.
+// The java version can be pinned by setting the version in the ".java-version"
+// file found in the root project. Fall back to version 17 if anything goes wrong.
 // --------------------------------------------------------------------------------
 java {
+    def javaVersion = 17
+    try {
+        javaVersion = rootProject.file('.java-version').text.trim()
+    }
+    catch (Exception e) {
+        javaVersion = 17
+    }
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(javaVersion)
     }
 }
 

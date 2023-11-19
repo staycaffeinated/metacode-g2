@@ -8,8 +8,8 @@
 # At the moment, 2 kinds of contexts are supported: 'project' and 'endpoint' since,
 # from the command-line interface, there are two subcommands, 'create-project'
 # and 'create-endpoint'. Hence, templates in the 'project' context are used
-# when the 'create-project' command is invoked, and templates in 'endpoint' context
-# are used when the 'create-endpoint' command is invoked.
+# when invoking the 'create-project' command, while the templates in 'endpoint' context
+# are used when invoking the 'create-endpoint' command.
 #
 # The 'feature' attribute indicates that particular template is only applied
 # when the declared feature (i.e., library integration) was specified. For example,
@@ -24,6 +24,10 @@ catalog:
   - entry:
       template: "/gradle/RootProjectBuildDotGradle.ftl"
       destination: "build.gradle"
+      context: "project"
+  - entry:
+      template: "/gradle/JavaVersion.ftl"
+      destination: ".java-version"
       context: "project"
   - entry:
       template: "/gradle/BuildDotGradle.ftl"
