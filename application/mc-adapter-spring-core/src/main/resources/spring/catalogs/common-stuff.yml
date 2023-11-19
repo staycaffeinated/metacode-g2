@@ -24,7 +24,7 @@ catalog:
       context: "project"
   - entry:
       template:  "/docker/DockerCompose.ftl"
-      destination: "src/main/docker-compose/docker-compose.yaml"
+      destination: "the-app/src/main/docker-compose/docker-compose.yaml"
       context: "project"
   - entry:
       template: "/lombok/lombokConfig.ftl"

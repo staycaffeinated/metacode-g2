@@ -1,5 +1,5 @@
 plugins {
-    id 'org.example.java-conventions'
+    id 'org.example.application-conventions'
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.dependency.management)
     alias(libs.plugins.versions)

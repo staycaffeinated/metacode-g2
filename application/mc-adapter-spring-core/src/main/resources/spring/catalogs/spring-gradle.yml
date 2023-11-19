@@ -22,8 +22,12 @@ catalog:
 # -- BASE DIRECTORY
 # ------------------------------------------------
   - entry:
-      template: "/gradle/BuildDotGradle.ftl"
+      template: "/gradle/RootProjectBuildDotGradle.ftl"
       destination: "build.gradle"
+      context: "project"
+  - entry:
+      template: "/gradle/BuildDotGradle.ftl"
+      destination: "the-app/build.gradle"
       context: "project"
   - entry:
       template: "/gradle/GradleDotProperties.ftl"
@@ -99,6 +103,18 @@ catalog:
       template: "/gradle/plugins/java-conventions/src-main-groovy/TestingDotGradle.ftl"
       destination: "gradle/plugins/java-conventions/src/main/groovy/org.example.testing.gradle"
       context: "project"
+  - entry:
+      template: "/gradle/plugins/java-conventions/src-main-groovy/ApplicationConventions.ftl"
+      destination: "gradle/plugins/java-conventions/src/main/groovy/org.example.application-conventions.gradle"
+      context: "project"
+  - entry:
+      template: "/gradle/plugins/java-conventions/src-main-groovy/LibraryConventions.ftl"
+      destination: "gradle/plugins/java-conventions/src/main/groovy/org.example.library-conventions.gradle"
+      context: "project"
+  - entry:
+      template: "/gradle/plugins/java-conventions/src-main-groovy/SubprojectConfigurations.ftl"
+      destination: "gradle/plugins/java-conventions/src/main/groovy/org.example.subproject-configurations.gradle"
+      context: "project"
 
 # ------------------------------------------------
 # -- SETTINGS
@@ -121,6 +137,6 @@ catalog:
 # ------------------------------------------------
   - entry:
       template: "/spring/common/main/resources/SchemaDotSql.ftl"
-      destination: "src/main/resources/schema.sql"
+      destination: "the-app/src/main/resources/schema.sql"
       context: "project"
       # when: "database is 'h2' and (project is webmvc or project is webflux)"

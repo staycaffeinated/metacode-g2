@@ -20,33 +20,33 @@
 catalog:
   - entry:
       template: "/spring/batch/main/Application.ftl"
-      destination: "src/main/java/{{basePackagePath}}/Application.java"
+      destination: "the-app/src/main/java/{{basePackagePath}}/Application.java"
       context: "project"
   - entry:
       template: "/spring/common/main/common/SpringProfiles.ftl"
-      destination: "src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
+      destination: "the-app/src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
       context: "project"
   - entry:
       template: "/spring/batch/main/config/BatchConfiguration.ftl"
-      destination: "src/main/java/{{basePackagePath}}/config/BatchConfiguration.java"
+      destination: "the-app/src/main/java/{{basePackagePath}}/config/BatchConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/batch/main/config/JobCompletionNotificationListener.ftl"
-      destination: "src/main/java/{{basePackagePath}}/config/JobCompletionNotificationListener.java"
+      destination: "the-app/src/main/java/{{basePackagePath}}/config/JobCompletionNotificationListener.java"
       context: "project"
   - entry:
       template: "/spring/batch/integrationTest/AbstractIntegrationTest.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/AbstractIntegrationTest.java"
+      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/AbstractIntegrationTest.java"
       context: "project"
   - entry:
       template: "/spring/batch/integrationTest/ApplicationIT.ftl"
-      destination: "src/integrationTest/java/{{basePackagePath}}/ApplicationIntegrationTest.java"
+      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/ApplicationIntegrationTest.java"
       context: "project"
   - entry:
       template: "/spring/batch/main/resources/ApplicationDotYaml.ftl"
-      destination: "src/main/resources/application.yml"
+      destination: "the-app/src/main/resources/application.yml"
       context: "project"
   - entry:
       template: "/spring/batch/test/PlaceholderTest.ftl"
-      destination: "src/test/java/{{basePackagePath}}/PlaceholderTest.java"
+      destination: "the-app/src/test/java/{{basePackagePath}}/PlaceholderTest.java"
       context: "project"
