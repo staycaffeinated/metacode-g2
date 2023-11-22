@@ -1,5 +1,16 @@
 ## Uncommitted
+          
+* Added
+  * The project structure is closer to Gradle's idiomatic structure. Specifically,
+    the project root directory now contains a subproject, ```the-app```,
+    that contains the ```src``` directory. This makes it easier to add other
+    subprojects.
+  * Added these "internal" Gradle plugins for more idiomatic build.gradle files:
+    * org.example.application-conventions.gradle
+    * org.example.library-conventions.gradle
+    * org.example.subproject-configurations.gradle
 
+      
 ## [9.2.4] - 2023-10-11
 
 * Fixed

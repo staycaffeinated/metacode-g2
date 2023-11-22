@@ -5,13 +5,12 @@
 == Developers Guide
 === Prerequisites
 
-* You must have Java 11 or higher installed to compile and run the project
-* You must have Gradle 6.7 or higher installed to build the project
-* SonarQube is only required for code coverage
+* You must have Java 17 or higher installed to compile and run the project.
+* You must have Gradle 7.6.2 or higher installed to build the project.
 
 === First Steps
 
-The code generator does not create a Gradle wrapper, so create one:
+The code generator does not create a Gradle wrapper; to create one:
 
 ```[shell]
 gradle wrapper
@@ -30,8 +29,15 @@ set the `systemProp.sonar` properties to what's appropriate
 for your environment.  Then run this command:
 
 ```[shell]
-./gradlew clean build sonarqube
+./gradlew clean build sonar
 ```
+
+==== Change the Java Version
+
+The Java version is defined in the ```.java-version``` file in the
+project's root directory, with ```17``` being the default value.
+Simply change that number to use a different version of Java.
+
 
 ==== Build a Docker Image
 
