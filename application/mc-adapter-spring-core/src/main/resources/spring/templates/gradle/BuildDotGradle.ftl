@@ -31,3 +31,11 @@ jib {
         tags = [ 'latest' ]
     }
 }
+
+sonar {
+    properties {
+        property "sonar.projectName", "${project.applicationName}"
+        property "sonar.projectKey", "${project.applicationName}"
+        property "sonar.gradle.skipCompile", "true"
+    }
+}
