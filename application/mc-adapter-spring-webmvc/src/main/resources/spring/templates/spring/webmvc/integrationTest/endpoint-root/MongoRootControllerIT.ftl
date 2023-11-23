@@ -30,7 +30,7 @@ class RootControllerIT implements RegisterDatabaseProperties {
     MockMvc mockMvc;
 
     @Test
-    public void testGetHome() throws Exception {
+    void testGetHome() throws Exception {
         mockMvc.perform(get("/")).andExpect(status().isOk());
     }
 }

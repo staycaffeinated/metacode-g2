@@ -1,0 +1,15 @@
+plugins {
+  id 'java'
+  id 'jacoco'
+  id 'org.sonarqube' version '4.4.1.3373'
+  }
+
+subprojects {
+  apply plugin: 'org.sonarqube'
+  sonar {
+    properties {
+      property 'sonar.coverage.jacoco.xmlReportPaths', "$projectDir.parentFile.path/build/reports/codeCoverageReport/codeCoverageReport.xml"
+      }
+   }
+}
+

@@ -1,13 +1,21 @@
 /**
- * The Nebula Lint plugin needs to be defined in the root project,
- * otherwise you'll see the error:
- *    Failed to apply plugin 'nebula.lint'.
- *        Task with name 'fixGradleLint' not found in root project '[name-of-your-project]'.
- * The Sonar plugin is here because the subproject-configurations includes
- * SonarQube configuration DSL.
- * The lombok plugin is here to resolve this error:
- *    Error resolving plugin [id: 'io.freefair.lombok', version: 'x.y']
- *    The request for this plugin could not be satisfied because the plugin is already on the classpath with an unknown version...
+ * These are the plugins that need to be present in the root directory's
+ * build.gradle file to enable support for multimodule projects. With this
+ * file in place, it becomes easier to add additional modules to this project.
+ * For example, to add a module named, say, "core-library", the steps are:
+ * 1) Create a directory named "core-library"
+ * 2) Update settings.gradle and add the line: include "core-library"
+ * 3) Create the core-library/build.gradle file. That build file might look like:
+ * <code>
+ *      plugins {
+ *          id 'org.example.library-conventions'
+ *          alias(libs.plugins.versions)
+ *          alias(libs.plugins.lombok.plugin)
+ *      }
+ *      dependencies {
+ *          implementation libs.guava  // for example
+ *      }
+ * </code>
  **/
 
 plugins {

@@ -28,12 +28,12 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @Import(ContainerConfiguration.class)
 @Testcontainers
 </#if>
-public class RootControllerIT implements RegisterDatabaseProperties {
+class RootControllerIT implements RegisterDatabaseProperties {
     @Autowired
     MockMvc mockMvc;
 
     @Test
-    public void testGetHome() throws Exception {
+    void testGetHome() throws Exception {
         mockMvc.perform(get("/")).andExpect(status().isOk());
     }
 }

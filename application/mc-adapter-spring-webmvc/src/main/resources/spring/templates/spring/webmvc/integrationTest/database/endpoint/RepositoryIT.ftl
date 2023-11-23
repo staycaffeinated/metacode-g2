@@ -99,16 +99,14 @@ class ${endpoint.entityName}RepositoryIT implements RegisterDatabaseProperties {
             String text = ${endpoint.ejbName}TestFixtures.allItems().get(0).getText();
             ${endpoint.entityName}WithText spec = new ${endpoint.entityName}WithText(text);
             List<${endpoint.ejbName}> list = repositoryUnderTest.findAll(spec);
-            assertThat(list).isNotNull();
-            assertThat(list.size()).isEqualTo(1);
+            assertThat(list).isNotNull().hasSize(1);
         }
 
         @Test
         void shouldFindAllWhenValueIsEmpty() {
             ${endpoint.entityName}WithText spec = new ${endpoint.entityName}WithText("");
             List<${endpoint.ejbName}> list = repositoryUnderTest.findAll(spec);
-            assertThat(list).isNotNull();
-            assertThat(list.size()).isEqualTo(${endpoint.ejbName}TestFixtures.allItems().size());
+            assertThat(list).isNotNull().hasSameSizeAs(${endpoint.ejbName}TestFixtures.allItems());
         }
     }
 
