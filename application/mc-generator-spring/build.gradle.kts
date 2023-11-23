@@ -49,3 +49,10 @@ dependencies {
     integrationTestImplementation("mmm.coffee.metacode:mc-adapter-spring-webmvc")
     integrationTestImplementation("mmm.coffee.metacode:mc-adapter-spring-webflux")
 }
+
+sonar {
+    properties {
+        property("sonar.projectName", "mc-generator-spring")
+        property("sonar.projectKey", "mmm.coffee.metacode:mc-generator-spring")
+    }
+}

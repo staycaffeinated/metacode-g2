@@ -20,3 +20,10 @@ dependencies {
     testImplementation(libs.truth)
     testImplementation(libs.mockito)
 }
+
+sonar {
+    properties {
+        property("sonar.projectName", "mc-adapter-spring-batch")
+        property("sonar.projectKey", "mmm.coffee.metacode:mc-adapter-spring-batch")
+    }
+}

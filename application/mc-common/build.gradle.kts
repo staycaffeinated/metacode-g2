@@ -38,3 +38,10 @@ dependencies {
     integrationTestImplementation(libs.mockito)
 }
 
+sonar {
+    properties {
+        property("sonar.projectName", "mc-common")
+        property("sonar.projectKey", "mmm.coffee.metacode:mc-common")
+    }
+}
+

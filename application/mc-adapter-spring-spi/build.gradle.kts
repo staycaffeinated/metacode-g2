@@ -16,3 +16,4 @@ dependencies {
     implementation(libs.guice)
     implementation(libs.jacksonYaml)
 }
+

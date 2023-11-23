@@ -24,3 +24,10 @@ dependencies {
     testImplementation(libs.truth)
     testImplementation(libs.mockito)
 }
+
+sonar {
+    properties {
+        property("sonar.projectName", "mc-adapter-spring-boot")
+        property("sonar.projectKey", "mmm.coffee.metacode:mc-adapter-spring-boot")
+    }
+}
