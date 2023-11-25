@@ -20,25 +20,25 @@
 catalog:
   - entry:
       template: "/spring/boot/main/Application.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/Application.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/Application.java"
       context: "project"
   - entry:
       template: "/spring/common/main/common/SpringProfiles.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
       context: "project"
   - entry:
       template: "/spring/boot/integrationTest/ApplicationIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/ApplicationTests.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/ApplicationTests.java"
       context: "project"
   - entry:
       template: "/spring/boot/integrationTest/common/AbstractIntegrationTest.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/common/AbstractIntegrationTest.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/common/AbstractIntegrationTest.java"
       context: "project"
   - entry:
       template: "/spring/boot/main/resources/ApplicationDotProperties.ftl"
-      destination: "the-app/src/main/resources/application.properties"
+      destination: "{{appModule}}/src/main/resources/application.properties"
       context: "project"
   - entry:
       template: "/spring/boot/test/PlaceholderTest.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/PlaceholderTest.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/PlaceholderTest.java"
       context: "project"

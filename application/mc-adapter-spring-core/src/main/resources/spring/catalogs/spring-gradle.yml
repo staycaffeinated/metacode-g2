@@ -31,7 +31,7 @@ catalog:
       context: "project"
   - entry:
       template: "/gradle/BuildDotGradle.ftl"
-      destination: "the-app/build.gradle"
+      destination: "{{appModule}}/build.gradle"
       context: "project"
   - entry:
       template: "/gradle/GradleDotProperties.ftl"
@@ -141,6 +141,6 @@ catalog:
 # ------------------------------------------------
   - entry:
       template: "/spring/common/main/resources/SchemaDotSql.ftl"
-      destination: "the-app/src/main/resources/schema.sql"
+      destination: "{{appModule}}/src/main/resources/schema.sql"
       context: "project"
       # when: "database is 'h2' and (project is webmvc or project is webflux)"

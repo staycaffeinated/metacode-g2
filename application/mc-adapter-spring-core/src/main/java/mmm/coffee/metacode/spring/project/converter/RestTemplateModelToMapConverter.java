@@ -30,6 +30,7 @@ public class RestTemplateModelToMapConverter implements ConvertTrait<RestProject
         map.put(MustacheConstants.BASE_PACKAGE, model.getBasePackage());
         map.put(MustacheConstants.BASE_PACKAGE_PATH, nameConverter.packageNameToPath(model.getBasePackage()));
         map.put(MustacheConstants.BASE_PATH, model.getBasePath());
+        map.put(MustacheConstants.APP_MODULE, model.getAppModule());
         return map;
     }
 }

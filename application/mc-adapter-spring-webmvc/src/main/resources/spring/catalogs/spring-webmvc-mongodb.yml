@@ -20,132 +20,132 @@
 catalog:
   - entry:
         template: "/spring/webmvc/main/Application.ftl"
-        destination: "the-app/src/main/java/{{basePackagePath}}/Application.java"
+        destination: "{{appModule}}/src/main/java/{{basePackagePath}}/Application.java"
         context: "project"
   - entry:
       template: "/spring/webmvc/main/advice/GlobalExceptionHandler.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/advice/GlobalExceptionHandler.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/advice/GlobalExceptionHandler.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/exception/ResourceNotFoundException.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/exception/ResourceNotFoundException.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/exception/ResourceNotFoundException.java"
       context: "project"
   - entry:
       template: "/spring/common/main/exception/UnprocessableEntityException.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/exception/UnprocessableEntityException.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/exception/UnprocessableEntityException.java"
       context: "project"
   - entry:
       template: "/spring/common/main/exception/ResourceNotFoundException.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/exception/ResourceNotFoundException.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/exception/ResourceNotFoundException.java"
       context: "project"
   - entry:
       template: "/spring/common/main/exception/BadRequestException.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/exception/BadRequestException.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/exception/BadRequestException.java"
       context: "project"
   - entry:
       template: "/spring/common/main/common/SpringProfiles.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/common/SpringProfiles.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/config/ApplicationConfiguration.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/config/ApplicationConfiguration.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/config/ApplicationConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/config/DateTimeFormatConfiguration.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/config/DateTimeFormatConfiguration.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/config/DateTimeFormatConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/config/ProblemConfiguration.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/config/ProblemConfiguration.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/config/ProblemConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/config/WebMvcConfiguration.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/config/WebMvcConfiguration.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/config/WebMvcConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/common/main/config/LocalDateConverter.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/config/LocalDateConverter.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/config/LocalDateConverter.java"
       context: "project"
   - entry:
       template: "/spring/common/main/spi/ResourceIdSupplier.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/spi/ResourceIdSupplier.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/spi/ResourceIdSupplier.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/spi/MongoDataStore.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/spi/DataStore.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/spi/DataStore.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/filter/SecurityResponseHeadersFilter.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/filter/SecurityResponseHeadersFilter.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/filter/SecurityResponseHeadersFilter.java"
       context: "project"
       feature: "security:headers"
   - entry:
       template: "/spring/common/main/math/SecureRandomSeries.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/math/SecureRandomSeries.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/math/SecureRandomSeries.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/trait/ResourceIdTrait.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/trait/ResourceIdTrait.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/trait/ResourceIdTrait.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/Alphabetic.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/Alphabetic.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/Alphabetic.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/AlphabeticValidator.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/AlphabeticValidator.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/AlphabeticValidator.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/validation/OnCreate.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/OnCreate.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/OnCreate.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/validation/OnUpdate.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/OnUpdate.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/OnUpdate.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/ResourceId.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/ResourceId.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/ResourceId.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/ResourceIdValidator.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/ResourceIdValidator.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/ResourceIdValidator.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/SearchText.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/SearchText.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/SearchText.java"
       context: "project"
   - entry:
       template: "/spring/common/main/validation/SearchTextValidator.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/validation/SearchTextValidator.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/validation/SearchTextValidator.java"
       context: "project"
   - entry:
       template:  "/spring/webmvc/main/endpoint-root/RootController.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/root/RootController.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/root/RootController.java"
       context: "project"
   - entry:
       template:  "/spring/webmvc/main/endpoint-root/RootService.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/root/RootService.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/root/RootService.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/test/endpoint-root/RootControllerTest.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/endpoint/root/RootControllerTest.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/endpoint/root/RootControllerTest.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/test/endpoint-root/RootServiceTest.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/endpoint/root/RootServiceTest.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/endpoint/root/RootServiceTest.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/test/advice/GlobalExceptionHandlerTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/advice/GlobalExceptionHandlerTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/advice/GlobalExceptionHandlerTests.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/integrationTest/endpoint-root/MongoRootControllerIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/endpoint/root/RootControllerIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/endpoint/root/RootControllerIT.java"
       context:  "project"
   - entry:
       template: "/spring/webmvc/integrationTest/endpoint-root/MongoRootExceptionHandlingIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/endpoint/root/RootExceptionHandlingIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/endpoint/root/RootExceptionHandlingIT.java"
       context: "project"
 #  - entry:
 #      template: "/spring/webmvc/integrationTest/common/AbstractIntegrationTest.ftl"
@@ -153,7 +153,7 @@ catalog:
 #      context: "project"
   - entry:
       template: "/spring/webmvc/integrationTest/MongoApplicationIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/ApplicationTests.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/ApplicationTests.java"
       context: "project"
 #  - entry:
 #      template: "/spring/webmvc/integrationTest/database/MongoDbContainerTests.ftl"
@@ -162,73 +162,73 @@ catalog:
 #      feature: "testcontainers"
   - entry:
       template: "/spring/webmvc/integrationTest/config/MongoContainerConfiguration.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/config/ContainerConfiguration.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/config/ContainerConfiguration.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/resources/MongoDbApplicationDotProperties.ftl"
-      destination: "the-app/src/main/resources/application.properties"
+      destination: "{{appModule}}/src/main/resources/application.properties"
       context: "project"
   - entry:
       template: "/spring/common/main/resources/ValidationMessages.ftl"
-      destination: "the-app/src/main/resources/ValidationMessages.properties"
+      destination: "{{appModule}}/src/main/resources/ValidationMessages.properties"
       context: "project"
   - entry:
       template: "/spring/webmvc/integrationTest/database/MongoRegisterDatabaseProperties.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/database/RegisterDatabaseProperties.java"
       context: "project"
   - entry:
       template: "/spring/webmvc/integrationTest/resources/CreateSchemaDotSql.ftl"
-      destination: "the-app/src/integrationTest/resources/create-schema.sql"
+      destination: "{{appModule}}/src/integrationTest/resources/create-schema.sql"
       context: "project"
   - entry:
       template: "/spring/webmvc/main/resources/db/liquibase/db.changelog-master.ftl"
-      destination: "the-app/src/main/resources/db/changelog/db.changelog-master.yaml"
+      destination: "{{appModule}}/src/main/resources/db/changelog/db.changelog-master.yaml"
       context: "project"
       feature: "liquibase"
   - entry:
       template: "/spring/webmvc/main/resources/db/liquibase/db.changelog-001-create-schema.ftl"
-      destination: "the-app/src/main/resources/db/changelog/db.changelog-001-create-schema.sql"
+      destination: "{{appModule}}/src/main/resources/db/changelog/db.changelog-001-create-schema.sql"
       context: "project"
       feature: "liquibase"
   - entry:
       template: "/spring/common/test/math/SecureRandomSeriesTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/math/SecureRandomSeriesTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/math/SecureRandomSeriesTests.java"
       context: "project"
   - entry:
       template: "/spring/common/test/config/LocalDateConverterTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/config/LocalDateConverterTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/config/LocalDateConverterTests.java"
       context: "project"
   - entry:
       template: "/spring/common/test/validation/AlphabeticValidatorTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/validation/AlphabeticValidatorTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/validation/AlphabeticValidatorTests.java"
       context: "project"
   - entry:
       template: "/spring/common/test/validation/ResourceIdValidatorTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/validation/ResourceIdValidatorTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/validation/ResourceIdValidatorTests.java"
       context: "project"
   - entry:
       template: "/spring/common/test/validation/SearchTextValidatorTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/validation/SearchTextValidatorTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/validation/SearchTextValidatorTests.java"
       context: "project"
 #
 # Endpoint entries
 #
   - entry:
       template: "/spring/webmvc/main/database/entity/Document.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}Document.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}Document.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/entity/MongoDocumentDataStoreIFace.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStore.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStore.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/entity/MongoDataStoreProvider.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStoreProvider.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStoreProvider.java"
       context: "endpoint"
 
   - entry:
       template: "/spring/webmvc/main/database/converter/DocumentToPojoConverter.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}DocumentToPojoConverter.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}DocumentToPojoConverter.java"
       context: "endpoint"
 #  - entry:
 #      template: "/spring/webmvc/main/database/predicate/EntityWithText.ftl"
@@ -236,85 +236,85 @@ catalog:
 #      context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/domain/EntityResource.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/domain/{{pojoName}}.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/domain/{{pojoName}}.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/entity/MongoDbRepository.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}Repository.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}Repository.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/converter/PojoToDocumentConverter.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}PojoToDocumentConverter.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}PojoToDocumentConverter.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/endpoint/MongoRestController.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Controller.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Controller.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/endpoint/MongoRestService.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Service.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Service.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/endpoint/MongoRestServiceProvider.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceProvider.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceProvider.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/endpoint/EntityRoutes.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Routes.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}Routes.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/main/database/entity/MongoDatabaseTablePopulator.ftl"
-      destination: "the-app/src/main/java/{{basePackagePath}}/database/{{entityName}}/{{entityName}}TablePopulator.java"
+      destination: "{{appModule}}/src/main/java/{{basePackagePath}}/database/{{entityName}}/{{entityName}}TablePopulator.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/test/database/MongoDocumentTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DocumentTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DocumentTests.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/test/database/entity/MongoDataStoreProviderTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStoreProviderTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DataStoreProviderTests.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/test/database/converter/DocumentToPojoConverterTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}DocumentToPojoConverterTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}DocumentToPojoConverterTests.java"
       context: "endpoint"
 
   - entry:
       template: "/spring/webmvc/test/endpoint/MongoControllerTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ControllerTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ControllerTests.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/test/database/converter/PojoToDocumentConverterTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}PojoToDocumentConverterTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/converter/{{entityName}}PojoToDocumentConverterTests.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/test/endpoint/MongoServiceTests.ftl"
-      destination: "the-app/src/test/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceTests.java"
+      destination: "{{appModule}}/src/test/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceTests.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/integrationTest/endpoint/MongoExceptionHandlerIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ExceptionHandlingIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ExceptionHandlingIT.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/integrationTest/endpoint/MongoControllerIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ControllerIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ControllerIT.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/integrationTest/endpoint/MongoServiceIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/endpoint/{{lowerCaseEntityName}}/{{entityName}}ServiceIT.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/integrationTest/database/endpoint/MongoRepositoryIT.ftl"
-      destination: "the-app/src/integrationTest/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}RepositoryIT.java"
+      destination: "{{appModule}}/src/integrationTest/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}RepositoryIT.java"
       context: "endpoint"
 #
 # Test fixtures
 #
   - entry:
       template: "/spring/webmvc/testFixtures/domain/WebMvcModelTestFixtures.ftl"
-      destination: "the-app/src/testFixtures/java/{{basePackagePath}}/domain/{{entityName}}TestFixtures.java"
+      destination: "{{appModule}}/src/testFixtures/java/{{basePackagePath}}/domain/{{entityName}}TestFixtures.java"
       context: "endpoint"
   - entry:
       template: "/spring/webmvc/testFixtures/database/MongoDocumentTestFixtures.ftl"
-      destination: "the-app/src/testFixtures/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DocumentTestFixtures.java"
+      destination: "{{appModule}}/src/testFixtures/java/{{basePackagePath}}/database/{{lowerCaseEntityName}}/{{entityName}}DocumentTestFixtures.java"
       context: "endpoint"

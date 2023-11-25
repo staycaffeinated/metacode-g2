@@ -18,6 +18,21 @@ import mmm.coffee.metacode.common.stereotype.MetaTemplateModel;
 @ExcludeFromJacocoGeneratedReport // exclude this class from code coverage reports
 public abstract class SpringTemplateModel implements MetaTemplateModel {
 
+    /*
+     * This is the folder where the application module's code is dropped.
+     * This style follows Gradle's idiomatic project structure and enables
+     * a multi-module project. The project will look like, for example:
+     * + petstore
+     *   - build.gradle
+     *   - settings.gradle
+     *   + application
+     *     - build.gradle
+     *     - src/main/java
+     *     - src/test/java
+     */
+    @Getter
+    private final String appModule = "application";
+
     @Setter(AccessLevel.PUBLIC)
     private boolean isWebFlux;
 
