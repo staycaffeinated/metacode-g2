@@ -49,7 +49,7 @@ public class RestEndpointTemplateModel extends SpringTemplateModel {
      * The base URL path of the application, such as '/petstore'
      */
     private String basePath;
-
+    
     /**
      * The resource's base class name, such as 'Pet'
      */

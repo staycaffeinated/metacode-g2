@@ -27,6 +27,8 @@ public class MustacheConstants {
     public static final String ENTITY_NAME_LOWERCASE = "lowerCaseEntityName";
     public static final String POJO_NAME = "pojoName";
     public static final String DOCUMENT_NAME = "documentName";
+
+    public static final String APP_MODULE = "appModule";
     
     // Hidden constructor
     private MustacheConstants() {}

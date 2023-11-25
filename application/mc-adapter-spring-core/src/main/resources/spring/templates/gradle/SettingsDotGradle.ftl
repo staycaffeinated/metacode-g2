@@ -13,4 +13,4 @@ plugins {
 
 rootProject.name = '${project.applicationName}'
 
-include "the-app"
+include "application"

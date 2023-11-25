@@ -45,7 +45,7 @@ public class RestProjectTemplateModel extends SpringTemplateModel {
     // it's assigned a name referred to in Freemarker lingo
     // as the "top level variable".
     private final String topLevelVariable = Key.PROJECT.value();
-
+    
     // Basic properties
     private String applicationName;
     private String basePath;
