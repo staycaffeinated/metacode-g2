@@ -1,4 +1,11 @@
 ## Uncommitted
+
+* Maintenance
+  * dependency management plugin from 1.1.3 to 1.1.4
+  * Ben Manes Versions plugin from 0.49.0 to 0.50.0
+  * TestContainers from 1.19.0 to 1.19.3         
+  * Spring ORM from 6.0.13 to 6.1.1
+  * PostgreSQL driver from 42.6.0 to 42.7.0
           
 * Added
   * The project structure is closer to Gradle's idiomatic structure. Specifically,

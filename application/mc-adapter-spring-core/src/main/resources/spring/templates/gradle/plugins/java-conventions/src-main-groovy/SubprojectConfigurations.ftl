@@ -11,4 +11,6 @@ subprojects {
 </#noparse>
         }
     }
+
+    task("sonar").dependsOn("jacocoTestReport")
 }
