@@ -1,7 +1,9 @@
 ## Uncommitted
 
+## [10.0.0] - 2023-12-02
+
 * Maintenance
-  * dependency management plugin from 1.1.3 to 1.1.4
+  * Dependency management plugin from 1.1.3 to 1.1.4
   * Ben Manes Versions plugin from 0.49.0 to 0.50.0
   * TestContainers from 1.19.0 to 1.19.3         
   * Spring ORM from 6.0.13 to 6.1.1
