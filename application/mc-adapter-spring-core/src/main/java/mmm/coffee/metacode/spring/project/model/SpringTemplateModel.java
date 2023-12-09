@@ -14,6 +14,10 @@ import mmm.coffee.metacode.common.stereotype.MetaTemplateModel;
 /**
  * SpringTemplateModel
  */
+@SuppressWarnings({
+        "java:S1170"    // We do not want to make 'application' a static field.
+                        // At some future point, we may allow users customize this, eg, to "app"
+})
 @SuperBuilder
 @ExcludeFromJacocoGeneratedReport // exclude this class from code coverage reports
 public abstract class SpringTemplateModel implements MetaTemplateModel {
@@ -31,7 +35,7 @@ public abstract class SpringTemplateModel implements MetaTemplateModel {
      *     - src/test/java
      */
     @Getter
-    private final String appModule = "application";
+    private static String appModule = "application";
 
     @Setter(AccessLevel.PUBLIC)
     private boolean isWebFlux;

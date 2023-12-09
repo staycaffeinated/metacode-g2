@@ -87,6 +87,11 @@ tasks.named<Jar>("jar") {
     manifest.attributes["Implementation-Version"] = archiveVersion.getOrElse("0.1")
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
 
 sonar {
     properties {

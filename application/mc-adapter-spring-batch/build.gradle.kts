@@ -21,6 +21,11 @@ dependencies {
     testImplementation(libs.mockito)
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
 sonar {
     properties {
         property("sonar.projectName", "mc-adapter-spring-batch")

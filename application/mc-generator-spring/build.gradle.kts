@@ -50,6 +50,12 @@ dependencies {
     integrationTestImplementation("mmm.coffee.metacode:mc-adapter-spring-webflux")
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
+
 sonar {
     properties {
         property("sonar.projectName", "mc-generator-spring")

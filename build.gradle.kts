@@ -83,4 +83,18 @@ tasks.register("stage") {
     }
 }
 
+/**
+ * Generate code coverage for each module and publish to sonar
+ */
+tasks.register("codeCoverage") {
+    doLast {
+        exec {
+            workingDir = File(".")
+            commandLine("./coverage.sh")
+        }
+    }
+}
+
+
+
 

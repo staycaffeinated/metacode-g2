@@ -45,3 +45,9 @@ sonar {
     }
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
+

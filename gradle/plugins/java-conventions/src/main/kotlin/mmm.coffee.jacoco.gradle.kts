@@ -1,13 +1,16 @@
-
 plugins {
-  id("java-library")
-  id("jacoco")
-  }
+    id("java-library")
+    id("jacoco")
+}
 
-// Do not generate reports for individual projects
+// Enable to generate reports for individual projects; disable to turn that off
 tasks.jacocoTestReport {
-  enabled = false
-  }
+    enabled = true
+    reports {
+        xml.required.set(true)
+    }
+}
+
 
 // Share the coverage data to be aggregated for the whole product
 

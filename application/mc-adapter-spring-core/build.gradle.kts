@@ -35,9 +35,17 @@ dependencies {
     testImplementation(libs.mockito)
 }
 
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
+
 sonar {
     properties {
         property("sonar.projectName", "mc-adapter-spring-core")
         property("sonar.projectKey", "mmm.coffee.metacode:mc-adapter-spring-core")
+        // property("sonar.jacoco.reportPath", "${project.baseDir}/build/jacoco/test.exec")
     }
 }
