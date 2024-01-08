@@ -20,7 +20,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.data.web.SortDefault;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -155,11 +158,12 @@ public class ${endpoint.entityName}Controller {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Found matching entries")})
 </#if>
     @GetMapping(value=${endpoint.entityName}Routes.${endpoint.routeConstants.search}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Page<${endpoint.pojoName}> searchByText (
+    public PagedModel<EntityModel<${endpoint.pojoName}>> searchByText (
                         @RequestParam(name="text", required = true) @SearchText Optional<String> text,
                         @PageableDefault(page = DEFAULT_PAGE_NUMBER, size = DEFAULT_PAGE_SIZE)
-                        @SortDefault(sort = "text", direction = Sort.Direction.ASC) Pageable pageable)
+                        @SortDefault(sort = "text", direction = Sort.Direction.ASC) Pageable pageable,
+                        PagedResourcesAssembler<${endpoint.pojoName}> resourceAssembler)
     {
-        return ${endpoint.entityVarName}Service.findByText(text, pageable);
+        return resourceAssembler.toModel( ${endpoint.entityVarName}Service.findByText(text, pageable) );
     }
 }

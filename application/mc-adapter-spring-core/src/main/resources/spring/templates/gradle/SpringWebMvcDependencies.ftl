@@ -20,6 +20,7 @@ dependencies {
     implementation libs.problemSpringWebStarter
     implementation libs.problemJacksonDataType
     implementation libs.jakartaPersistenceApi
+    implementation libs.springBootStarterHateoas
 <#else>
     implementation libs.springBootStarterActuator
     implementation libs.springBootStarterWeb
@@ -28,6 +29,7 @@ dependencies {
     implementation libs.problemSpringWeb
     implementation libs.problemJacksonDataType
     implementation libs.jakartaPersistenceApi
+    implementation libs.springBootStarterHateoas
 </#if>
 <#if project.isWithOpenApi()>
     implementation libs.openApiStarterWebMvcUI

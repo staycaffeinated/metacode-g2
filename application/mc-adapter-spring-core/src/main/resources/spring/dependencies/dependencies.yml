@@ -94,7 +94,7 @@ dependencies:
     version: "6.20.0"
   # Spring Boot
   - name: "springBoot"
-    version: "3.1.5"
+    version: "3.2.1"
   # Spring Cloud
   - name: "springCloud"
     version: "4.0.4"

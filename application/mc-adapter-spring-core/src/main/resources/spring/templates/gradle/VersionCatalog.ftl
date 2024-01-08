@@ -68,6 +68,7 @@ springBootStarterBatch = { module = "org.springframework.boot:spring-boot-starte
 springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 springBootStarterDataMongoDb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb" }
 springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc" }
+springBootStarterHateoas = { module = "org.springframework.boot:spring-boot-starter-hateoas" }
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 springBootStarterWebFlux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
