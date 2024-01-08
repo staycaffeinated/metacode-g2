@@ -1,5 +1,22 @@
 ## Uncommitted
 
+## [10.0.1] - TBD
+
+* Fixed
+  * A Spring WebMvc controller that returned ```Page<T>``` has a unit
+    test that was failing. That controller method was refactored to
+    use a PagedResourceAssembler to assemble the pages. This ties back
+    to <link href="https://github.com/spring-projects/spring-data-commons/issues/2919">Spring Data Commons:Issues:2919<link>
+
+* Maintenance
+  * Updated junit-jupiter-bom from 5.10.0 to 5.10.1
+  * Updated assertj-core from 3.24.2 to 3.25.1
+  * Updated SpringCloud from 4.0.1 to 4.1.0
+  * Spring ORM from 6.1.1 to 6.1.2
+  * SpringDoc OpenAPI from 2.2.0 to 2.3.0
+  * Postgres Driver from  42.7.0 to 42.7.1
+  * Reactor Test from 3.5.10 to  3.6.2
+
 ## [10.0.0] - 2023-12-02
 
 * Maintenance
