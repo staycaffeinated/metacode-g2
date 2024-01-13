@@ -50,9 +50,7 @@ dependencies {
 </#if>
 
     testImplementation libs.assertJ
-    testImplementation (libs.springBootStarterTest){
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation (libs.springBootStarterTest)
     testImplementation (platform( libs.junitBillOfMaterial ))
     testImplementation (libs.junitJupiter)
 
