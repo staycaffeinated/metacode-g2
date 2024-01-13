@@ -1,6 +1,6 @@
 ## Uncommitted
 
-## [10.0.1] - TBD
+## [10.0.1] - 2023-01-13
 
 * Fixed
   * A Spring WebMvc controller that returned ```Page<T>``` has a unit
