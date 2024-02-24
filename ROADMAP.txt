@@ -1,0 +1,260 @@
+
+v10.2
+- Add @PrePersist to entity classes, and assign resourceId there.
+  -- create singleton to provide resourceId; don't autowire - its counter-intuitive
+- Change findAll to findTop or findFirst10 ... (jpa allegedly understands those prefixes)
+
+
+Ex:
+  @PrePersist
+  public void prePersist() {
+    this.createdDate = ZonedDateTime.now();
+    this.lastModifiedDate = ZonedDateTime.now();
+  }
+
+  @PreUpdate
+  public void preUpdate() {
+    this.lastModifiedDate = ZonedDateTime.now();
+    }
+
+-- Add 'docker' folder at main level, and move docker-compose file there
+-- Create 2 docker-compose files, one for infrastructure and one for everything
+   For example, if app uses Postgres, the docker-compose-infrastructure-only 
+   contains Postgres service, but not the application itself.
+   Run it with docker compose -f docker-compose-infrastructure-only.yml
+
+-- Figure out how to auto-map a ResourceId to a String, so we can make ResourceId
+   a type, but have it appear in JSON as its ID value, not as a nested json object
+
+-- If we add ZonedDateTime, we need to add ObjectMapper configuration:
+
+   @Configuration
+   public class JsonConfiguration {
+
+      @Bean public ObjectMapper objectMapper() {
+          ObjectMapper mapper = new ObjectMapper();
+          objectMapper.registerModule(new JSR310Module()) 
+          return objectMapper;
+      }
+
+   }
+
+
+
+v10.1:
+- Add converter for ResourceId
+- Add POJO for ResourceId
+- Change code to use ResourceId instead of String
+
+------------------------------------------------------------
+
+V10.0.1:
+Library Updates:
+spring-cloud-starter -> 4.1.0
+spring-orm -> 6.1.2
+springdoc-openapi-starter-webmvc-ui -> 2.3.0
+postgres -> 42.7.1
+reactor-test -> 3.6.2
+jackson-datatype-jsr310 -> 2.16.1
+
+spring-cloud -> 4.1.0 or 2023.0.0
+
+BUGS:
+Failing Tests with MvcPostgres
+
+- SpringCloud is not compatibler with Boot 3.2+ !! 
+
+FIX:
+    testImplementation (libs.springBootStarterTest){
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+Don't need this exclude group anymore
+
+
+------------------------------------------------------------
+
+V10:
+- Add subproject support
+    = add --use-subprojects command option
+- Add application-conventions plugin
+    = add the plugin
+    = change build.gradle to apply the plugin
+- Add library-conventions plugin
+    = add the plugin
+    = change build.gradle to apply the plugin
+- Make jave version based on .java-version file
+    = add the template for the .java-version
+    = update the java-conventions plugin to read the .java-version file
+- Add the version.txt file to drive the app version
+    = add the template for version.txt
+    = change the build.gradle to read the version from the version.txt file
+    = for subprojects, each subproject will have its own version.txt file
+- to settings.gradle template, add
+        plugins {
+            id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+        }
+    This is related to: https://docs.gradle.org/8.4/userguide/toolchains.html#sub:download_repositories
+
+- Add to build.gradle 
+
+-- following example at: https://github.com/SonarSource/sonar-scanning-examples/blob/master/sonar-scanner-gradle/gradle-multimodule/build.gradle
+
+sonar {
+  properties {
+    property "sonar.projectName", "Bookstore using SpringMvc and H2"
+    property "sonar.projectKey", "bookstore-mvc-h2"
+    property "sonar.scm.disabled", "true"
+  }
+}
+
+- Remove the sonar properties from gradle.properties; or leave in gradle.properties,
+- Remove sonar username/pwd from gradle.properties
+
+-- Fix code smells:
+
+MVC - BookStoreRepositoryIT.java:
+
+--- combine lines 82+83 into
+    assertThat(list).isNotNull().hasSize(1);
+
+-- combine lines 90+91
+    assertThat(list).isNotNull().hasSameSizeAs(BookEntityTestFixtures.allItems())
+
+MVC - RootControllerIT
+
+- line 19: remove 'public' keyword
+- line 24: remove 'public' keyword
+
+
+
+
+
+Add MapStruct for mapping
+- add library to version catalog
+- create mapper class
+- integrate converters w/ mapper
+
+------------
+Possible refactor of controllers:
+
+PetCommandController
+- save
+- create
+- update
+- delete
+
+XQueryController
+- getSpecificOne
+- getTop
+- search
+
+-----------------
+
+Add RSQL for querying
+- get rid of PetTextPredicate
+- update generated README to include paragraph on query language
+
+
+------------
+Add MongoDB support to WebFlux
+
+- DataStore API:
+  - CommandAPI 
+  - saveDocument (Pet)
+  - updateDocument (Pet)
+
+  - QueryAPI
+  - List<Document> getTopDocuments()
+  - List<Document> getDocumentByResourceId(String resourceId)
+  - List<Documetn> searchDocuments(String... queryParameters)
+
+- Add Kafka Support
+  - add kafka libraries to build.gradle 
+
+- Add multi-module support
+
+metacode create gradle-project --from modules.yml
+
+modules.yml:
+module:
+  blueprint:  java-library
+  moduleName: petstore-spi-h2
+  packageName; acme.petstore.spi
+  persistenceProvider: postgresql
+
+module:
+  blueprint: spring-webmvc
+  moduleName: petstore-service
+  packageName: acme.petstore.service
+  basePort: 5000
+
+module:
+  blueprint: java-library
+  packageName: acme.petstore.internal
+  moduleName: petstore-internal
+
+
+
+
+
+===============================
+COMPLETED
+===============================
+
+
+Refactor: --- All these are done
+
+
+
+- Refactor usage of TestContainers, based on:
+  https://info.michael-simons.eu/2023/07/27/the-best-way-to-use-testcontainers-from-your-spring-boot-tests/
+  https://spring.io/blog/2023/06/23/improved-testcontainers-support-in-spring-boot-3-1
+  https://spring.io/blog/2023/06/19/spring-boot-31-connectiondetails-abstraction
+
+  (Simons' code does not work)
+
+  Spring Boot 3.1 added a spring-boot-testcontainer library. The TestContainer set-up can be refactored into
+  something like:
+
+  import org.springframework.boot.devtools.restart.RestartScope;
+  import org.springframework.boot.test.context.TestConfiguration;
+  import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+  import org.springframework.context.annotation.Bean;
+  import org.testcontainers.containers.Neo4jContainer;
+ 
+  @TestConfiguration(proxyBeanMethods = false)
+  public class ContainerConfig {
+ 
+	@Bean
+	@ServiceConnection
+	@RestartScope
+	public Neo4jContainer<?> neo4jContainer() {
+		return new Neo4jContainer<>("neo4j:5")
+			.withLabels(Map.of("com.testcontainers.desktop.service", "neo4j"))
+			.withReuse(true);
+	}
+  }
+
+This approach may mean the integration tests won't have to extend PostgrestContainerTest. 
+
+
+
+Fix:
+- Use PostgresPlusDialect
+- and spring-orm library to libs & build.gradle
+- remove @EnableBatchProc from App.java
+- change @Component to @Config in BatchConfig.java
+
+
+Add 
+-- BadRequestException, 
+-- ResourceNotFoundException
+-- @Serial annotation to exceptions
+-- Add Hikari props to app.props, with comments
+
+
+--- Rename "the-app" folder to "application"
+--- Fix settings.gradle to include "application" instead of "the-app"
+
+

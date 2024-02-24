@@ -1,4 +1,13 @@
 ## Uncommitted
+                
+* Maintenance
+  * Updated Spring Boot plugin from 3.2.1 to 3.2.3
+  * Updated Ben Manes' Version plugin from 0.51.0 to 0.52.0
+  * Updated TestContainers from 1.19.3 to 1.19.6
+  * Updated Spring Cloud Starter from 4.1.0 to 4.1.1 
+  * Updated Spring ORM from 6.1.2 to 6.1.4
+  * Updated PostgreSQL driver from 42.7.1 to 42.7.2
+  * Updated AssertJ from 3.25.1 to 3.25.3
 
 ## [10.0.1] - 2023-01-13
 
