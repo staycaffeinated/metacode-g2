@@ -1,5 +1,14 @@
 
-v10.2
+--- v10.0.2
+
+* Update lib versions
+* Change PostgresPlusDialect to PostgreSQLDialect
+* Remove dependency on ORM; its no longer needed
+
+
+
+
+--- v10.2 (FUTURE)
 - Add @PrePersist to entity classes, and assign resourceId there.
   -- create singleton to provide resourceId; don't autowire - its counter-intuitive
 - Change findAll to findTop or findFirst10 ... (jpa allegedly understands those prefixes)

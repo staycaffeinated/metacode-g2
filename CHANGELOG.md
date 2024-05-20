@@ -1,4 +1,17 @@
 ## Uncommitted
+
+## [10.0.3] - 2024-05-20
+* Changes
+    * Removed deprecated spring property, `spring.mvc.throw-exception-if-no-handler-found`
+
+* Maintenance
+  * Update Spring Dependency Management plugin from 1.1.4 to 1.1.5
+  * Updated OpenAPI libraries from 2.3.0 to 2.5.0
+  * Updated Spring ORM from 6.1.4 to 6.1.6
+  * Updated Spring Cloud Starter from 4.1.1 to 4.1.2
+  * Updated TestContainers from 1.19.6 to 1.19.7 
+
+## [10.0.2] - 2024-02-24 
                 
 * Maintenance
   * Updated Spring Boot plugin from 3.2.1 to 3.2.3
